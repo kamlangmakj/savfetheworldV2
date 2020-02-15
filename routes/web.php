@@ -12,7 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.index');
+});
+Route::get('/activity', function () {
+    return view('user.activity');
+});
+Route::get('/reward', function () {
+    return view('user.reward');
 });
 
 Auth::routes();

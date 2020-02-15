@@ -1,7 +1,7 @@
-@extends('layouts.app')
-
+@extends('layouts.user.navbar')
+@section('title', 'Home')
 @section('content')
-<div class="container">
+<div class="container" style="margin-top: 60px;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -13,7 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     You are logged in!
                 </div>
             </div>

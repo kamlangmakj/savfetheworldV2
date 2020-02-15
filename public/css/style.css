@@ -1,0 +1,27 @@
+body {
+    font-family: 'Prompt', sans-serif;
+    height: 100%;
+    margin: 0;
+}
+/*navbar*/
+.navbarStyle {
+     color: #acacac !important;
+ }
+.navbarStyle:hover {
+    color: #000000 !important;
+    font-style: italic !important;
+}
+.navbarStyle:active {
+    color: #2BC685 !important;
+    font-style: italic;
+    text-decoration: underline;
+}
+.active {
+    color: #2BC685 !important;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+
+
+
