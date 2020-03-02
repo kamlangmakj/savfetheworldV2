@@ -4872,7 +4872,7 @@ input[type="button"].btn-block {
 .breadcrumb-item + .breadcrumb-item::before {
   display: inline-block;
   padding-right: 0.5rem;
-  color: red;
+  color: #acacac;
   content: "/";
 }
 
@@ -11869,7 +11869,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 /*sidebar savfe*/
 .sidebar-dark-savfe .nav-sidebar > .nav-item > .nav-link.active,
 .sidebar-light-savfe .nav-sidebar > .nav-item > .nav-link.active {
-  background-color: #ffffff;
+  background-color: #2BC685;
   color: #ffffff;
 }
 

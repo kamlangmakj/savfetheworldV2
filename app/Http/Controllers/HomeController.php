@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Users;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
 
     /**
      * Show the application dashboard.
@@ -23,6 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $users = DB::table('users');
+        $activities = DB::table('activities');
+        $rewards = DB::table('rewards');
+//        $activities = Activities::all();
+//        $rewards = Rewards::all();
+        return view('user.index',[
+            'users'=>$users,
+            'activities'=>$activities,
+            'rewards'=>$rewards,
+        ]);
     }
 }

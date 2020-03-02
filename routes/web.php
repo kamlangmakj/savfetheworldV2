@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('user.index');
 });
+
+Route::get('/', 'HomeController@index')->name('index');
 Route::get('/activity', function () {
     return view('user.activity');
 });
@@ -22,8 +24,8 @@ Route::get('/reward', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');

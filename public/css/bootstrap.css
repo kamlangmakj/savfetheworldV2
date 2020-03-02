@@ -153,7 +153,7 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #acacac;
   text-decoration: none;
   background-color: transparent;
 }
@@ -4399,7 +4399,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #007bff;
+  background-color: #2BC685;
 }
 
 .nav-fill .nav-item {
@@ -4757,7 +4757,8 @@ input[type="button"].btn-block {
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
-  color: rgba(0, 0, 0, 0.9);
+  color: #2BC685;
+  text-decoration: underline;
 }
 
 .navbar-light .navbar-toggler {

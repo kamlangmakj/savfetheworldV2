@@ -8,6 +8,8 @@
     <link rel="icon" href="{{ url('favicon.ico') }}" type="image/x-icon">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/03d35952e5.js" crossorigin="anonymous"></script>
     <!-- Google Font: Prompt -->
     <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
     <!-- Styles -->

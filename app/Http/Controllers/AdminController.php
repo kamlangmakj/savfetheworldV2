@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Rewards;
 use App\Users;
+use App\Rewards;
+use App\Activities;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -41,12 +42,17 @@ class AdminController extends Controller
     }
 
     public function postEditUsers(Request $request) {
+        $fileNameWithExt = $request->file('image')->getClientOriginalName();
+        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $fileNameToStore = date('YmdHis').'_'.$fileName.'.'.$extension;
 //        return $request->all();
         $users = Users::find($request->get('id'));
         $users->name = $request->get('name');
-        $users->email = $request->get('email');
+//        $users->email = $request->get('email');
         $users->gender = $request->get('gender');
         $users->phone = $request->get('phone');
+        $users->image = $request->file('image')->move('uploads/users',$fileNameToStore);
         $users->save();
         return redirect()->back();
     }
@@ -75,6 +81,10 @@ class AdminController extends Controller
     }
 
     public function postCreateActivities(Request $request) {
+        $fileNameWithExt = $request->file('image')->getClientOriginalName();
+        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $fileNameToStore = date('YmdHis').'_'.$fileName.'.'.$extension;
         $activities = new Activities();
         $activities->name = $request->get('name');
         $activities->agent = $request->get('agent');
@@ -86,12 +96,16 @@ class AdminController extends Controller
         $activities->expired_date = $request->get('expired_date');
         $activities->point = $request->get('point');
         $activities->amount = $request->get('amount');
-        $activities->cover_image = "cover_image";
+        $activities->image = $request->file('image')->move('uploads/activities',$fileNameToStore);
         $activities->save();
         return redirect('admin/activities');
     }
 
     public function postEditActivities(Request $request) {
+        $fileNameWithExt = $request->file('image')->getClientOriginalName();
+        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $fileNameToStore = date('YmdHis').'_'.$fileName.'.'.$extension;
         $activities = Activities::find($request->get('id'));
         $activities->name = $request->get('name');
         $activities->agent = $request->get('agent');
@@ -103,7 +117,7 @@ class AdminController extends Controller
         $activities->expired_date = $request->get('expired_date');
         $activities->point = $request->get('point');
         $activities->amount = $request->get('amount');
-        $activities->cover_image = "cover_image";
+        $activities->image = $request->file('image')->move('uploads/activities',$fileNameToStore);
         $activities->save();
         return redirect()->back();
     }
@@ -134,28 +148,34 @@ class AdminController extends Controller
 
     public function postCreateRewards(Request $request) {
 //        return $request->all();
+        $fileNameWithExt = $request->file('image')->getClientOriginalName();
+        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $fileNameToStore = date('YmdHis').'_'.$fileName.'.'.$extension;
         $rewards = new Rewards();
         $rewards->name = $request->get('name');
         $rewards->detail = $request->get('detail');
         $rewards->point = $request->get('point');
         $rewards->quantity = $request->get('quantity');
         $rewards->rewards_category_id = $request->get('rewards_category_id');
+        $rewards->image = $request->file('image')->move('uploads/rewards',$fileNameToStore);
         $rewards->save();
         return redirect('admin/rewards');
     }
 
     public function postEditRewards(Request $request) {
 //        return $request->all();
+        $fileNameWithExt = $request->file('image')->getClientOriginalName();
+        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $fileNameToStore = date('YmdHis').'_'.$fileName.'.'.$extension;
         $rewards = Rewards::find($request->get('id'));
         $rewards->name = $request->get('name');
         $rewards->detail = $request->get('detail');
         $rewards->point = $request->get('point');
         $rewards->quantity = $request->get('quantity');
         $rewards->rewards_category_id = $request->get('rewards_category_id');
-//        $this->validate($request, ['image' => 'required|image|mines:jpeg,png,jpg,gif|max:2048']);
-////        $rewards->image = $request->file('image');
-////        $new_name = rand(). '.' .$rewards->getClientOriginalExtension();
-////        $rewards->move(public_path("upload"),$new_name);
+        $rewards->image = $request->file('image')->move('uploads/rewards',$fileNameToStore);
         $rewards->save();
         return redirect()->back();
     }

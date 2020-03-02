@@ -4,23 +4,91 @@ body {
     margin: 0;
 }
 /*navbar*/
-.navbarStyle {
-     color: #acacac !important;
- }
-.navbarStyle:hover {
-    color: #000000 !important;
-    font-style: italic !important;
+/*.navbarStyle {*/
+/*     color: #acacac !important;*/
+/* }*/
+/*.navbarStyle:hover {*/
+/*    color: #000000 !important;*/
+/*    font-style: italic !important;*/
+/*}*/
+/*.navbarStyle:active {*/
+/*    color: #2BC685 !important;*/
+/*    font-style: italic;*/
+/*    text-decoration: underline;*/
+/*}*/
+/*.active {*/
+/*    color: #2BC685 !important;*/
+/*    font-style: italic;*/
+/*    text-decoration: underline;*/
+/*}*/
+
+/*mobile*/
+@media (min-width: 320px){
+    .image-bg {
+        background-image: url("../img/bg.jpg");
+        width: 100%;
+        height: 135%;
+        position: absolute;
+        top: 0;
+        z-index: -99;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .start-box {
+        margin-top: 130px;
+    }
 }
-.navbarStyle:active {
-    color: #2BC685 !important;
-    font-style: italic;
-    text-decoration: underline;
+
+/*tablet*/
+@media (min-width: 768px) {
+    .image-bg {
+        background-image: url("../img/bg.jpg");
+        width: 100%;
+        height: 130%;
+        position: absolute;
+        top: 0;
+        z-index: -99;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .start-box {
+        margin-top: 100px;
+    }
 }
-.active {
-    color: #2BC685 !important;
-    font-style: italic;
-    text-decoration: underline;
+
+/*pc*/
+@media (min-width: 960px) {
+    .image-bg {
+        background-image: url("../img/bg.jpg");
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: -99;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .start-box {
+        margin-top: 150px;
+    }
+    .slideHeight {
+        height: 480px;
+    }
 }
+
+/*pc*/
+@media screen and (max-width: 320px) {
+
+}
+
+/* On screens that are 600px or less*/
+@media screen and (max-width: 600px) {
+
+}
+
 
 
 

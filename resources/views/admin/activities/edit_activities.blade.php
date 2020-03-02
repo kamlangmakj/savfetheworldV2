@@ -82,19 +82,36 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="exampleInputFile">เลือกรูปภาพ</label>
+                                        <div class="mb-2">
+                                            <img style="max-height:300px;" id="blah" src="/{{ $activity->image }}" alt="your image" />
+                                        </div>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="cover_image">
-                                                <label class="custom-file-label" for="exampleInputFile">เลือกรูปภาพ</label>
+                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="image" onchange="readURL(this);">
+                                                <label class="custom-file-label" for="exampleInputFile">{{ $activity->image }}</label>
                                             </div>
                                             <div class="input-group-append">
                                                 <span class="input-group-text" id="">อัปโหลด</span>
                                             </div>
                                         </div>
+                                        <script>
+                                            function readURL(input) {
+                                                if (input.files && input.files[0]) {
+                                                    var reader = new FileReader();
+
+                                                    reader.onload = function (e) {
+                                                        $('#blah')
+                                                            .attr('src', e.target.result);
+                                                    };
+
+                                                    reader.readAsDataURL(input.files[0]);
+                                                }
+                                            }
+                                        </script>
                                     </div>
                                     <div class="form-group">
                                         <label for="name">รายละเอียดกิจกรรม</label>
-                                    <textarea rows="20" type="text" class="form-control" placeholder="รายละเอียดกิจกรรม" name="detail">{{ $activity->detail }}</textarea>
+                                    <textarea rows="10" type="text" class="form-control" placeholder="รายละเอียดกิจกรรม" name="detail">{{ $activity->detail }}</textarea>
                                 </div>
                                 </div>
                             </div>

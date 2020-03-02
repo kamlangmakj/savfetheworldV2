@@ -7,7 +7,6 @@
         <div class="col-sm-6">
             <h5 class="m-0 text-dark">Activities - กิจกรรม</h5>
         </div><!-- /.col -->
-
     </div><!-- /.row -->
 @endsection
 
