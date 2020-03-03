@@ -512,74 +512,7 @@
         </div>
     </div>
 
-    <script>
-        function datentime(){
-            var d = new Date();
-            var hours = d.getHours();
-            var minutes = d.getMinutes();
-            var seconds =d.getSeconds();
-            // var day = d.getDay();
-            var dates = d.getDate();
-            var months = d.getMonth();
-            var year = d.getFullYear()+543;
-            // var dayname = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            // var monthname = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            // var dayname = ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"];
-            var monthname = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ตุ.ค.", "พ.ย.", "ธ.ค."];
-            if (dates < 10) {
-                dates = "0" + dates;
-            }
-            // document.getElementById('dayndate').innerHTML= dayname[day] + ", "+ dates +" "+ monthname[months] +" "+ year;
-            document.getElementById('dayndate').innerHTML=  dates +" "+ monthname[months] +" "+ year;
-
-            if (seconds<10) {
-                seconds = "0" + seconds;
-            }
-            if (minutes<10) {
-                minutes = "0" + minutes;
-            }
-            if (hours<10) {
-                hours = "0" + hours;
-            }
-            if (hours > 12) {
-                hours = hours-12;
-                if (hours<10) {
-                    hours = "0" + hours;
-                }
-                document.getElementById('time').innerHTML= hours + ":"+ minutes +":"+ seconds+ " PM";
-            } else if(hours < 12) {
-                document.getElementById('time').innerHTML= hours + ":"+ minutes +":"+ seconds+ " AM";
-            } else if(hours = 12) {
-                document.getElementById('time').innerHTML= hours + ":"+ minutes +":"+ seconds+ " PM";
-            }
-        }
-        setInterval( function() {
-            datentime();
-        },1000);
-    </script>
-
-    <footer class="mt-5" style="background-color: #2ac684;color: #FFFFFF;position: relative;left: 0;bottom: 0;width: 100%;margin-bottom: -30px">
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ url('img/logobig_green.png') }}" alt="Savfetheworld Logo" class="brand-image "
-                             style="height:60px">
-                    </a>
-                </div>
-                <div class="col-6 mt-4 float-right d-none d-sm-inline-block text-center">
-                    <strong>Copyright &copy; 2020 SAV'FE THE WORLD</strong> - All rights reserved.
-                </div>
-                <div class="col-3 mt-4 float-right d-none d-sm-inline-block">
-                    <div class="float-right d-none d-sm-inline-block">
-                        <b>Version</b> 2.0.1
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    @include('layouts.user.back_to_top')
+    @include('layouts.user.footer_savfe')
 @endsection
 
 

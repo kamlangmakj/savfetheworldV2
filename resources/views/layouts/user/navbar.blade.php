@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/03d35952e5.js" crossorigin="anonymous"></script>
+    <link href="{{ asset('lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     <!-- Google Font: Prompt -->
     <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
     <!-- Styles -->
@@ -94,6 +95,8 @@
 <script src="{{ url('js/popper.js') }}"></script>
 <!-- Bootstrap -->
 <script src="{{ url('js/bootstrap.js') }}"></script>
+<!-- Main -->
+<script src="{{ url('js/main.js') }}"></script>
 
 </body>
 </html>
