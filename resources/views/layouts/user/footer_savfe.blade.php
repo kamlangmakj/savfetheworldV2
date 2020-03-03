@@ -1,12 +1,14 @@
-<footer id="footer" class="mt-5" style="position: relative;left: 0;bottom: 0;width: 100%;margin-bottom: -30px">
+@include('layouts.user.contact_savfe')
+
+<footer id="footer" style="position: relative;left: 0;bottom: 0;width: 100%;margin-bottom: -30px">
     <div class="footer-top">
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 footer-info">
+                <div class="col-lg-3 col-md-6 footer-info text-center">
                     <img src="{{ url('img/logobig_green.png') }}" alt="Savfetheworld Logo" class="brand-image "
                          style="height:60px">
-                    <p>save & safe the world.</p>
+{{--                    <p>save & safe the world.</p>--}}
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">

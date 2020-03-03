@@ -28,12 +28,14 @@ class HomeController extends Controller
         $users = DB::table('users');
         $activities = DB::table('activities');
         $rewards = DB::table('rewards');
+        $tracking_rewards = DB::table('tracking_rewards');
 //        $activities = Activities::all();
 //        $rewards = Rewards::all();
         return view('user.index',[
             'users'=>$users,
             'activities'=>$activities,
             'rewards'=>$rewards,
+            'tracking_rewards'=>$tracking_rewards,
         ]);
     }
 }

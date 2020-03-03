@@ -51,7 +51,7 @@
                 <div class="card" style="background-color: #2BC685;color: #fff;">
                     <div class="card-body mt-5 mb-3">
                         <h6 class="card-text"><small class="text">ของรางวัลที่ถูกแลก</small></h6>
-                        <p class="card-text" style="font-size: 52px;font-weight: bold">14</p>
+                        <p class="card-text" style="font-size: 52px;font-weight: bold">{{$tracking_rewards->count()}}</p>
                     </div>
                 </div>
             </div>
@@ -75,6 +75,7 @@
             <div class="container">
                 <div>
                     <p style="font-size: 24px;">กิจกรรมที่น่าสนใจ</p>
+                    @include('layouts.user.title_savfe')
                 </div>
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -109,6 +110,7 @@
     <div class="container mt-5 mb-5">
         <div>
             <p style="font-size: 24px; font-weight: bold">กิจกรรมแนะนำ</p>
+            @include('layouts.user.title_savfe')
         </div>
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             @guest
@@ -511,7 +513,6 @@
             </div>
         </div>
     </div>
-
     @include('layouts.user.footer_savfe')
 @endsection
 

@@ -95,6 +95,8 @@
 <script src="{{ url('js/popper.js') }}"></script>
 <!-- Bootstrap -->
 <script src="{{ url('js/bootstrap.js') }}"></script>
+<!-- Contact -->
+<script src="{{ url('js/contact.js') }}"></script>
 <!-- Main -->
 <script src="{{ url('js/main.js') }}"></script>
 
