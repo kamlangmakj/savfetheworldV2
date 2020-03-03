@@ -300,7 +300,6 @@ body {
     font-size: 13px;
     color: #ddd;
 }
-
 /*/////////////////////// end footer ///////////////////////*/
 
 /*/////////////////////// back-to-top ///////////////////////*/
@@ -314,13 +313,12 @@ body {
     text-align: center;
     line-height: 1;
     font-size: 16px;
-    border-radius: 50%;
+    border-radius: 6px;
     right: 15px;
     bottom: 15px;
     transition: background 0.5s;
     z-index: 99;
 }
-
 /*/////////////////////// end back-to-top ///////////////////////*/
 
 

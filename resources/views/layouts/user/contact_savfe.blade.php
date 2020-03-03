@@ -1,4 +1,4 @@
-<section id="contact">
+<section id="contact" class="mt-5">
     <div class="container-fluid">
 
         <div class="section-header text-center">

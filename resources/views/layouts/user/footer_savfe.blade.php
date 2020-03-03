@@ -7,7 +7,7 @@
 
                 <div class="col-lg-3 col-md-6 footer-info text-center">
                     <img src="{{ url('img/logobig_green.png') }}" alt="Savfetheworld Logo" class="brand-image "
-                         style="height:60px">
+                         style="height:90px">
 {{--                    <p>save & safe the world.</p>--}}
                 </div>
 
