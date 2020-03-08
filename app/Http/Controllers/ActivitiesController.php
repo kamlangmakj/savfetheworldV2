@@ -3,29 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Activities;
+use App\JoinActivities;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ActivitiesController extends Controller
 {
-
-//    public function getActivities() {
-//        $activities = Activities::all();
-//        return view('admin.activities',[
-//            'activities'=>$activities
-//        ]);
-//    }
-
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+//    admin activities
     public function getActivities() {
-        $activities = DB::table('activities')->paginate(5);
+        $activities = Activities::paginate(5);
         return view('admin.activities.activities',compact('activities'));
     }
 
     public function getCreateActivities() {
-        return view('admin.activities.create_activities');
+        $count_user = JoinActivities::count();
+        return view('admin.activities.create_activities',[
+            'count_user'=>$count_user,
+        ]);
     }
 
     public function postCreateActivities(Request $request) {
+        $fileNameWithExt = $request->file('image')->getClientOriginalName();
+        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $fileNameToStore = date('YmdHis').'_'.$fileName.'.'.$extension;
         $activities = new Activities();
         $activities->name = $request->get('name');
         $activities->agent = $request->get('agent');
@@ -35,9 +40,10 @@ class ActivitiesController extends Controller
 //        $activities->province = $request->get('province');
         $activities->started_date = $request->get('started_date');
         $activities->expired_date = $request->get('expired_date');
+
         $activities->point = $request->get('point');
         $activities->amount = $request->get('amount');
-        $activities->cover_image = "cover_image";
+        $activities->image = $request->file('image')->move('uploads/activities',$fileNameToStore);
         $activities->save();
         return redirect('admin/activities');
     }
@@ -54,7 +60,14 @@ class ActivitiesController extends Controller
         $activities->expired_date = $request->get('expired_date');
         $activities->point = $request->get('point');
         $activities->amount = $request->get('amount');
-        $activities->cover_image = "cover_image";
+
+        if ($request->hasFile('image')){
+            $fileNameWithExt = $request->file('image')->getClientOriginalName();
+            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = date('YmdHis').'_'.$fileName.'.'.$extension;
+            $activities->image = $request->file('image')->move('uploads/activities',$fileNameToStore);
+        }
         $activities->save();
         return redirect()->back();
     }

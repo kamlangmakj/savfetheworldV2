@@ -5,20 +5,20 @@ use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class UsersController extends Controller
+class ProfileController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth');
     }
 
-    //    admin users
-    public function getUsers() {
-        $users = DB::table('users')->paginate(5);
-        return view('admin.users.users',compact('users'));
+    //    user profile
+    public function getProfileUser() {
+        $users = DB::table('users');
+        return view('user.profile',compact('users'));
     }
 
-    public function postEditUsers(Request $request) {
+    public function postEditProfileUser(Request $request) {
 //        return $request->all();
         $users = Users::find($request->get('id'));
         $users->name = $request->get('name');
@@ -37,16 +37,10 @@ class UsersController extends Controller
         return redirect()->back();
     }
 
-    public function getEditUsers($id) {
+    public function getEditProfileUser($id) {
         $user = Users::find($id);
-        return view('admin.users.edit_users',[
+        return view('user.profile_edit',[
             'user'=>$user
         ]);
-    }
-
-    public function postDeleteUsers(Request $request) {
-        $user = Users::find($request->get('id'));
-        $user -> delete();
-        return redirect()->back();
     }
 }
