@@ -35,7 +35,8 @@
                 <div class="form">
                     <div id="sendmessage">ข้อความของคุณถูกส่งแล้ว. ขอบคุณครับ/คะ</div>
                     <div id="errormessage"></div>
-                    <form action="" method="post" role="form" class="contactForm">
+                        <form method="post" role="form" class="contactForm" enctype="multipart/form-data">
+                            {{csrf_field()}}
                         <div class="form-row">
                             <div class="form-group col-lg-6">
                                 <input type="text" name="name" class="form-control" id="name" placeholder="ชื่อของคุณ" data-rule="minlen:4" data-msg="กรุณาใส่มากกว่า 4 ตัวอักษร สำหรับชื่อของคุณ" />
@@ -47,7 +48,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="หัวข้อเรื่องของคุณ" data-rule="minlen:4" data-msg="กรุณาใส่มากกว่า 8 ตัวอักษร สำหรับหัวข้อเรื่อง" />
+                            <input type="text" class="form-control" name="topic" id="topic" placeholder="หัวข้อเรื่องของคุณ" data-rule="minlen:4" data-msg="กรุณาใส่มากกว่า 8 ตัวอักษร สำหรับหัวข้อเรื่อง" />
                             <div class="validation"></div>
                         </div>
                         <div class="form-group">
@@ -58,8 +59,6 @@
                     </form>
                 </div>
             </div>
-
         </div>
-
     </div>
 </section>

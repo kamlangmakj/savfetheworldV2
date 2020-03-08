@@ -41,11 +41,16 @@
                 <div class="col-lg-3 col-md-6 footer-newsletter">
                     <h4>เกี่ยวกับเรา</h4>
                     <p>การออกแบบและพัฒนาเว็บแอปพลิเคชันส่งเสริมกิจกรรมเพื่อสนับสนุนการอนุรักษ์และแก้ไขปัญหาสิ่งแวดล้อม สำหรับผู้ใช้งานที่สนใจกิจกรรมเกี่ยวกับการอนุรักษ์สิ่งแวดล้อม</p>
-                    <form action="" method="post">
-                        <input type="email" name="email"><input type="submit"  value="กดรับข่าวสาร">
+{{--                    <button type="submit" class="btn btn-primary"><i class="fas fa-calendar-plus"></i> สร้างกิจกรรม</button>--}}
+                    <form method="post" enctype="multipart/form-data">
+                        {{csrf_field()}}
+                        <div id="errormessage"></div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="อีเมลของคุณ" data-rule="email"><input type="submit" value="กดรับข่าวสาร">
+                            <div class="validation"></div>
+                        </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
