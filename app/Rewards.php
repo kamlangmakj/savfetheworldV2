@@ -9,6 +9,6 @@ class Rewards extends Model
     protected $table = "rewards";
 
     public function rewardsCategory() {
-    return $this->belongsTo(RewardsCategory::class,"rewards_category_id");
-}
+        return $this->belongsTo(RewardsCategory::class,"rewards_category_id");
+    }
 }
