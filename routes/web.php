@@ -16,41 +16,58 @@ Route::get('/', function () {
 });
 
 Route::get('/', 'HomeController@index')->name('index');
-Route::get('/activity', function () {
-    return view('user.activity');
-});
-Route::get('/reward', function () {
-    return view('user.reward');
-});
+Route::post('/', 'HomeController@postReceiveNews');
+Route::post('/', 'HomeController@postContact');
+
+Route::get('/activity', 'UserActivityController@index')->name('index');
+Route::get('/reward', 'UserRewardController@index')->name('index');
 
 Auth::routes();
 //
 //Route::get('/home', 'HomeController@index')->name('home');
 
+//user activity
+Route::get('/activity_tabs_detail/{filter}', 'HomeController@getActivityTabsDetail');
+Route::get('/activity_news_detail/{filter}', 'UserActivityController@getActivityNewsDetail');
+
+//user reward
+Route::get('/reward_tabs_detail/{filter}', 'HomeController@getRewardTabsDetail');
+Route::get('/reward_news_detail/{filter}', 'UserRewardController@getRewardNewsDetail');
+
+//user profile
+Route::get('/profile', 'ProfileController@getProfileUser');
+
+Route::get('/profile/edit/{id}', 'ProfileController@getEditProfileUser');
+Route::post('/profile/edit', 'ProfileController@postEditProfileUser');
+
+
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
 Route::get('/admin', 'AdminController@index')->name('admin.index');
-Route::get('/admin/tracking_rewards', 'AdminController@tracking_rewards');
 
 //admin users
-Route::get('/admin/users', 'AdminController@getUsers');
-Route::get('/admin/users/edit/{id}', 'AdminController@getEditUsers');
-Route::post('/admin/users/edit', 'AdminController@postEditUsers');
-Route::post('/admin/users/delete', 'AdminController@postDeleteUsers');
+Route::get('/admin/users', 'UsersController@getUsers');
+Route::get('/admin/users/edit/{id}', 'UsersController@getEditUsers');
+Route::post('/admin/users/edit', 'UsersController@postEditUsers');
+Route::post('/admin/users/delete', 'UsersController@postDeleteUsers');
 
 //admin activities
-Route::get('/admin/activities', 'AdminController@getActivities');
-Route::get('/admin/activities/create', 'AdminController@getCreateActivities');
-Route::post('/admin/activities/create', 'AdminController@postCreateActivities');
-Route::get('/admin/activities/edit/{id}', 'AdminController@getEditActivities');
-Route::post('/admin/activities/edit', 'AdminController@postEditActivities');
-Route::post('/admin/activities/delete', 'AdminController@postDeleteActivities');
+Route::get('/admin/activities', 'ActivitiesController@getActivities');
+Route::get('/admin/activities/create', 'ActivitiesController@getCreateActivities');
+Route::post('/admin/activities/create', 'ActivitiesController@postCreateActivities');
+Route::get('/admin/activities/edit/{id}', 'ActivitiesController@getEditActivities');
+Route::post('/admin/activities/edit', 'ActivitiesController@postEditActivities');
+Route::post('/admin/activities/delete', 'ActivitiesController@postDeleteActivities');
 
 //admin rewards
-Route::get('/admin/rewards', 'AdminController@getRewards');
-Route::get('/admin/rewards/create', 'AdminController@getCreateRewards');
-Route::post('/admin/rewards/create', 'AdminController@postCreateRewards');
-Route::get('/admin/rewards/edit/{id}', 'AdminController@getEditRewards');
-Route::post('/admin/rewards/edit', 'AdminController@postEditRewards');
-Route::post('/admin/rewards/delete', 'AdminController@postDeleteRewards');
+Route::get('/admin/rewards', 'RewardsController@getRewards');
+Route::get('/admin/rewards/create', 'RewardsController@getCreateRewards');
+Route::post('/admin/rewards/create', 'RewardsController@postCreateRewards');
+Route::get('/admin/rewards/edit/{id}', 'RewardsController@getEditRewards');
+Route::post('/admin/rewards/edit', 'RewardsController@postEditRewards');
+Route::post('/admin/rewards/delete', 'RewardsController@postDeleteRewards');
+
+//admin tracking_rewards
+Route::get('/admin/tracking_rewards', 'TrackingRewardsController@getTrackingRewards');
+
