@@ -23,14 +23,14 @@
             <!-- small box -->
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3>{{$users->count()}}</h3>
 
                     <p>จำนวนผู้ใช้งานทั้งหมด</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-user"></i>
                 </div>
-                <a href="#" class="small-box-footer">ดูเพิ่มเติม <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/admin/users" class="small-box-footer">ดูเพิ่มเติม <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -38,14 +38,14 @@
             <!-- small box -->
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>100</h3>
+                    <h3>{{$activities->count()}}</h3>
 
                     <p>จำนวนกิจกรรมทั้งหมด</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-calendar-alt"></i>
                 </div>
-                <a href="#" class="small-box-footer">ดูเพิ่มเติม <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/admin/activities" class="small-box-footer">ดูเพิ่มเติม <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -53,14 +53,14 @@
             <!-- small box -->
             <div class="small-box bg-warning">
                 <div class="inner">
-                    <h3>96</h3>
+                    <h3>{{$rewards->count()}}</h3>
 
                     <p>จำนวนของรางวัลทั้งหมด</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-star"></i>
                 </div>
-                <a href="#" class="small-box-footer">ดูเพิ่มเติม <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/admin/rewards" class="small-box-footer">ดูเพิ่มเติม <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -68,14 +68,14 @@
             <!-- small box -->
             <div class="small-box bg-danger">
                 <div class="inner">
-                    <h3>65</h3>
+                    <h3>{{$tracking_rewards->count()}}</h3>
 
                     <p>ของรางวัลที่ถูกแลกไปแล้ว</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-box"></i>
                 </div>
-                <a href="#" class="small-box-footer">ดูเพิ่มเติม <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/admin/tracking_rewards" class="small-box-footer">ดูเพิ่มเติม <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->

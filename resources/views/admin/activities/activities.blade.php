@@ -20,15 +20,7 @@
                         <a class="btn btn-primary" href="{{ url('admin/activities/create') }}"><i class="fas fa-calendar-plus"></i> สร้างกิจกรรม</a>
                     </div>
                 </div>
-                {{--search--}}
-                {{--<div class="card-header">--}}
-                    {{--<div class="input-group input-group-sm" style="width: 150px;">--}}
-                        {{--<input type="text" name="table_search" class="form-control" placeholder="Search">--}}
-                        {{--<div class="input-group-append">--}}
-                            {{--<button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
+
                 <div class="container mt-3 mb-3">
                     <div class="row" >
                         <div class="input-group col-6">
@@ -89,6 +81,7 @@
                             <th>วันที่เริ่มกิจกรรม</th>
                             <th>วันที่จบกิจกรรม</th>
                             <th>จำนวนคนเข้าร่วม</th>
+                            <th>สถานะ</th>
                             <th>ตัวเลือก</th>
                         </tr>
                         </thead>
@@ -97,16 +90,20 @@
                             <tr>
                                 <td>{{ $activity->id }}</td>
                                 <td>{{ $activity->name }}</td>
-                                <td>{{ $activity->started_date }}</td>
-                                <td>{{ $activity->expired_date }}</td>
+                                <td>{{Carbon\Carbon::parse($activity->started_date)->addYear(543)->translatedFormat('d M Y')}}</td>
+                                <td>{{Carbon\Carbon::parse($activity->expired_date)->addYear(543)->translatedFormat('d M Y')}}</td>
 
-{{--                                @if(num<$activity->amount)--}}
-                                @if($activity->amount==$activity->amount)
-                                    <td style="color: #FF0000">num / {{ $activity->amount }}</td>
+                                    @if ($activity->joinActivities->count() < $activity->amount)
+                                    <td style="color: #B0C547">{{$activity->joinActivities->count()}}/{{$activity->amount}} คน</td>
+                                    @else
+                                    <td style="color: #FF0000">{{$activity->joinActivities->count()}}/{{$activity->amount}} คน</td>
+                                    @endif
+
+                                @if ($activity->joinActivities->count() < $activity->amount)
+                                    <td style="color: #B0C547">จำนวนคนเหลืออีก {{$activity->amount-$activity->joinActivities->count()}} คน</td>
                                 @else
-                                    <td style="color: #B0C547">num / {{ $activity->amount }}</td>
+                                    <td style="color: #FF0000">จำนวนคนเต็มแล้ว</td>
                                 @endif
-
                                 <td>
                                     <a href="{{ url('admin/activities/edit',$activity->id ) }}" class="btn btn-warning"><i class="fas fa-cog"></i> แก้ไข</a>
                                     <form style="display: inline" role="form" action="{{ url('admin/activities/delete') }}" method="post">
@@ -152,6 +149,11 @@
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    {{ $activities->links() }}
+                </div>
+            </div>
         </div>
     </div>
 

@@ -35,13 +35,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                    <li class="nav-item" style="margin-top: auto; margin-bottom: auto;">
                         <a href="{{ url('/') }}" class="nav-link navbar @if(Request::is('/')) active @endif">หน้าแรก</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style="margin-top: auto; margin-bottom: auto;">
                         <a href="{{ url('/activity') }}" class="nav-link navbar @if(Request::is('activity*')) active @endif">กิจกรรม</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style="margin-top: auto; margin-bottom: auto;">
                         <a href="{{ url('/reward') }}" class="nav-link navbar @if(Request::is('reward*')) active @endif">ของรางวัล</a>
                     </li>
 {{--                    <li class="nav-item">--}}
@@ -61,12 +61,13 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
+                            {{csrf_field()}}
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <img class="image-profile-login" src="/{{ Auth::user()->image }}" /> {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">โปรไฟล์ของฉัน</a>
+                                <a class="dropdown-item" href="{{ url('/profile') }}">โปรไฟล์ของฉัน</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

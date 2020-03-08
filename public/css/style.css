@@ -12,6 +12,74 @@ body {
     background-color: red;
 }
 
+.title-content-savfe {
+    display: -webkit-box;
+    max-width: 100%;
+    height: 37px;
+    font-weight: normal;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title-content-savfe-reward {
+    display: -webkit-box;
+    max-width: 100%;
+    height: 17px;
+    font-weight: normal;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content-savfe {
+    display: -webkit-box;
+    max-width: 100%;
+    height: 78px;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: normal;
+    margin: 15px 0 25px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.image-profile {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.image-profile img {
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+}
+
+.image-profile-login {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.image-profile-login img {
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+}
+
+
+
 /*/////////////////////// contact ///////////////////////*/
 #contact {
     box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
@@ -319,6 +387,9 @@ body {
     transition: background 0.5s;
     z-index: 99;
 }
+.back-to-top:hover {
+    background: #2BC685;
+}
 /*/////////////////////// end back-to-top ///////////////////////*/
 
 
@@ -338,6 +409,12 @@ body {
     }
     .start-box {
         margin-top: 110px;
+    }
+    .content-savfe-align {
+        text-align: left;
+    }
+    .profile-content-savfe {
+        text-align: center;
     }
 }
 
@@ -362,6 +439,12 @@ body {
     .start-box {
         margin-top: 100px;
     }
+    .content-savfe-align {
+        text-align: left;
+    }
+    .profile-content-savfe {
+        text-align: left;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -382,6 +465,12 @@ body {
     }
     .slideHeight {
         height: 480px;
+    }
+    .content-savfe-align {
+        text-align: left;
+    }
+    .profile-content-savfe {
+        text-align: left;
     }
 }
 

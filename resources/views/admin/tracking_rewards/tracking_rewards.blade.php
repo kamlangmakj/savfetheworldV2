@@ -114,9 +114,9 @@
             </div>
             <!-- /.card -->
             <div class="row">
-{{--                <div class="col-12 text-center">--}}
-{{--                    {{ $users->links() }}--}}
-{{--                </div>--}}
+                <div class="col-12 text-center">
+                    {{ $tracking_rewards->links() }}
+                </div>
             </div>
         </div>
     </div>
