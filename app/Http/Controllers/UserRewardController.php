@@ -35,6 +35,9 @@ class UserRewardController extends Controller
         $rewards = Rewards::orderBy('created_at','DESC')->limit(1)->get();
         $rewards2 = Rewards::orderBy('created_at','DESC')->limit(4)->get();
 
+        $slides1 = Rewards::where('quantity', '>','0')->orderBy('point','ASC')->limit(5)->get();
+//        $test = Activities::where('column', 'value')->count();
+
 
         return view('user.reward',[
             'contents_1'=>$contents_1,
@@ -43,6 +46,7 @@ class UserRewardController extends Controller
             'rewards'=>$rewards,
             'rewards2'=>$rewards2,
             'today'=>$today,
+            'slides1'=>$slides1,
         ]);
     }
 
