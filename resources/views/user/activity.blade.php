@@ -76,22 +76,24 @@
             @foreach($contents_1 as $content_1)
                 <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
                     <div class="card">
-                        <img class="card-img-top" src="{{ $content_1->image }}" alt="Card image cap" style="height: 200px">
-                        <div class="card-body">
-                            <div class="row mt-2 mb-2">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                    <small class="card-text" style="color: red;font-weight: bold;"><i class="fas fa-hourglass-half"></i> เหลือเวลาอีก {{Carbon\Carbon::parse($content_1->expired_date)->shortRelativeToOtherDiffForHumans()}}</small>
+                        <a href="{{ url('/activity_detail',$content_1->id ) }}" style="text-decoration: none;">
+                            <img class="card-img-top" src="{{ $content_1->image }}" alt="Card image cap" style="height: 200px">
+                            <div class="card-body">
+                                <div class="row mt-2 mb-2">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                        <small class="card-text" style="color: red;font-weight: bold;"><i class="fas fa-hourglass-half"></i> เหลือเวลาอีก {{Carbon\Carbon::parse($content_1->expired_date)->shortRelativeToOtherDiffForHumans()}}</small>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                        <small style="color: #acacac"><i class="fas fa-history"></i> อัปเดตเมื่อ {{Carbon\Carbon::parse($content_1->updated_at)->diffForHumans()}}</small>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-lg-12">
+                                        <small class="card-text" style="color: #acacac;">{{Carbon\Carbon::parse($content_1->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($content_1->expired_date)->addYear(543)->translatedFormat('d M Y')}}</small>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                    <small style="color: #acacac"><i class="fas fa-history"></i> อัปเดตเมื่อ {{Carbon\Carbon::parse($content_1->updated_at)->diffForHumans()}}</small>
-                                </div>
-                                <div class="col-sm-12 col-md-6 col-lg-12">
-                                    <small class="card-text" style="color: #acacac;">{{Carbon\Carbon::parse($content_1->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($content_1->expired_date)->addYear(543)->translatedFormat('d M Y')}}</small>
-                                </div>
+                                <h3 style="font-weight: bold;color: #000000" class="card-title title-content-savfe">{{ $content_1->name }}</h3>
+                                <h6 class="card-text" style="color: #2BC685;font-weight: bold;">ได้รับแต้ม {{ $content_1->point }} แต้ม</h6>
                             </div>
-                            <h3 style="font-weight: bold;" class="card-title title-content-savfe">{{ $content_1->name }}</h3>
-                            <h6 class="card-text" style="color: #2BC685;font-weight: bold;">ได้รับแต้ม {{ $content_1->point }} แต้ม</h6>
-                        </div>
+                        </a>
                     </div>
                 </div>
             @endforeach
@@ -139,33 +141,35 @@
                                 @if($content_2->started_date > $today)
                                     <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
                                         <div class="card">
-                                            <img class="card-img-top" src="{{ $content_2->image }}" alt="Card image cap" style="height: 200px">
-                                            <div class="card-body">
-                                                <div class="row mt-2 mb-2">
-                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                        <small style="color: #acacac"><i class="fas fa-clock"></i> สร้างเมื่อ {{Carbon\Carbon::parse($content_2->created_at)->diffForHumans()}}</small>
+                                            <a href="{{ url('/activity_detail',$content_2->id ) }}" style="text-decoration: none;">
+                                                <img class="card-img-top" src="{{ $content_2->image }}" alt="Card image cap" style="height: 200px">
+                                                <div class="card-body">
+                                                    <div class="row mt-2 mb-2">
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                            <small style="color: #acacac"><i class="fas fa-clock"></i> สร้างเมื่อ {{Carbon\Carbon::parse($content_2->created_at)->diffForHumans()}}</small>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                            <label style="color:#000;">{{Carbon\Carbon::parse($content_2->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($content_2->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                            @if ($content_2->joinActivities->count() < $content_2->amount)
+                                                                <small class="card-text" style="color: #2BC685;font-weight: bold;"><i class="fas fa-user-clock"></i> จำนวนคนเข้าร่วม {{$content_2->joinActivities->count()}}/{{$content_2->amount}} คน</small>
+                                                            @else
+                                                                <small class="card-text" style="color: red;font-weight: bold;"><i class="fas fa-user-times"></i> จำนวนคนเต็มแล้ว {{$content_2->joinActivities->count()}}/{{$content_2->amount}} คน</small>
+                                                            @endif
+                                                        </div>
+                                                        {{--                                            <div class="content-savfe-align col-12 col-sm-12 col-md-12 col-lg-12">--}}
+                                                        {{--                                                <label style="color: #2BC685;"><i class="fas fa-user"></i> {{$content_2->joinActivities->count()}}/{{$content_2->amount}}</label>--}}
+                                                        {{--                                            </div>--}}
                                                     </div>
-                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                        <label>{{Carbon\Carbon::parse($content_2->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($content_2->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                        @if ($content_2->joinActivities->count() < $content_2->amount)
-                                                            <small class="card-text" style="color: #2BC685;font-weight: bold;"><i class="fas fa-user-clock"></i> จำนวนคนเข้าร่วม {{$content_2->joinActivities->count()}}/{{$content_2->amount}} คน</small>
-                                                        @else
-                                                            <small class="card-text" style="color: red;font-weight: bold;"><i class="fas fa-user-times"></i> จำนวนคนเต็มแล้ว {{$content_2->joinActivities->count()}}/{{$content_2->amount}} คน</small>
-                                                        @endif
-                                                    </div>
-                                                    {{--                                            <div class="content-savfe-align col-12 col-sm-12 col-md-12 col-lg-12">--}}
-                                                    {{--                                                <label style="color: #2BC685;"><i class="fas fa-user"></i> {{$content_2->joinActivities->count()}}/{{$content_2->amount}}</label>--}}
-                                                    {{--                                            </div>--}}
+                                                    <h3 style="font-weight: bold;color: #000000" class="card-title title-content-savfe">{{$content_2->name}}</h3>
+                                                    <p class="card-text content-savfe" style="color: #000000">{{$content_2->detail}}</p>
+                                                    <h6 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ได้รับแต้ม {{$content_2->point}} แต้ม</h6>
                                                 </div>
-                                                <h3 style="font-weight: bold;" class="card-title title-content-savfe">{{$content_2->name}}</h3>
-                                                <p class="card-text content-savfe">{{$content_2->detail}}</p>
-                                                <h6 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ได้รับแต้ม {{$content_2->point}} แต้ม</h6>
-                                            </div>
-                                            <div class="card-footer text-center">
-                                                <small class="text-muted"><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร</small>
-                                            </div>
+                                                <div class="card-footer text-center">
+                                                    <small class="text-muted"><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร</small>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 @else
@@ -191,30 +195,32 @@
                                 @if($content_3->started_date > $today)
                                     <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
                                         <div class="card">
-                                            <img class="card-img-top" src="{{ $content_3->image }}" alt="Card image cap" style="height: 200px">
-                                            <div class="card-body">
-                                                <div class="row mt-2 mb-2">
-                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                        <small style="color: #acacac"><i class="fas fa-clock"></i> สร้างเมื่อ {{Carbon\Carbon::parse($content_3->created_at)->diffForHumans()}}</small>
+                                            <a href="{{ url('/activity_detail',$content_3->id ) }}" style="text-decoration: none;">
+                                                <img class="card-img-top" src="{{ $content_3->image }}" alt="Card image cap" style="height: 200px">
+                                                <div class="card-body">
+                                                    <div class="row mt-2 mb-2">
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                            <small style="color: #acacac"><i class="fas fa-clock"></i> สร้างเมื่อ {{Carbon\Carbon::parse($content_3->created_at)->diffForHumans()}}</small>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                            <label style="color: #000000">{{Carbon\Carbon::parse($content_3->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($content_3->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                            @if ($content_3->joinActivities->count() < $content_3->amount)
+                                                                <small class="card-text" style="color: #2BC685;font-weight: bold;"><i class="fas fa-user-clock"></i> จำนวนคนเข้าร่วม {{$content_3->joinActivities->count()}}/{{$content_3->amount}} คน</small>
+                                                            @else
+                                                                <small class="card-text" style="color: red;font-weight: bold;"><i class="fas fa-user-times"></i> จำนวนคนเต็มแล้ว {{$content_3->joinActivities->count()}}/{{$content_3->amount}} คน</small>
+                                                            @endif
+                                                        </div>
                                                     </div>
-                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                        <label>{{Carbon\Carbon::parse($content_3->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($content_3->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                        @if ($content_3->joinActivities->count() < $content_3->amount)
-                                                            <small class="card-text" style="color: #2BC685;font-weight: bold;"><i class="fas fa-user-clock"></i> จำนวนคนเข้าร่วม {{$content_3->joinActivities->count()}}/{{$content_3->amount}} คน</small>
-                                                        @else
-                                                            <small class="card-text" style="color: red;font-weight: bold;"><i class="fas fa-user-times"></i> จำนวนคนเต็มแล้ว {{$content_3->joinActivities->count()}}/{{$content_3->amount}} คน</small>
-                                                        @endif
-                                                    </div>
+                                                    <h3 style="font-weight: bold;color: #000000" class="card-title title-content-savfe">{{$content_3->name}}</h3>
+                                                    <p class="card-text content-savfe" style="color:#000;">{{$content_3->detail}}</p>
+                                                    <h6 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ได้รับแต้ม {{$content_3->point}} แต้ม</h6>
                                                 </div>
-                                                <h3 style="font-weight: bold;" class="card-title title-content-savfe">{{$content_3->name}}</h3>
-                                                <p class="card-text content-savfe">{{$content_3->detail}}</p>
-                                                <h6 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ได้รับแต้ม {{$content_3->point}} แต้ม</h6>
-                                            </div>
-                                            <div class="card-footer text-center">
-                                                <small class="text-muted"><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร</small>
-                                            </div>
+                                                <div class="card-footer text-center">
+                                                    <small class="text-muted"><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร</small>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 @else
@@ -240,30 +246,32 @@
                             @foreach($contents_4 as $content_4)
                                 <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
                                     <div class="card">
-                                        <img class="card-img-top" src="{{ $content_4->image }}" alt="Card image cap" style="height: 200px">
-                                        <div class="card-body">
-                                            <div class="row mt-2 mb-2">
-                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                    <small style="color: #acacac"><i class="fas fa-clock"></i> สร้างเมื่อ {{Carbon\Carbon::parse($content_4->created_at)->diffForHumans()}}</small>
+                                        <a href="{{ url('/activity_detail',$content_4->id ) }}" style="text-decoration: none;">
+                                            <img class="card-img-top" src="{{ $content_4->image }}" alt="Card image cap" style="height: 200px">
+                                            <div class="card-body">
+                                                <div class="row mt-2 mb-2">
+                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <small style="color: #acacac"><i class="fas fa-clock"></i> สร้างเมื่อ {{Carbon\Carbon::parse($content_4->created_at)->diffForHumans()}}</small>
+                                                    </div>
+                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <label style="color:#000;">{{Carbon\Carbon::parse($content_4->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($content_4->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
+                                                    </div>
+                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                        @if ($content_4->joinActivities->count() < $content_4->amount)
+                                                            <small class="card-text" style="color: #2BC685;font-weight: bold;"><i class="fas fa-user-clock"></i> จำนวนคนเข้าร่วม {{$content_4->joinActivities->count()}}/{{$content_4->amount}} คน</small>
+                                                        @else
+                                                            <small class="card-text" style="color: red;font-weight: bold;"><i class="fas fa-user-times"></i> จำนวนคนเต็มแล้ว {{$content_4->joinActivities->count()}}/{{$content_4->amount}} คน</small>
+                                                        @endif
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                    <label>{{Carbon\Carbon::parse($content_4->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($content_4->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
-                                                </div>
-                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                    @if ($content_4->joinActivities->count() < $content_4->amount)
-                                                        <small class="card-text" style="color: #2BC685;font-weight: bold;"><i class="fas fa-user-clock"></i> จำนวนคนเข้าร่วม {{$content_4->joinActivities->count()}}/{{$content_4->amount}} คน</small>
-                                                    @else
-                                                        <small class="card-text" style="color: red;font-weight: bold;"><i class="fas fa-user-times"></i> จำนวนคนเต็มแล้ว {{$content_4->joinActivities->count()}}/{{$content_4->amount}} คน</small>
-                                                    @endif
-                                                </div>
+                                                <h3 style="font-weight: bold;color:#000;" class="card-title title-content-savfe">{{$content_4->name}}</h3>
+                                                <p class="card-text content-savfe" style="color: #000000">{{$content_4->detail}}</p>
+                                                <h6 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ได้รับแต้ม {{$content_4->point}} แต้ม</h6>
                                             </div>
-                                            <h3 style="font-weight: bold;" class="card-title title-content-savfe">{{$content_4->name}}</h3>
-                                            <p class="card-text content-savfe">{{$content_4->detail}}</p>
-                                            <h6 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ได้รับแต้ม {{$content_4->point}} แต้ม</h6>
-                                        </div>
-                                        <div class="card-footer text-center">
-                                            <small class="text-muted"><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร</small>
-                                        </div>
+                                            <div class="card-footer text-center">
+                                                <small class="text-muted"><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร</small>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             @endforeach

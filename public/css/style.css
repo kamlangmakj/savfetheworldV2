@@ -11,6 +11,9 @@ body {
     margin-right: 5px;
     background-color: red;
 }
+.label {
+    color: #000 !important;
+}
 
 .title-content-savfe {
     display: -webkit-box;
@@ -26,7 +29,7 @@ body {
 .title-content-savfe-reward {
     display: -webkit-box;
     max-width: 100%;
-    height: 17px;
+    height: 19px;
     font-weight: normal;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
@@ -428,6 +431,9 @@ body {
     .carousel-item img {
         height: 300px;
     }
+    .detail-savfe-align {
+        text-align: left;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -460,6 +466,9 @@ body {
     .carousel-item img {
         height: 380px;
     }
+    .detail-savfe-align {
+        text-align: right;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -489,6 +498,12 @@ body {
     }
     .carousel-item img {
         height: 480px;
+    }
+    .card img {
+        height: 500px;
+    }
+    .detail-savfe-align {
+        text-align: right;
     }
 }
 

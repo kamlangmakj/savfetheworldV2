@@ -29,10 +29,12 @@ Auth::routes();
 //user activity
 Route::get('/activity_tabs_detail/{filter}', 'HomeController@getActivityTabsDetail');
 Route::get('/activity_news_detail/{filter}', 'UserActivityController@getActivityNewsDetail');
+Route::get('/activity_detail/{id}', 'UserActivityController@getActivityDetail');
 
 //user reward
 Route::get('/reward_tabs_detail/{filter}', 'HomeController@getRewardTabsDetail');
 Route::get('/reward_news_detail/{filter}', 'UserRewardController@getRewardNewsDetail');
+Route::get('/reward_detail/{id}', 'UserRewardController@getRewardDetail');
 
 //user profile
 Route::get('/profile', 'ProfileController@getProfileUser');

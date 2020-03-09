@@ -54,6 +54,14 @@ class UserActivityController extends Controller
 
         ]);
     }
+
+    public function getActivityDetail($id) {
+        $activity = Activities::find($id);
+        return view('user.activity_detail',[
+            'activity'=>$activity
+        ]);
+    }
+
     public function getActivityNewsDetail(Request $request, $filter){
         $activities = Activities::all();
         if ($filter == 'latest'){

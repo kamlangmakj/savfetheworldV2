@@ -74,55 +74,43 @@
         </div>
             <div class="row">
                 @foreach($rewards as $reward)
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-product-item">
-                        <div class="card">
-                            <img class="card-img-top" src="{{ url($reward->image) }}" alt="Card image cap" style="height: 100%">
-                            <div class="card-body">
-                                <div class="row mt-2 mb-2">
-                                </div>
-                                <h6 style="font-weight: bold;" class="card-title title-content-savfe-reward text-center">{{ $reward->name }}</h6>
-                                <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ใช้แต้ม {{$reward->point}}</h4>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-product-item">
+                            <div class="card">
+                                <a href="{{ url('/reward_detail',$reward->id ) }}" style="text-decoration: none;">
+                                    <img class="card-img-top" src="{{ url($reward->image) }}" alt="Card image cap" style="height: 100%">
+                                    <div class="card-body">
+                                        <div class="row mt-2 mb-2">
+                                        </div>
+                                        <h6 style="font-weight: bold;color: #000" class="card-title title-content-savfe-reward text-center">{{ $reward->name }}</h6>
+                                        <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ใช้แต้ม {{$reward->point}}</h4>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
-
-{{--                @foreach($rewards as $reward)--}}
-{{--                    <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-6">--}}
-{{--                        <div class="card">--}}
-{{--                            <img class="card-img-top" src="{{ url($reward->image) }}" alt="Card image cap" style="height: 400px">--}}
-{{--                            <div class="card-body">--}}
-{{--                                <div class="row mt-2 mb-2">--}}
-{{--                                </div>--}}
-{{--                                <h6 style="font-weight: bold;" class="card-title title-content-savfe-reward text-center">{{ $reward->name }}</h6>--}}
-{{--                                <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ใช้แต้ม {{$reward->point}}</h4>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                @endforeach--}}
-                    <div class="col-lg-6 col-md-6">
+                <div class="col-lg-6 col-md-6">
                         <div class="row">
-                @foreach($rewards2 as $reward2)
-
-                                <div class="col-lg-6 col-md-6 mb-5">
-                                    <div class="single-product-item">
-                                        <div class="card">
-                                            <img class="card-img-top" src="{{ url($reward2->image) }}" alt="Card image cap" style="height: 100%">
-                                            <div class="card-body">
-                                                <div class="row mt-2 mb-2">
-                                                </div>
-                                                <h6 style="font-weight: bold;" class="card-title title-content-savfe-reward text-center">{{ $reward2->name }}</h6>
-                                                <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ใช้แต้ม {{$reward2->point}}</h4>
+                    @foreach($rewards2 as $reward2)
+                        <div class="col-lg-6 col-md-6 mb-5">
+                            <div class="single-product-item">
+                                <div class="card">
+                                    <a href="{{ url('/reward_detail',$reward2->id ) }}" style="text-decoration: none;">
+                                        <img class="card-img-top" src="{{ url($reward2->image) }}" alt="Card image cap" style="height: 100%">
+                                        <div class="card-body">
+                                            <div class="row mt-2 mb-2">
                                             </div>
+                                            <h6 style="font-weight: bold;color:#000;" class="card-title title-content-savfe-reward text-center">{{ $reward2->name }}</h6>
+                                            <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ใช้แต้ม {{$reward2->point}}</h4>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
-
-                    @endforeach
+                            </div>
                         </div>
+                    @endforeach
                     </div>
+                </div>
             </div>
 
 
@@ -173,33 +161,35 @@
                     @foreach($contents_1 as $content_1)
                         <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
                             <div class="card">
-                                <img class="card-img-top" src="{{ url($content_1->image) }}" alt="Card image cap" style="height: 200px">
-                                <div class="card-body">
-                                    <div class="row mt-2 mb-2">
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                            @if ($content_1->quantity > 0)
-                                                <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$content_1->quantity}} ชิ้น </small>
-                                            @else
-                                                <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
-                                            @endif
+                                <a href="{{ url('/reward_detail',$content_1->id ) }}" style="text-decoration: none;">
+                                    <img class="card-img-top" src="{{ url($content_1->image) }}" alt="Card image cap" style="height: 200px">
+                                    <div class="card-body">
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                                @if ($content_1->quantity > 0)
+                                                    <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$content_1->quantity}} ชิ้น </small>
+                                                @else
+                                                    <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                                @endif
+                                            </div>
                                         </div>
+                                        <h6 style="font-weight: bold;color:#000;" class="card-title title-content-savfe-reward text-center">{{ $content_1->name }}</h6>
+                                        <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ใช้แต้ม {{$content_1->point}}</h4>
                                     </div>
-                                    <h6 style="font-weight: bold;" class="card-title title-content-savfe-reward text-center">{{ $content_1->name }}</h6>
-                                    <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ใช้แต้ม {{$content_1->point}}</h4>
-                                </div>
-                                <div class="form">
-
-                                    <form method="post" role="form" class="contactForm mb-3" enctype="multipart/form-data">
-                                        {{csrf_field()}}
-                                        <div class="text-center">
-                                            @if ($content_1->quantity <= 0)
-                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary" disabled>แลกของรางวัล</button>
-                                            @else
-                                                <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>
-                                            @endif
-                                        </div>
-                                    </form>
-                                </div>
+                                    <div class="form">
+    
+                                        <form method="post" role="form" class="contactForm mb-3" enctype="multipart/form-data">
+                                            {{csrf_field()}}
+                                            <div class="text-center">
+                                                @if ($content_1->quantity <= 0)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary" disabled>แลกของรางวัล</button>
+                                                @else
+                                                    <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>
+                                                @endif
+                                            </div>
+                                        </form>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     @endforeach
@@ -219,34 +209,36 @@
                     @foreach($contents_1 as $content_1)
                         <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
                             <div class="card">
-                                <img class="card-img-top" src="{{ $content_1->image }}" alt="Card image cap" style="height: 200px">
-                                <div class="card-body">
-                                    <div class="row mt-2 mb-2">
-                                        {{--                                        {{ $content_1->id }}--}}
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                            @if ($content_1->quantity > 0)
-                                                <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$content_1->quantity}} ชิ้น </small>
-                                            @else
-                                                <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
-                                            @endif
+                                <a href="{{ url('/reward_detail',$content_1->id ) }}" style="text-decoration: none;">
+                                    <img class="card-img-top" src="{{ $content_1->image }}" alt="Card image cap" style="height: 200px">
+                                    <div class="card-body">
+                                        <div class="row mt-2 mb-2">
+                                            {{--                                        {{ $content_1->id }}--}}
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                                @if ($content_1->quantity > 0)
+                                                    <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$content_1->quantity}} ชิ้น </small>
+                                                @else
+                                                    <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                                @endif
+                                            </div>
                                         </div>
+                                        <h6 style="font-weight: bold;color: #000000" class="card-title title-content-savfe-reward text-center">{{ $content_1->name }}</h6>
+                                        <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ใช้แต้ม {{$content_1->point}}</h4>
                                     </div>
-                                    <h6 style="font-weight: bold;" class="card-title title-content-savfe-reward text-center">{{ $content_1->name }}</h6>
-                                    <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ใช้แต้ม {{$content_1->point}}</h4>
-                                </div>
-                                <div class="form">
+                                    <div class="form">
 
-                                    <form method="post" role="form" class="contactForm mb-3" enctype="multipart/form-data">
-                                        {{csrf_field()}}
-                                        <div class="text-center">
-                                            @if ($content_1->quantity <= 0)
-                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary" disabled>แลกของรางวัล</button>
-                                            @else
-                                                <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>
-                                            @endif
-                                        </div>
-                                    </form>
-                                </div>
+                                        <form method="post" role="form" class="contactForm mb-3" enctype="multipart/form-data">
+                                            {{csrf_field()}}
+                                            <div class="text-center">
+                                                @if ($content_1->quantity <= 0)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary" disabled>แลกของรางวัล</button>
+                                                @else
+                                                    <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>
+                                                @endif
+                                            </div>
+                                        </form>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     @endforeach
@@ -266,34 +258,36 @@
                     @foreach($contents_3 as $content_3)
                         <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
                             <div class="card">
-                                <img class="card-img-top" src="{{ $content_3->image }}" alt="Card image cap" style="height: 200px">
-                                <div class="card-body">
-                                    <div class="row mt-2 mb-2">
-                                        {{--                                        {{ $content_1->id }}--}}
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                            @if ($content_3->quantity > 0)
-                                                <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$content_3->quantity}} ชิ้น </small>
-                                            @else
-                                                <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
-                                            @endif
+                                <a href="{{ url('/reward_detail',$content_3->id ) }}" style="text-decoration: none;">
+                                    <img class="card-img-top" src="{{ $content_3->image }}" alt="Card image cap" style="height: 200px">
+                                    <div class="card-body">
+                                        <div class="row mt-2 mb-2">
+                                            {{--                                        {{ $content_1->id }}--}}
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                                @if ($content_3->quantity > 0)
+                                                    <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$content_3->quantity}} ชิ้น </small>
+                                                @else
+                                                    <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                                @endif
+                                            </div>
                                         </div>
+                                        <h6 style="font-weight: bold;color:#000;" class="card-title title-content-savfe-reward text-center">{{ $content_3->name }}</h6>
+                                        <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ใช้แต้ม {{$content_3->point}}</h4>
                                     </div>
-                                    <h6 style="font-weight: bold;" class="card-title title-content-savfe-reward text-center">{{ $content_3->name }}</h6>
-                                    <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ใช้แต้ม {{$content_3->point}}</h4>
-                                </div>
-                                <div class="form">
+                                    <div class="form">
 
-                                    <form method="post" role="form" class="contactForm mb-3" enctype="multipart/form-data">
-                                        {{csrf_field()}}
-                                        <div class="text-center">
-                                            @if ($content_3->quantity <= 0)
-                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary" disabled>แลกของรางวัล</button>
-                                            @else
-                                                <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>
-                                            @endif
-                                        </div>
-                                    </form>
-                                </div>
+                                        <form method="post" role="form" class="contactForm mb-3" enctype="multipart/form-data">
+                                            {{csrf_field()}}
+                                            <div class="text-center">
+                                                @if ($content_3->quantity <= 0)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary" disabled>แลกของรางวัล</button>
+                                                @else
+                                                    <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>
+                                                @endif
+                                            </div>
+                                        </form>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     @endforeach

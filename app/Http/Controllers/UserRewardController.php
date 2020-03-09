@@ -45,6 +45,14 @@ class UserRewardController extends Controller
             'today'=>$today,
         ]);
     }
+
+    public function getRewardDetail($id) {
+        $reward = Rewards::find($id);
+        return view('user.reward_detail',[
+            'reward'=>$reward
+        ]);
+    }
+
     public function getRewardNewsDetail(Request $request, $filter){
         $rewards = Rewards::all();
         if ($filter == 'latest'){
