@@ -77,28 +77,34 @@
                     <p style="font-size: 24px;">กิจกรรมที่น่าสนใจ</p>
                     @include('layouts.user.title_savfe')
                 </div>
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
                     </ol>
-                    <div class="carousel-inner slideHeight">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{ url('img/bg.jpg') }}" alt="First slide">
+                    <div class="carousel-inner">
+                        @foreach($slides1 as $key => $slide1)
+                        <div class="carousel-item {{$key == 0 ? 'active' : null}}">
+                            <img src="{{ $slide1->image }}" class="d-block w-100">
+                            <div class="layer">
+                            </div>
+                            <div class="carousel-caption d-none d-md-block" style="text-shadow: 0 0 3px #000;">
+                                <h1 style="font-weight: bold">{{ $slide1->name }}</h1>
+                                <h4 style="font-weight: bold">ได้รับแต้ม {{ $slide1->point }} แต้ม</h4>
+                                <label>เริ่มวันที่ {{Carbon\Carbon::parse($slide1->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($slide1->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{ url('img/bg.jpg') }}" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{ url('img/bg.jpg') }}" alt="Third slide">
-                        </div>
+                        @endforeach
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
@@ -158,6 +164,7 @@
                                     <div class="card-body">
                                         <div class="row mt-2 mb-2">
                                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+{{--                                                <small style="color: #acacac"><i class="fas fa-clock"></i> อัปเดตเมื่อ {{$tab1_content_1->updated_at->addYear(543)->translatedFormat('d M Y H:m น.')}}</small>--}}
                                                 <small style="color: #acacac"><i class="fas fa-clock"></i> สร้างเมื่อ {{Carbon\Carbon::parse($tab1_content_1->created_at)->diffForHumans()}}</small>
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">

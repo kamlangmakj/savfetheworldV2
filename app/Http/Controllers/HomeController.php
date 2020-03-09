@@ -64,6 +64,10 @@ class HomeController extends Controller
         $tab4_contents_3 = Activities::whereDate('expired_date','>=',Carbon::yesterday()->subDays(14))->whereDate('expired_date','<=',Carbon::yesterday())->orderBy('expired_date','DESC')->limit(4)->get();
 //        $tab4_contents_3 = DB::table('activities')->orderBy('expired_date','DESC')->limit(4)->get();
 
+
+        $slides1 = Activities::orderBy('updated_at','DESC')->limit(5)->get();
+
+
 //        $contents1 = DB::table('activities')->orderBy('updated_at','DESC')->limit(4)->get();
 
         //        return $activitiescontent->get();
@@ -89,6 +93,7 @@ class HomeController extends Controller
             'agoMonth'=>$agoMonth,
             'nowMonth'=>$nowMonth,
             'count_user'=>$count_user,
+            'slides1'=>$slides1,
         ]);
     }
 

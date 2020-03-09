@@ -36,6 +36,9 @@ class UserActivityController extends Controller
         $contents_4 = Activities::orderBy('point','DESC')->orderBy('updated_at','DESC')->limit(4)->get();
         $activities = Activities::orderBy('created_at','DESC')->limit(4)->get();
 
+        $slides1 = Activities::orderBy('updated_at','DESC')->limit(5)->get();
+
+
 
 //        $test = Activities::where('column', 'value')->count();
 
@@ -47,6 +50,7 @@ class UserActivityController extends Controller
             'contents_4'=>$contents_4,
             'activities'=>$activities,
             'today'=>$today,
+            'slides1'=>$slides1,
 
         ]);
     }

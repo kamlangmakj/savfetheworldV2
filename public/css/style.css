@@ -78,6 +78,15 @@ body {
     margin-left: -50px;
 }
 
+.layer {
+    background-color: #2BC685;
+    position: absolute;
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 
 /*/////////////////////// contact ///////////////////////*/
@@ -416,6 +425,9 @@ body {
     .profile-content-savfe {
         text-align: center;
     }
+    .carousel-item img {
+        height: 300px;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -445,6 +457,9 @@ body {
     .profile-content-savfe {
         text-align: left;
     }
+    .carousel-item img {
+        height: 380px;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -471,6 +486,9 @@ body {
     }
     .profile-content-savfe {
         text-align: left;
+    }
+    .carousel-item img {
+        height: 480px;
     }
 }
 
