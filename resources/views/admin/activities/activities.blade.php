@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="container mt-3 mb-3">
-                    <div class="row" >
+                    <div class="row">
                         <div class="input-group col-6">
                             <input id="myInput" onkeyup="myFunction()" class="form-control" type="text" name="search" id="search" placeholder="ค้นหา ID, ชื่อกิจกรรม" aria-label="Search">
                             <div class="input-group-append">
@@ -55,7 +55,7 @@
                         </script>
 
                         <div class="input-group col-4">
-                            <label style="margin-top: 8px">วันที่เริ่มกิจกรรม:</label> <input type="date" class="form-control" name="started_date" style="margin-left: 10px">
+                            <label class="mt-1">วันที่เริ่มกิจกรรม:</label> <input type="date" class="form-control" name="started_date" style="margin-left: 10px">
                         </div>
                         <div class="input-group col-2">
                             <select type="text" class="form-control" name="rewards_category_id">
@@ -81,7 +81,7 @@
                             <th>วันที่เริ่มกิจกรรม</th>
                             <th>วันที่จบกิจกรรม</th>
                             <th>จำนวนคนเข้าร่วม</th>
-                            <th>สถานะ</th>
+{{--                            <th>สถานะ</th>--}}
                             <th>ตัวเลือก</th>
                         </tr>
                         </thead>
@@ -99,20 +99,21 @@
                                     <td style="color: #FF0000">{{$activity->joinActivities->count()}}/{{$activity->amount}} คน</td>
                                     @endif
 
-                                @if ($activity->joinActivities->count() < $activity->amount)
-                                    <td style="color: #B0C547">จำนวนคนเหลืออีก {{$activity->amount-$activity->joinActivities->count()}} คน</td>
-                                @else
-                                    <td style="color: #FF0000">จำนวนคนเต็มแล้ว</td>
-                                @endif
+{{--                                @if ($activity->joinActivities->count() < $activity->amount)--}}
+{{--                                    <td>เข้าร่วมได้อีก {{$activity->amount-$activity->joinActivities->count()}} คน</td>--}}
+{{--                                @else--}}
+{{--                                    <td style="color: #FF0000">จำนวนคนเต็มแล้ว</td>--}}
+{{--                                @endif--}}
                                 <td>
+                                    <a href="{{ url('admin/activities/edit',$activity->id ) }}" class="btn btn-info"><i class="fas fa-eye"></i> ดูรายละเอียด</a>
                                     <a href="{{ url('admin/activities/edit',$activity->id ) }}" class="btn btn-warning"><i class="fas fa-cog"></i> แก้ไข</a>
                                     <form style="display: inline" role="form" action="{{ url('admin/activities/delete') }}" method="post">
                                         {{csrf_field()}}
                                         <input type="hidden" name="id" value="{{ $activity->id }}">
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#editModal"><i class="fas fa-trash"></i> ลบ</button>
+                                        <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#editModal{{ $activity->id }}"><i class="fas fa-trash"></i> ลบ</button>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="editModal{{ $activity->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">

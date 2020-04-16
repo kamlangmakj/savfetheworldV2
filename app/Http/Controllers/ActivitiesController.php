@@ -34,15 +34,13 @@ class ActivitiesController extends Controller
         $activities = new Activities();
         $activities->name = $request->get('name');
         $activities->agent = $request->get('agent');
-        $activities->detail = $request->get('detail');
-        $activities->address = $request->get('address');
-//        $activities->category_types_activities_id = $request->get('category_types_activities_id');
-//        $activities->province = $request->get('province');
+        $activities->category_types_activities_id = $request->get('category_types_activities_id');
         $activities->started_date = $request->get('started_date');
         $activities->expired_date = $request->get('expired_date');
-
-        $activities->point = $request->get('point');
         $activities->amount = $request->get('amount');
+        $activities->point = $request->get('point');
+        $activities->detail = $request->get('detail');
+        $activities->address = $request->get('address');
         $activities->image = $request->file('image')->move('uploads/activities',$fileNameToStore);
         $activities->save();
         return redirect('admin/activities');
@@ -52,14 +50,13 @@ class ActivitiesController extends Controller
         $activities = Activities::find($request->get('id'));
         $activities->name = $request->get('name');
         $activities->agent = $request->get('agent');
-        $activities->detail = $request->get('detail');
-        $activities->address = $request->get('address');
-//        $activities->category_types_activities_id = $request->get('category_types_activities_id');
-//        $activities->province = $request->get('province');
+        $activities->category_types_activities_id = $request->get('category_types_activities_id');
         $activities->started_date = $request->get('started_date');
         $activities->expired_date = $request->get('expired_date');
-        $activities->point = $request->get('point');
         $activities->amount = $request->get('amount');
+        $activities->point = $request->get('point');
+        $activities->detail = $request->get('detail');
+        $activities->address = $request->get('address');
 
         if ($request->hasFile('image')){
             $fileNameWithExt = $request->file('image')->getClientOriginalName();
@@ -81,6 +78,7 @@ class ActivitiesController extends Controller
 
     public function postDeleteActivities(Request $request) {
         $activity = Activities::find($request->get('id'));
+//        dd($activity->id);
         $activity -> delete();
         return redirect()->back();
     }

@@ -6,13 +6,13 @@
         <div class="row">
             <div class="container">
                 <div class="row">
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="col-8 col-sm-8 col-md-6 col-lg-6">
                         <p style="font-size: 38px; font-weight: bold">โปรไฟล์ของฉัน</p>
                         @include('layouts.user.title_savfe')
                     </div>
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <a href="#" style="color: #2BC685;font-size: 36px;float: right"><i class="fas fa-calendar-alt"></i></a>
-                    </div>
+{{--                    <div class="col-4 col-sm-4 col-md-6 col-lg-6">--}}
+{{--                        <a href="#" style="color: #2BC685;font-size: 36px;float: right"><i class="fas fa-calendar-alt"></i></a>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>
@@ -30,12 +30,41 @@
                 </div>
             </div>
         </div>
+
+            <div class="row mt-5">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                    <div class="card" style="background-color: #2BC685">
+                        <a href="{{url('profile/join_activities_history')}}" style="color: #fff">
+                            <div class="card-body mt-5 mb-5">
+                                <i class="fas fa-calendar-alt mb-5" style="font-size: 48px;"></i><br>ดูประวัติการร่วมกิจกรรม
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                    <div class="card" style="border: 1px solid #2BC685">
+                        <a href="{{url('profile/get_rewards_history')}}" style="color: #000">
+                            <div class="card-body mt-5 mb-5">
+                                <i class="fas fa-star mb-5" style="font-size: 48px;"></i><br>ดูประวัติการแลกของรางวัล
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+{{--        @foreach($tracking_rewards as $tracking_reward)--}}
+{{--            {{$tracking_reward}}--}}
+{{--            <form role="form" action="{{ url('profile') }}" method="post" enctype="multipart/form-data">--}}
+{{--                {{csrf_field()}}--}}
+{{--                <input type="hidden" name="tracking_rewards_id" value="{{$tracking_reward->id}}">--}}
+{{--                <button type="submit" class="btn btn-danger">ลบ</button>--}}
+{{--            </form>--}}
+{{--        @endforeach--}}
+
+
     </div>
 
-{{--    <div class="container">--}}
-{{--        <h1>สวัสดี {{ Auth::user()->name }}</h1>--}}
-{{--        <p>{{ Auth::user()->id }}</p>--}}
-{{--    </div>--}}
     @include('layouts.user.footer_savfe')
 @endsection
 

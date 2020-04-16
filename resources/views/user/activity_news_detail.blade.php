@@ -61,7 +61,5 @@
 
 
 
-    @include('layouts.user.footer_savfe')
 
-@endsection
 

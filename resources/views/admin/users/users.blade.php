@@ -97,7 +97,13 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->gender }}</td>
-                                <td>21 ปี</td>
+                                <td>
+                                    <?php
+                                        $dob = $user->birth_date;
+                                        echo $diff = date('Y') - date('Y',strtotime($dob))
+                                    ?>
+                                    ปี
+                                </td>
                                 <td>{{ $user->phone }}</td>
 {{--                                <td>{{ $user->role }}</td>--}}
                                 <td>
@@ -106,9 +112,9 @@
                                         {{csrf_field()}}
                                         <input type="hidden" name="id" value="{{ $user->id }}">
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#editModal"><i class="fas fa-trash"></i> ลบ</button>
+                                        <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#editModal{{$user->id}}"><i class="fas fa-trash"></i> ลบ</button>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="editModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">

@@ -11,4 +11,8 @@ class Rewards extends Model
     public function rewardsCategory() {
         return $this->belongsTo(RewardsCategory::class,"rewards_category_id");
     }
+
+    public function trackingRewards(){
+        return $this->belongsToMany(User::class, 'tracking_rewards','rewards_id','users_id');
+    }
 }

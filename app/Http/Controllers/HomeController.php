@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Contact;
+use App\Contacts;
 use App\JoinActivities;
 use App\ReceiveNews;
+use App\TrackingRewards;
 use App\Users;
 use App\Activities;
 use Carbon\Carbon;
@@ -50,12 +51,12 @@ class HomeController extends Controller
         $users = DB::table('users');
         $activities = DB::table('activities');
         $rewards = DB::table('rewards');
-        $tracking_rewards = DB::table('tracking_rewards');
+        $tracking_rewards = TrackingRewards::all()->where('status_id','!=',1);
 //        $join_activities = DB::table('join_activities');
 //        $tab1_contents = DB::table('activities')->orderBy('started_date','ASC')->limit(4)->get();
         $count_user = JoinActivities::count();
 
-        $tab1_contents_1 = Activities::whereDay('started_date', '=', date('d'))->orderBy('updated_at','DESC')->limit(4)->get();
+        $tab1_contents_1 = Activities::whereDay('started_date', '=', date('d'))->orderBy('updated_at','DESC')->paginate(4);
         $tab1_contents_2 = Activities::whereDate('started_date','>=',Carbon::now()->startOfWeek())->whereDate('started_date','<=',Carbon::now()->endOfWeek())->orderBy('started_date','ASC')->limit(4)->get();
         $tab1_contents_3 = Activities::whereDate('started_date','>=',Carbon::now()->startOfMonth())->whereDate('started_date','<=',Carbon::now()->endOfMonth())->orderBy('started_date','ASC')->limit(4)->get();
 
@@ -126,21 +127,22 @@ class HomeController extends Controller
         return view('user.activity_tabs_detail',compact('activities','header'));
     }
 
-    public function postReceiveNews(Request $request) {
-        $receive_news = new ReceiveNews();
-        $receive_news->email = $request->get('email');
-        $receive_news->save();
-        return back();
-    }
-    public function postContact(Request $request) {
-        $contact = new Contact();
-        $contact->name = $request->get('name');
-        $contact->email = $request->get('email');
-        $contact->topic = $request->get('topic');
-        $contact->message = $request->get('message');
-        $contact->save();
-        return back();
-    }
+//    public function postReceiveNews(Request $request) {
+//        $receive_news = new ReceiveNews();
+//        $receive_news->email = $request->get('email');
+//        $receive_news->save();
+//        return back();
+//    }
+//
+//    public function postContact(Request $request) {
+//        $contacts = new Contacts();
+//        $contacts->name = $request->get('name');
+//        $contacts->email = $request->get('email');
+//        $contacts->topic = $request->get('topic');
+//        $contacts->message = $request->get('message');
+//        $contacts->save();
+//        return back();
+//    }
 }
 
 //$activities->joinActivities()->attach(Auth::user());

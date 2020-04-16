@@ -37,9 +37,9 @@
                         <li class="nav-item">
                             <a href="{{ url('/register') }}" class="nav-link navbarStyle @if(Request::is('register')) active @endif">{{ __('สมัครสมาชิก [USER]') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ url('/admin') }}" class="nav-link navbarStyle @if(Request::is('admin*')) active @endif">{{ __('เข้าสู่ระบบ [ADMIN]') }}</a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="{{ url('/admin') }}" class="nav-link navbarStyle @if(Request::is('admin*')) active @endif">{{ __('เข้าสู่ระบบ [ADMIN]') }}</a>--}}
+{{--                        </li>--}}
                         @if (Route::has('register'))
 {{--                        <li class="nav-item">--}}
 {{--                            <a class="nav-link navbarStyle" href="{{ route('register') }}">{{ __('สมัครสมาชิก') }}</a>--}}
@@ -81,5 +81,7 @@
 <script src="{{ url('js/popper.js') }}"></script>
 <!-- Bootstrap -->
 <script src="{{ url('js/bootstrap.js') }}"></script>
+<!-- Main -->
+<script src="{{ url('js/main.js') }}"></script>
 </body>
 </html>

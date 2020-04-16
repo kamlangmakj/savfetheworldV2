@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="name">ประเภทของรางวัล</label>
-                                        <select type="text" class="form-control" placeholder="ประเภทของรางวัล" name="rewards_category_id">
+                                        <select type="text" class="form-control" name="rewards_category_id">
                                             <option value="1" @if($reward->rewards_category_id == 1) selected @endif>บัตรของขวัญ</option>
                                             <option value="2" @if($reward->rewards_category_id == 2) selected @endif>บัตรเติมน้ำมัน</option>
                                             <option value="3" @if($reward->rewards_category_id == 3) selected @endif>ส่วนลดค่าที่พัก</option>

@@ -171,6 +171,8 @@
 <script src="{{ url('js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ url('js/demo.js') }}"></script>
+<!-- Main -->
+<script src="{{ url('js/main.js') }}"></script>
 
 {{--<script src="{{ url('js/editor.js') }}"></script>--}}
 {{--<script>--}}

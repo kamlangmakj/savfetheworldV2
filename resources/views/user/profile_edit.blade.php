@@ -47,7 +47,7 @@
 
                                             <div class="form-group col-6">
                                                 <label for="name">วัน/เดือน/ปีเกิด</label>
-                                                <input type="date" class="form-control" name="age" value="2020-02-04">
+                                                <input type="date" class="form-control" name="birth_date" value="{{ $user->birth_date }}">
                                             </div>
 
                                             <div class="form-group col-6">

@@ -7,30 +7,26 @@
                 <div class="row">
                     @guest
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <p style="font-size: 38px; font-weight: bold">กิจกรรมที่น่าสนใจ</p>
+                            <p style="font-size: 32px; font-weight: bold">กิจกรรมที่น่าสนใจ</p>
                             @include('layouts.user.title_savfe')
                         </div>
                     @else
-                        <div class="col-9 col-sm-9 col-md-9 col-lg-9">
-                            <p style="font-size: 38px; font-weight: bold">กิจกรรมที่น่าสนใจ</p>
+                        <div class="col-8 col-sm-8 col-md-10 col-lg-10">
+                            <p style="font-size: 32px; font-weight: bold">กิจกรรมที่น่าสนใจ</p>
                             @include('layouts.user.title_savfe')
                         </div>
-                        <div class="col-3 col-sm-3 col-md-3 col-lg-3">
-                            <a href="#" style="color: #2BC685;font-size: 36px;float: right"><i class="fas fa-calendar-alt"></i></a>
+                        <div class="col-4 col-sm-4 col-md-2 col-lg-2">
+                            <button class="btn " href="#" style="color: #2BC685;font-size: 36px;float: right">
+                                <i class="fas fa-calendar-alt"></i><sup><span class="badge badge-info right"
+                                                                              style="margin-left:-12px;background-color: #FF0000;font-size: 15px;">0</span></sup>
+                            </button>
                         </div>
                     @endguest
                 </div>
-
             </div>
         </div>
     </div>
-
     <div class="container">
-        <div>
-            <p style="font-size: 24px;">กิจกรรมที่น่าสนใจ</p>
-            @include('layouts.user.title_savfe')
-        </div>
-
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -49,7 +45,8 @@
                         <div class="carousel-caption d-none d-md-block" style="text-shadow: 0 0 3px #000;">
                             <h1 style="font-weight: bold">{{ $slide1->name }}</h1>
                             <h4 style="font-weight: bold">ได้รับแต้ม {{ $slide1->point }} แต้ม</h4>
-                            <label>เริ่มวันที่ {{Carbon\Carbon::parse($slide1->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($slide1->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
+                            <label>เริ่มวันที่ {{Carbon\Carbon::parse($slide1->started_date)->addYear(543)->translatedFormat('d M Y')}}
+                                - {{Carbon\Carbon::parse($slide1->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
                         </div>
                     </div>
                 @endforeach
@@ -77,21 +74,31 @@
                 <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
                     <div class="card">
                         <a href="{{ url('/activity_detail',$content_1->id ) }}" style="text-decoration: none;">
-                            <img class="card-img-top" src="{{ $content_1->image }}" alt="Card image cap" style="height: 200px">
+                            <img class="card-img-top" src="{{ $content_1->image }}" alt="Card image cap"
+                                 style="height: 200px">
                             <div class="card-body">
                                 <div class="row mt-2 mb-2">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                        <small class="card-text" style="color: red;font-weight: bold;"><i class="fas fa-hourglass-half"></i> เหลือเวลาอีก {{Carbon\Carbon::parse($content_1->expired_date)->shortRelativeToOtherDiffForHumans()}}</small>
+                                        <small class="card-text" style="color: red;font-weight: bold;"><i
+                                                    class="fas fa-hourglass-half"></i>
+                                            เหลือเวลาอีก {{Carbon\Carbon::parse($content_1->expired_date)->shortRelativeToOtherDiffForHumans()}}
+                                        </small>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                        <small style="color: #acacac"><i class="fas fa-history"></i> อัปเดตเมื่อ {{Carbon\Carbon::parse($content_1->updated_at)->diffForHumans()}}</small>
+                                        <small style="color: #acacac"><i class="fas fa-history"></i>
+                                            อัปเดตเมื่อ {{Carbon\Carbon::parse($content_1->updated_at)->diffForHumans()}}
+                                        </small>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-12">
-                                        <small class="card-text" style="color: #acacac;">{{Carbon\Carbon::parse($content_1->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($content_1->expired_date)->addYear(543)->translatedFormat('d M Y')}}</small>
+                                        <small class="card-text"
+                                               style="color: #acacac;">{{Carbon\Carbon::parse($content_1->started_date)->addYear(543)->translatedFormat('d M Y')}}
+                                            - {{Carbon\Carbon::parse($content_1->expired_date)->addYear(543)->translatedFormat('d M Y')}}</small>
                                     </div>
                                 </div>
-                                <h3 style="font-weight: bold;color: #000000" class="card-title title-content-savfe">{{ $content_1->name }}</h3>
-                                <h6 class="card-text" style="color: #2BC685;font-weight: bold;">ได้รับแต้ม {{ $content_1->point }} แต้ม</h6>
+                                <h3 style="font-weight: bold;color: #000000"
+                                    class="card-title title-content-savfe">{{ $content_1->name }}</h3>
+                                <h6 class="card-text" style="color: #2BC685;font-weight: bold;">
+                                    ได้รับแต้ม {{ $content_1->point }} แต้ม</h6>
                             </div>
                         </a>
                     </div>
@@ -110,16 +117,19 @@
     <div class="container mt-5 mb-5">
         <ul class="nav nav-pills mb-3 col-12 text-center" id="pills-tab" role="tablist">
             <li class="nav-item col-6 col-sm-6 col-md-2 offset-md-2 col-lg-2 offset-lg-2">
-                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#tab0" role="tab" aria-selected="true">ทั้งหมด</a>
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#tab0" role="tab"
+                   aria-selected="true">ทั้งหมด</a>
             </li>
             <li class="nav-item col-6 col-sm-6 col-md-2 col-lg-2">
                 <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#tab1" role="tab" aria-selected="true">ป่าไม้</a>
             </li>
             <li class="nav-item col-6 col-sm-6 col-md-2 col-lg-2">
-                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#tab2" role="tab" aria-selected="false">ทะเล</a>
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#tab2" role="tab"
+                   aria-selected="false">ทะเล</a>
             </li>
             <li class="nav-item col-6 col-sm-6 col-md-2 col-lg-2">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#tab3" role="tab" aria-selected="false">ชนบท</a>
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#tab3" role="tab"
+                   aria-selected="false">ชุมชน</a>
             </li>
         </ul>
 
@@ -133,7 +143,8 @@
                                 @include('layouts.user.title_savfe')
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                                <a href="{{url('activity_news_detail/latest')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i class="fas fa-chevron-right"></i></a>
+                                <a href="{{url('activity_news_detail/latest')}}" style="color: #2BC685;float: right">ดูทั้งหมด
+                                    <i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
                         <div class="row">
@@ -141,33 +152,51 @@
                                 @if($content_2->started_date > $today)
                                     <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
                                         <div class="card">
-                                            <a href="{{ url('/activity_detail',$content_2->id ) }}" style="text-decoration: none;">
-                                                <img class="card-img-top" src="{{ $content_2->image }}" alt="Card image cap" style="height: 200px">
+                                            <a href="{{ url('/activity_detail',$content_2->id ) }}"
+                                               style="text-decoration: none;">
+                                                <img class="card-img-top" src="{{ $content_2->image }}"
+                                                     alt="Card image cap" style="height: 200px">
                                                 <div class="card-body">
                                                     <div class="row mt-2 mb-2">
                                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                            <small style="color: #acacac"><i class="fas fa-clock"></i> สร้างเมื่อ {{Carbon\Carbon::parse($content_2->created_at)->diffForHumans()}}</small>
+                                                            <small style="color: #acacac"><i class="fas fa-clock"></i>
+                                                                สร้างเมื่อ {{Carbon\Carbon::parse($content_2->created_at)->diffForHumans()}}
+                                                            </small>
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                            <label style="color:#000;">{{Carbon\Carbon::parse($content_2->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($content_2->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
+                                                            <label style="color:#000;">{{Carbon\Carbon::parse($content_2->started_date)->addYear(543)->translatedFormat('d M Y')}}
+                                                                - {{Carbon\Carbon::parse($content_2->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                                             @if ($content_2->joinActivities->count() < $content_2->amount)
-                                                                <small class="card-text" style="color: #2BC685;font-weight: bold;"><i class="fas fa-user-clock"></i> จำนวนคนเข้าร่วม {{$content_2->joinActivities->count()}}/{{$content_2->amount}} คน</small>
+                                                                <small class="card-text"
+                                                                       style="color: #2BC685;font-weight: bold;"><i
+                                                                            class="fas fa-user-clock"></i>
+                                                                    จำนวนคนเข้าร่วม {{$content_2->joinActivities->count()}}
+                                                                    /{{$content_2->amount}} คน</small>
                                                             @else
-                                                                <small class="card-text" style="color: red;font-weight: bold;"><i class="fas fa-user-times"></i> จำนวนคนเต็มแล้ว {{$content_2->joinActivities->count()}}/{{$content_2->amount}} คน</small>
+                                                                <small class="card-text"
+                                                                       style="color: red;font-weight: bold;"><i
+                                                                            class="fas fa-user-times"></i>
+                                                                    จำนวนคนเต็มแล้ว {{$content_2->joinActivities->count()}}
+                                                                    /{{$content_2->amount}} คน</small>
                                                             @endif
                                                         </div>
                                                         {{--                                            <div class="content-savfe-align col-12 col-sm-12 col-md-12 col-lg-12">--}}
                                                         {{--                                                <label style="color: #2BC685;"><i class="fas fa-user"></i> {{$content_2->joinActivities->count()}}/{{$content_2->amount}}</label>--}}
                                                         {{--                                            </div>--}}
                                                     </div>
-                                                    <h3 style="font-weight: bold;color: #000000" class="card-title title-content-savfe">{{$content_2->name}}</h3>
-                                                    <p class="card-text content-savfe" style="color: #000000">{{$content_2->detail}}</p>
-                                                    <h6 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ได้รับแต้ม {{$content_2->point}} แต้ม</h6>
+                                                    <h3 style="font-weight: bold;color: #000000"
+                                                        class="card-title title-content-savfe">{{$content_2->name}}</h3>
+                                                    <p class="card-text content-savfe"
+                                                       style="color: #000000">{{$content_2->detail}}</p>
+                                                    <h6 class="card-text text-center"
+                                                        style="color: #2BC685;font-weight: bold;">
+                                                        ได้รับแต้ม {{$content_2->point}} แต้ม</h6>
                                                 </div>
                                                 <div class="card-footer text-center">
-                                                    <small class="text-muted"><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร</small>
+                                                    <small class="text-muted"><i class="fas fa-map-marker-alt"></i>
+                                                        กรุงเทพมหานคร</small>
                                                 </div>
                                             </a>
                                         </div>
@@ -187,7 +216,8 @@
                                 @include('layouts.user.title_savfe')
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                                <a href="{{url('activity_news_detail/popular')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i class="fas fa-chevron-right"></i></a>
+                                <a href="{{url('activity_news_detail/popular')}}" style="color: #2BC685;float: right">ดูทั้งหมด
+                                    <i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
                         <div class="row">
@@ -195,30 +225,48 @@
                                 @if($content_3->started_date > $today)
                                     <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
                                         <div class="card">
-                                            <a href="{{ url('/activity_detail',$content_3->id ) }}" style="text-decoration: none;">
-                                                <img class="card-img-top" src="{{ $content_3->image }}" alt="Card image cap" style="height: 200px">
+                                            <a href="{{ url('/activity_detail',$content_3->id ) }}"
+                                               style="text-decoration: none;">
+                                                <img class="card-img-top" src="{{ $content_3->image }}"
+                                                     alt="Card image cap" style="height: 200px">
                                                 <div class="card-body">
                                                     <div class="row mt-2 mb-2">
                                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                            <small style="color: #acacac"><i class="fas fa-clock"></i> สร้างเมื่อ {{Carbon\Carbon::parse($content_3->created_at)->diffForHumans()}}</small>
+                                                            <small style="color: #acacac"><i class="fas fa-clock"></i>
+                                                                สร้างเมื่อ {{Carbon\Carbon::parse($content_3->created_at)->diffForHumans()}}
+                                                            </small>
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                            <label style="color: #000000">{{Carbon\Carbon::parse($content_3->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($content_3->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
+                                                            <label style="color: #000000">{{Carbon\Carbon::parse($content_3->started_date)->addYear(543)->translatedFormat('d M Y')}}
+                                                                - {{Carbon\Carbon::parse($content_3->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                                             @if ($content_3->joinActivities->count() < $content_3->amount)
-                                                                <small class="card-text" style="color: #2BC685;font-weight: bold;"><i class="fas fa-user-clock"></i> จำนวนคนเข้าร่วม {{$content_3->joinActivities->count()}}/{{$content_3->amount}} คน</small>
+                                                                <small class="card-text"
+                                                                       style="color: #2BC685;font-weight: bold;"><i
+                                                                            class="fas fa-user-clock"></i>
+                                                                    จำนวนคนเข้าร่วม {{$content_3->joinActivities->count()}}
+                                                                    /{{$content_3->amount}} คน</small>
                                                             @else
-                                                                <small class="card-text" style="color: red;font-weight: bold;"><i class="fas fa-user-times"></i> จำนวนคนเต็มแล้ว {{$content_3->joinActivities->count()}}/{{$content_3->amount}} คน</small>
+                                                                <small class="card-text"
+                                                                       style="color: red;font-weight: bold;"><i
+                                                                            class="fas fa-user-times"></i>
+                                                                    จำนวนคนเต็มแล้ว {{$content_3->joinActivities->count()}}
+                                                                    /{{$content_3->amount}} คน</small>
                                                             @endif
                                                         </div>
                                                     </div>
-                                                    <h3 style="font-weight: bold;color: #000000" class="card-title title-content-savfe">{{$content_3->name}}</h3>
-                                                    <p class="card-text content-savfe" style="color:#000;">{{$content_3->detail}}</p>
-                                                    <h6 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ได้รับแต้ม {{$content_3->point}} แต้ม</h6>
+                                                    <h3 style="font-weight: bold;color: #000000"
+                                                        class="card-title title-content-savfe">{{$content_3->name}}</h3>
+                                                    <p class="card-text content-savfe"
+                                                       style="color:#000;">{{$content_3->detail}}</p>
+                                                    <h6 class="card-text text-center"
+                                                        style="color: #2BC685;font-weight: bold;">
+                                                        ได้รับแต้ม {{$content_3->point}} แต้ม</h6>
                                                 </div>
                                                 <div class="card-footer text-center">
-                                                    <small class="text-muted"><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร</small>
+                                                    <small class="text-muted"><i class="fas fa-map-marker-alt"></i>
+                                                        กรุงเทพมหานคร</small>
                                                 </div>
                                             </a>
                                         </div>
@@ -239,37 +287,57 @@
                                 @include('layouts.user.title_savfe')
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                                <a href="{{url('activity_news_detail/mostpoints')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i class="fas fa-chevron-right"></i></a>
+                                <a href="{{url('activity_news_detail/mostpoints')}}"
+                                   style="color: #2BC685;float: right">ดูทั้งหมด <i
+                                            class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
                         <div class="row">
                             @foreach($contents_4 as $content_4)
                                 <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
                                     <div class="card">
-                                        <a href="{{ url('/activity_detail',$content_4->id ) }}" style="text-decoration: none;">
-                                            <img class="card-img-top" src="{{ $content_4->image }}" alt="Card image cap" style="height: 200px">
+                                        <a href="{{ url('/activity_detail',$content_4->id ) }}"
+                                           style="text-decoration: none;">
+                                            <img class="card-img-top" src="{{ $content_4->image }}" alt="Card image cap"
+                                                 style="height: 200px">
                                             <div class="card-body">
                                                 <div class="row mt-2 mb-2">
                                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                        <small style="color: #acacac"><i class="fas fa-clock"></i> สร้างเมื่อ {{Carbon\Carbon::parse($content_4->created_at)->diffForHumans()}}</small>
+                                                        <small style="color: #acacac"><i class="fas fa-clock"></i>
+                                                            สร้างเมื่อ {{Carbon\Carbon::parse($content_4->created_at)->diffForHumans()}}
+                                                        </small>
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                        <label style="color:#000;">{{Carbon\Carbon::parse($content_4->started_date)->addYear(543)->translatedFormat('d M Y')}} - {{Carbon\Carbon::parse($content_4->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
+                                                        <label style="color:#000;">{{Carbon\Carbon::parse($content_4->started_date)->addYear(543)->translatedFormat('d M Y')}}
+                                                            - {{Carbon\Carbon::parse($content_4->expired_date)->addYear(543)->translatedFormat('d M Y')}}</label>
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                                         @if ($content_4->joinActivities->count() < $content_4->amount)
-                                                            <small class="card-text" style="color: #2BC685;font-weight: bold;"><i class="fas fa-user-clock"></i> จำนวนคนเข้าร่วม {{$content_4->joinActivities->count()}}/{{$content_4->amount}} คน</small>
+                                                            <small class="card-text"
+                                                                   style="color: #2BC685;font-weight: bold;"><i
+                                                                        class="fas fa-user-clock"></i>
+                                                                จำนวนคนเข้าร่วม {{$content_4->joinActivities->count()}}
+                                                                /{{$content_4->amount}} คน</small>
                                                         @else
-                                                            <small class="card-text" style="color: red;font-weight: bold;"><i class="fas fa-user-times"></i> จำนวนคนเต็มแล้ว {{$content_4->joinActivities->count()}}/{{$content_4->amount}} คน</small>
+                                                            <small class="card-text"
+                                                                   style="color: red;font-weight: bold;"><i
+                                                                        class="fas fa-user-times"></i>
+                                                                จำนวนคนเต็มแล้ว {{$content_4->joinActivities->count()}}
+                                                                /{{$content_4->amount}} คน</small>
                                                         @endif
                                                     </div>
                                                 </div>
-                                                <h3 style="font-weight: bold;color:#000;" class="card-title title-content-savfe">{{$content_4->name}}</h3>
-                                                <p class="card-text content-savfe" style="color: #000000">{{$content_4->detail}}</p>
-                                                <h6 class="card-text text-center" style="color: #2BC685;font-weight: bold;">ได้รับแต้ม {{$content_4->point}} แต้ม</h6>
+                                                <h3 style="font-weight: bold;color:#000;"
+                                                    class="card-title title-content-savfe">{{$content_4->name}}</h3>
+                                                <p class="card-text content-savfe"
+                                                   style="color: #000000">{{$content_4->detail}}</p>
+                                                <h6 class="card-text text-center"
+                                                    style="color: #2BC685;font-weight: bold;">
+                                                    ได้รับแต้ม {{$content_4->point}} แต้ม</h6>
                                             </div>
                                             <div class="card-footer text-center">
-                                                <small class="text-muted"><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร</small>
+                                                <small class="text-muted"><i class="fas fa-map-marker-alt"></i>
+                                                    กรุงเทพมหานคร</small>
                                             </div>
                                         </a>
                                     </div>
@@ -288,7 +356,8 @@
                         <p style="font-size: 20px; font-weight: bold">หัวข้อ tab1</p>
                     </div>
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <a href="{{url('activity_tabs_detail/today')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i class="fas fa-chevron-right"></i></a>
+                        <a href="{{url('activity_tabs_detail/today')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                                    class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
                 <div class="container">
@@ -306,7 +375,8 @@
                         <p style="font-size: 20px; font-weight: bold">หัวข้อ tab2</p>
                     </div>
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <a href="{{url('activity_tabs_detail/today')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i class="fas fa-chevron-right"></i></a>
+                        <a href="{{url('activity_tabs_detail/today')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                                    class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
                 <div class="container">
@@ -323,7 +393,8 @@
                         <p style="font-size: 20px; font-weight: bold">หัวข้อ tab3</p>
                     </div>
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <a href="{{url('activity_tabs_detail/today')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i class="fas fa-chevron-right"></i></a>
+                        <a href="{{url('activity_tabs_detail/today')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                                    class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
                 <div class="container">

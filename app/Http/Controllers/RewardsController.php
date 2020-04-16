@@ -68,9 +68,8 @@ class RewardsController extends Controller
 
     public function postDeleteRewards(Request $request) {
         $reward = Rewards::find($request->get('id'));
+//        dd($reward->id);
         $reward -> delete();
         return redirect()->back();
     }
-
-
 }

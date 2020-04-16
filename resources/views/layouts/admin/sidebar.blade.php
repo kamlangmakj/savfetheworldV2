@@ -30,6 +30,18 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ url('admin/join_activities') }}" class="nav-link @if(Request::is('admin/join_activities*')) active @endif">
+                    <i class="nav-icon far fa-calendar-plus"></i>
+                    <p>
+                        เข้าร่วมกิจกรรม
+                        <span class="badge badge-info right" style="background-color: #FF0000;">
+                            {{$joinActivitiesCount}}
+                        </span>
+                    </p>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a href="{{ url('admin/rewards') }}" class="nav-link @if(Request::is('admin/rewards*')) active @endif">
                     <i class="nav-icon far fa-star"></i>
                     <p>
@@ -38,32 +50,40 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('admin/tracking_rewards') }}" class="nav-link @if(Request::is('admin/tracking_rewards')) active @endif">
+                <a href="{{ url('admin/tracking_rewards') }}" class="nav-link @if(Request::is('admin/tracking_rewards*')) active @endif">
                     <i class="nav-icon fas fa-box"></i>
                     <p>
                         ติดตามของรางวัล
+                        <span class="badge badge-info right" style="background-color: #FF0000;">
+                            {{$trackingRewardCount}}
+                        </span>
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/contacts') }}" class="nav-link @if(Request::is('admin/contacts*')) active @endif">
+                    <i class="nav-icon fas fa-envelope-open-text"></i>
+                    <p>
+                        ติดต่อเรา
+                        <span class="badge badge-info right" style="background-color: #FF0000;">
+                            {{$contactCount}}
+                        </span>
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/receive_news') }}" class="nav-link @if(Request::is('admin/receive_news*')) active @endif">
+                    <i class="nav-icon fas fa-envelope"></i>
+                    <p>
+                        ส่งข่าวสาร
+                        <span class="badge badge-info right" style="background-color: #FF0000;">
+                            {{$receiveNewsCount}}
+                        </span>
                     </p>
                 </a>
             </li>
             @guest
-                <li class="nav-item">
-                    <a href="{{ route('login') }}" class="nav-link">
-                        <i class="nav-icon fas fa-sign-in-alt"></i>
-                        <p>
-                            เข้าสู่ระบบ
-                        </p>
-                    </a>
-                </li>
-                @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a href="{{ route('register') }}" class="nav-link">
-                            <i class="nav-icon fas fa-registered"></i>
-                            <p>
-                                สมัครสมาชิก
-                            </p>
-                        </a>
-                    </li>
-                @endif
+
             @else
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

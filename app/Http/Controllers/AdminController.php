@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\TrackingRewards;
 use App\Users;
 use App\Rewards;
 use App\Activities;
@@ -30,7 +31,9 @@ class AdminController extends Controller
         $users = DB::table('users');
         $activities = DB::table('activities');
         $rewards = DB::table('rewards');
-        $tracking_rewards = DB::table('tracking_rewards');
+//        $tracking_rewards = DB::table('tracking_rewards');
+        $tracking_rewards = TrackingRewards::all();
+
 
         return view('admin.index',[
             'users'=>$users,
