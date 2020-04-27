@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sweetalert2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 
@@ -78,16 +79,16 @@
                         @endif
                         @else
 
-{{--                        <li class="nav-item" style="margin-top: auto; margin-bottom: auto;">--}}
-{{--                            <a href="#" class="nav-link">--}}
-{{--                                <label class="mt-2" style="font-weight: bold">--}}
-{{--                                    <i class="nav-icon fas fa-bell"></i>--}}
-{{--                                    <span class="badge badge-info right" style="background-color: red;">--}}
-{{--                                          {{$trackingRewardCount}}--}}
-{{--                                     </span>--}}
-{{--                                </label>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
+                        <li class="nav-item" style="margin-top: auto; margin-bottom: auto;">
+                            <a href="#" class="nav-link">
+                                <label class="mt-2" style="font-weight: bold">
+                                    <i class="nav-icon fas fa-bell"></i>
+                                    <span class="badge badge-info right" style="background-color: red;">
+                                         0
+                                     </span>
+                                </label>
+                            </a>
+                        </li>
 
                         <li class="nav-item" style="margin-top: auto; margin-bottom: auto;">
                             <label class="mt-2" style="font-weight: bold">
@@ -138,10 +139,37 @@
 <script src="{{ url('js/popper.js') }}"></script>
 <!-- Bootstrap -->
 <script src="{{ url('js/bootstrap.js') }}"></script>
+<!-- sweetalert2 -->
+<script src="{{ url('js/sweetalert2.min.js') }}"></script>
 <!-- Contact -->
 <script src="{{ url('js/contact.js') }}"></script>
 <!-- Main -->
 <script src="{{ url('js/main.js') }}"></script>
+
+<script>
+    $('#btnCheck').on('click',function () {
+        var data=$('#number').val();
+        var data2=$('#number2').val();
+
+        console.log(data2);
+
+        if(data == data2){
+            Swal.fire(
+                'รหัสยืนยันถูกต้อง',
+                'ยืนยันการเข้าร่วมกิจกรรมเรียบร้อยแล้ว',
+                'success'
+            )
+        }
+        else {
+            Swal.fire(
+                'รหัสยืนยันผิดพลาด',
+                'กรุณากรอกใหม่อีกครั้งเพื่อยืนยันการเข้าร่วมกิจกรรม',
+                'error'
+            )
+        }
+    })
+</script>
+
 
 </body>
 </html>

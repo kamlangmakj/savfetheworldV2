@@ -49,5 +49,13 @@ class AppServiceProvider extends ServiceProvider
         View::share(
             'joinActivitiesCount', JoinActivities::where('status_id','=', 1)->count()
         );
+
+        View::share(
+            'saveActivitiesCount', JoinActivities::all()->count()
+        );
+
+        View::share(
+            'saveRewardsCount', TrackingRewards::all()->count()
+        );
     }
 }

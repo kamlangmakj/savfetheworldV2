@@ -47,10 +47,10 @@
                                         <div class="form-group col-6">
                                             <label for="name">เพศ</label>
                                             <select class="form-control" name="gender">
-                                                <option value="ชาย" @if($user->gender == "ชาย") selected @endif>เพศชาย
+                                                <option value="ชาย" @if($user->gender == "ชาย") selected @endif>ชาย
                                                 </option>
                                                 <option value="หญิง" @if($user->gender == "หญิง") selected @endif>
-                                                    เพศหญิง
+                                                    หญิง
                                                 </option>
                                             </select>
                                         </div>
@@ -212,45 +212,45 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group col-6" style="margin-top: -20px;">
-                                    <label for="name">อำเภอ</label>
-                                    <select name="province" class="form-control">
-                                        <option value="">เลือกอำเภอ</option>
-                                        <option value="ภาคเหนือ">เขตพระนคร</option>
-                                        <option value="ภาคกลาง">เขตดุสิต</option>
-                                        <option value="ภาคตะวันออกเฉียงเหนือ">เขตหนองจอก</option>
-                                        <option value="ภาคตะวันตก">เขตบางรัก</option>
-                                        <option value="ภาคตะวันออก">เขตบางเขน</option>
-                                        <option value="ภาคใต้">เขตบางกะปิ</option>
-                                    </select>
-                                </div>
+{{--                                <div class="form-group col-6" style="margin-top: -20px;">--}}
+{{--                                    <label for="name">อำเภอ</label>--}}
+{{--                                    <select name="province" class="form-control">--}}
+{{--                                        <option value="">เลือกอำเภอ</option>--}}
+{{--                                        <option value="ภาคเหนือ">เขตพระนคร</option>--}}
+{{--                                        <option value="ภาคกลาง">เขตดุสิต</option>--}}
+{{--                                        <option value="ภาคตะวันออกเฉียงเหนือ">เขตหนองจอก</option>--}}
+{{--                                        <option value="ภาคตะวันตก">เขตบางรัก</option>--}}
+{{--                                        <option value="ภาคตะวันออก">เขตบางเขน</option>--}}
+{{--                                        <option value="ภาคใต้">เขตบางกะปิ</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 
-                                <div class="form-group col-6" style="margin-top: -20px;">
-                                    <label for="name">ตำบล</label>
-                                    <select name="province" class="form-control">
-                                        <option value="">เลือกตำบล</option>
-                                        <option value="ภาคเหนือ">พระบรมมหาราชวัง</option>
-                                        <option value="ภาคกลาง">วังบูรพาภิรมย์</option>
-                                        <option value="ภาคตะวันออกเฉียงเหนือ">วัดราชบพิธ</option>
-                                        <option value="ภาคตะวันตก">สำราญราษฎร์</option>
-                                        <option value="ภาคตะวันออก">ศาลเจ้าพ่อเสือ</option>
-                                        <option value="ภาคใต้">เสาชิงช้า</option>
-                                    </select>
-                                </div>
+{{--                                <div class="form-group col-6" style="margin-top: -20px;">--}}
+{{--                                    <label for="name">ตำบล</label>--}}
+{{--                                    <select name="province" class="form-control">--}}
+{{--                                        <option value="">เลือกตำบล</option>--}}
+{{--                                        <option value="ภาคเหนือ">พระบรมมหาราชวัง</option>--}}
+{{--                                        <option value="ภาคกลาง">วังบูรพาภิรมย์</option>--}}
+{{--                                        <option value="ภาคตะวันออกเฉียงเหนือ">วัดราชบพิธ</option>--}}
+{{--                                        <option value="ภาคตะวันตก">สำราญราษฎร์</option>--}}
+{{--                                        <option value="ภาคตะวันออก">ศาลเจ้าพ่อเสือ</option>--}}
+{{--                                        <option value="ภาคใต้">เสาชิงช้า</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 
-                                <div class="form-group col-6">
-                                    <label for="name">รหัสไปรษณีย์</label>
-                                    <select name="province" class="form-control">
-                                        <option value="">เลือกรหัสไปรษณีย์</option>
-                                        <option value="10000">10000</option>
-                                        <option value="10001">10001</option>
-                                        <option value="10002">10002</option>
-                                        <option value="10002">10002</option>
-                                        <option value="10003">10003</option>
-                                        <option value="10004">10004</option>
-                                    </select>
-                                </div>
-                            </div>
+{{--                                <div class="form-group col-6">--}}
+{{--                                    <label for="name">รหัสไปรษณีย์</label>--}}
+{{--                                    <select name="province" class="form-control">--}}
+{{--                                        <option value="">เลือกรหัสไปรษณีย์</option>--}}
+{{--                                        <option value="10000">10000</option>--}}
+{{--                                        <option value="10001">10001</option>--}}
+{{--                                        <option value="10002">10002</option>--}}
+{{--                                        <option value="10002">10002</option>--}}
+{{--                                        <option value="10003">10003</option>--}}
+{{--                                        <option value="10004">10004</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </div>
 
                     </div>

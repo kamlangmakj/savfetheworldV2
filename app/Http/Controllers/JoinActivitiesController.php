@@ -49,7 +49,6 @@ class JoinActivitiesController extends Controller
 
     public function postDeleteJoinActivities(Request $request) {
         $join_activity = JoinActivities::find($request->get('id'));
-//        dd($activity->id);
         $join_activity -> delete();
         return redirect()->back();
     }

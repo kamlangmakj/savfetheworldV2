@@ -70,4 +70,4 @@
         </div>
     </div>
 </footer>
-<button onclick="topFunction()" class="back-to-top" id="myBtn" title="Go to top"><i class="fa fa-chevron-up"></i></button>
+<button onclick="topFunction()" class="back-to-top" id="myBtn" title="Go to top"><i class="fa fa-chevron-up" style="margin-left: -5px"></i></button>

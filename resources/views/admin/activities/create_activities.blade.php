@@ -42,17 +42,30 @@
                                     <div class="form-group">
                                         <label for="name">หมวดหมู่กิจกรรม</label>
                                         <select type="text" class="form-control" placeholder="หมวดหมู่กิจกรรม" name="category_types_activities_id">
+                                            <option value="">เลือกหมวดหมู่กิจกรรม</option>
                                             <optgroup label="ป่าไม้">
                                                 <option value="1" data-cat="1">ป่าดิบชื้น</option>
                                                 <option value="2" data-cat="1">ป่าดิบแล้ง</option>
+                                                <option value="3" data-cat="1">ป่าดิบเขา</option>
+                                                <option value="4" data-cat="1">ป่าสนเขา</option>
+                                                <option value="5" data-cat="1">ป่าชายเลน</option>
+                                                <option value="6" data-cat="1">ป่าพรุหรือป่าบึงน้ำจืด</option>
+                                                <option value="7" data-cat="1">ป่าชายหาด</option>
+                                                <option value="8" data-cat="1">ป่าเบญจพรรณ</option>
+                                                <option value="9" data-cat="1">ป่าเต็งรัง</option>
+                                                <option value="10" data-cat="1">ป่าหญ้า</option>
                                             </optgroup>
                                             <optgroup label="ทะเล">
-                                                <option value="3" data-cat="2">อันดามัน</option>
-                                                <option value="4" data-cat="2">อ่าวไทย</option>
+                                                <option value="11" data-cat="2">ชายฝั่งหิน</option>
+                                                <option value="12" data-cat="2">หาดทราย</option>
+                                                <option value="13" data-cat="2">ลากูน</option>
+                                                <option value="14" data-cat="2">ที่ราบน้ำขึ้นถึง</option>
+                                                <option value="15" data-cat="2">พรุ</option>
+                                                <option value="16" data-cat="2">เนินทราย</option>
                                             </optgroup>
                                             <optgroup label="ชุมชน">
-                                                <option value="5" data-cat="3">ชุมชนชนบท</option>
-                                                <option value="6" data-cat="3">ชุมชนเมือง</option>
+                                                <option value="17" data-cat="3">ชุมชนเมือง</option>
+                                                <option value="18" data-cat="3">ชุมชนชนบท</option>
                                             </optgroup>
                                         </select>
                                     </div>
@@ -128,142 +141,141 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="name">ภูมิภาค</label>
-                                    <select name="province" class="form-control">
+                                    <select name="geography_id" class="form-control">
                                         <option value="">เลือกภูมิภาค</option>
-                                        <option value="ภาคเหนือ">ภาคเหนือ</option>
-                                        <option value="ภาคกลาง">ภาคกลาง</option>
-                                        <option value="ภาคตะวันออกเฉียงเหนือ">ภาคตะวันออกเฉียงเหนือ</option>
-                                        <option value="ภาคตะวันตก">ภาคตะวันตก</option>
-                                        <option value="ภาคตะวันออก">ภาคตะวันออก</option>
-                                        <option value="ภาคใต้">ภาคใต้</option>
+                                        <option value="1">ภาคเหนือ</option>
+                                        <option value="2">ภาคกลาง</option>
+                                        <option value="3">ภาคตะวันออกเฉียงเหนือ</option>
+                                        <option value="4">ภาคตะวันตก</option>
+                                        <option value="5">ภาคตะวันออก</option>
+                                        <option value="6">ภาคใต้</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group col-6">
                                     <div class="form-group">
                                         <label for="name">จังหวัด</label>
-                                        <select name="province" class="form-control">
+                                        <select name="province_id" class="form-control">
                                             <option value="">เลือกจังหวัด</option>
-                                            <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
-                                            <option value="กระบี่">กระบี่ </option>
-                                            <option value="กาญจนบุรี">กาญจนบุรี </option>
-                                            <option value="กาฬสินธุ์">กาฬสินธุ์ </option>
-                                            <option value="กำแพงเพชร">กำแพงเพชร </option>
-                                            <option value="ขอนแก่น">ขอนแก่น</option>
-                                            <option value="จันทบุรี">จันทบุรี</option>
-                                            <option value="ฉะเชิงเทรา">ฉะเชิงเทรา </option>
-                                            <option value="ชัยนาท">ชัยนาท </option>
-                                            <option value="ชัยภูมิ">ชัยภูมิ </option>
-                                            <option value="ชุมพร">ชุมพร </option>
-                                            <option value="ชลบุรี">ชลบุรี </option>
-                                            <option value="เชียงใหม่">เชียงใหม่ </option>
-                                            <option value="เชียงราย">เชียงราย </option>
-                                            <option value="ตรัง">ตรัง </option>
-                                            <option value="ตราด">ตราด </option>
-                                            <option value="ตาก">ตาก </option>
-                                            <option value="นครนายก">นครนายก </option>
-                                            <option value="นครปฐม">นครปฐม </option>
-                                            <option value="นครพนม">นครพนม </option>
-                                            <option value="นครราชสีมา">นครราชสีมา </option>
-                                            <option value="นครศรีธรรมราช">นครศรีธรรมราช </option>
-                                            <option value="นครสวรรค์">นครสวรรค์ </option>
-                                            <option value="นราธิวาส">นราธิวาส </option>
-                                            <option value="น่าน">น่าน </option>
-                                            <option value="นนทบุรี">นนทบุรี </option>
-                                            <option value="บึงกาฬ">บึงกาฬ</option>
-                                            <option value="บุรีรัมย์">บุรีรัมย์</option>
-                                            <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์ </option>
-                                            <option value="ปทุมธานี">ปทุมธานี </option>
-                                            <option value="ปราจีนบุรี">ปราจีนบุรี </option>
-                                            <option value="ปัตตานี">ปัตตานี </option>
-                                            <option value="พะเยา">พะเยา </option>
-                                            <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา </option>
-                                            <option value="พังงา">พังงา </option>
-                                            <option value="พิจิตร">พิจิตร </option>
-                                            <option value="พิษณุโลก">พิษณุโลก </option>
-                                            <option value="เพชรบุรี">เพชรบุรี </option>
-                                            <option value="เพชรบูรณ์">เพชรบูรณ์ </option>
-                                            <option value="แพร่">แพร่ </option>
-                                            <option value="พัทลุง">พัทลุง </option>
-                                            <option value="ภูเก็ต">ภูเก็ต </option>
-                                            <option value="มหาสารคาม">มหาสารคาม </option>
-                                            <option value="มุกดาหาร">มุกดาหาร </option>
-                                            <option value="แม่ฮ่องสอน">แม่ฮ่องสอน </option>
-                                            <option value="ยโสธร">ยโสธร </option>
-                                            <option value="ยะลา">ยะลา </option>
-                                            <option value="ร้อยเอ็ด">ร้อยเอ็ด </option>
-                                            <option value="ระนอง">ระนอง </option>
-                                            <option value="ระยอง">ระยอง </option>
-                                            <option value="ราชบุรี">ราชบุรี</option>
-                                            <option value="ลพบุรี">ลพบุรี </option>
-                                            <option value="ลำปาง">ลำปาง </option>
-                                            <option value="ลำพูน">ลำพูน </option>
-                                            <option value="เลย">เลย </option>
-                                            <option value="ศรีสะเกษ">ศรีสะเกษ</option>
-                                            <option value="สกลนคร">สกลนคร</option>
-                                            <option value="สงขลา">สงขลา </option>
-                                            <option value="สมุทรสาคร">สมุทรสาคร </option>
-                                            <option value="สมุทรปราการ">สมุทรปราการ </option>
-                                            <option value="สมุทรสงคราม">สมุทรสงคราม </option>
-                                            <option value="สระแก้ว">สระแก้ว </option>
-                                            <option value="สระบุรี">สระบุรี </option>
-                                            <option value="สิงห์บุรี">สิงห์บุรี </option>
-                                            <option value="สุโขทัย">สุโขทัย </option>
-                                            <option value="สุพรรณบุรี">สุพรรณบุรี </option>
-                                            <option value="สุราษฎร์ธานี">สุราษฎร์ธานี </option>
-                                            <option value="สุรินทร์">สุรินทร์ </option>
-                                            <option value="สตูล">สตูล </option>
-                                            <option value="หนองคาย">หนองคาย </option>
-                                            <option value="หนองบัวลำภู">หนองบัวลำภู </option>
-                                            <option value="อำนาจเจริญ">อำนาจเจริญ </option>
-                                            <option value="อุดรธานี">อุดรธานี </option>
-                                            <option value="อุตรดิตถ์">อุตรดิตถ์ </option>
-                                            <option value="อุทัยธานี">อุทัยธานี </option>
-                                            <option value="อุบลราชธานี">อุบลราชธานี</option>
-                                            <option value="อ่างทอง">อ่างทอง </option>
-                                            <option value="อื่นๆ">อื่นๆ</option>
+                                            <option value="1">กรุงเทพมหานคร</option>
+                                            <option value="2">สมุทรปราการ</option>
+                                            <option value="3">นนทบุรี</option>
+                                            <option value="4">ปทุมธานี</option>
+                                            <option value="5">พระนครศรีอยุธยา</option>
+                                            <option value="6">อ่างทอง</option>
+                                            <option value="7">ลพบุรี</option>
+                                            <option value="8">สิงห์บุรี</option>
+                                            <option value="9">ชัยนาท</option>
+                                            <option value="10">สระบุรี</option>
+                                            <option value="11">ชลบุรี</option>
+                                            <option value="12">ระยอง</option>
+                                            <option value="13">จันทบุรี</option>
+                                            <option value="14">ตราด</option>
+                                            <option value="15">ฉะเชิงเทรา</option>
+                                            <option value="16">ปราจีนบุรี</option>
+                                            <option value="17">นครนายก</option>
+                                            <option value="18">สระแก้ว</option>
+                                            <option value="19">นครราชสีมา</option>
+                                            <option value="20">บุรีรัมย์</option>
+                                            <option value="21">สุรินทร์</option>
+                                            <option value="22">ศรีสะเกษ</option>
+                                            <option value="23">อุบลราชธานี</option>
+                                            <option value="24">ยโสธร</option>
+                                            <option value="25">ชัยภูมิ</option>
+                                            <option value="26">อำนาจเจริญ</option>
+                                            <option value="27">หนองบัวลำภู</option>
+                                            <option value="28">ขอนแก่น</option>
+                                            <option value="29">อุดรธานี</option>
+                                            <option value="30">เลย</option>
+                                            <option value="31">หนองคาย</option>
+                                            <option value="32">มหาสารคาม</option>
+                                            <option value="33">ร้อยเอ็ด</option>
+                                            <option value="34">กาฬสินธุ์</option>
+                                            <option value="35">สกลนคร</option>
+                                            <option value="36">นครพนม</option>
+                                            <option value="37">มุกดาหาร</option>
+                                            <option value="38">เชียงใหม่</option>
+                                            <option value="39">ลำพูน</option>
+                                            <option value="40">ลำปาง</option>
+                                            <option value="41">อุตรดิตถ์</option>
+                                            <option value="42">แพร่</option>
+                                            <option value="43">น่าน</option>
+                                            <option value="44">พะเยา</option>
+                                            <option value="45">เชียงราย</option>
+                                            <option value="46">แม่ฮ่องสอน</option>
+                                            <option value="47">นครสวรรค์</option>
+                                            <option value="48">อุทัยธานี</option>
+                                            <option value="49">กำแพงเพชร</option>
+                                            <option value="50">ตาก</option>
+                                            <option value="51">สุโขทัย</option>
+                                            <option value="52">พิษณุโลก</option>
+                                            <option value="53">พิจิตร</option>
+                                            <option value="54">เพชรบูรณ์</option>
+                                            <option value="55">ราชบุรี</option>
+                                            <option value="56">กาญจนบุรี</option>
+                                            <option value="57">สุพรรณบุรี</option>
+                                            <option value="58">นครปฐม</option>
+                                            <option value="59">สมุทรสาคร</option>
+                                            <option value="60">สมุทรสงคราม</option>
+                                            <option value="61">เพชรบุรี</option>
+                                            <option value="62">ประจวบคีรีขันธ์</option>
+                                            <option value="63">นครศรีธรรมราช</option>
+                                            <option value="64">กระบี่</option>
+                                            <option value="65">พังงา</option>
+                                            <option value="66">ภูเก็ต</option>
+                                            <option value="67">สุราษฎร์ธานี</option>
+                                            <option value="68">ระนอง</option>
+                                            <option value="69">ชุมพร</option>
+                                            <option value="70">สงขลา</option>
+                                            <option value="71">สตูล</option>
+                                            <option value="72">ตรัง</option>
+                                            <option value="73">พัทลุง</option>
+                                            <option value="74">ปัตตานี</option>
+                                            <option value="75">ยะลา</option>
+                                            <option value="76">นราธิวาส</option>
+                                            <option value="77">บึงกาฬ</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-6" style="margin-top: -20px;">
-                                    <label for="name">อำเภอ</label>
-                                    <select name="province" class="form-control">
-                                        <option value="">เลือกอำเภอ</option>
-                                        <option value="ภาคเหนือ">เขตพระนคร</option>
-                                        <option value="ภาคกลาง">เขตดุสิต</option>
-                                        <option value="ภาคตะวันออกเฉียงเหนือ">เขตหนองจอก</option>
-                                        <option value="ภาคตะวันตก">เขตบางรัก</option>
-                                        <option value="ภาคตะวันออก">เขตบางเขน</option>
-                                        <option value="ภาคใต้">เขตบางกะปิ</option>
-                                    </select>
-                                </div>
+{{--                                <div class="form-group col-6" style="margin-top: -20px;">--}}
+{{--                                    <label for="name">อำเภอ</label>--}}
+{{--                                    <select name="province" class="form-control">--}}
+{{--                                        <option value="">เลือกอำเภอ</option>--}}
+{{--                                        <option value="ภาคเหนือ">เขตพระนคร</option>--}}
+{{--                                        <option value="ภาคกลาง">เขตดุสิต</option>--}}
+{{--                                        <option value="ภาคตะวันออกเฉียงเหนือ">เขตหนองจอก</option>--}}
+{{--                                        <option value="ภาคตะวันตก">เขตบางรัก</option>--}}
+{{--                                        <option value="ภาคตะวันออก">เขตบางเขน</option>--}}
+{{--                                        <option value="ภาคใต้">เขตบางกะปิ</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 
-                                <div class="form-group col-6" style="margin-top: -20px;">
-                                    <label for="name">ตำบล</label>
-                                    <select name="province" class="form-control">
-                                        <option value="">เลือกตำบล</option>
-                                        <option value="ภาคเหนือ">พระบรมมหาราชวัง</option>
-                                        <option value="ภาคกลาง">วังบูรพาภิรมย์</option>
-                                        <option value="ภาคตะวันออกเฉียงเหนือ">วัดราชบพิธ</option>
-                                        <option value="ภาคตะวันตก">สำราญราษฎร์</option>
-                                        <option value="ภาคตะวันออก">ศาลเจ้าพ่อเสือ</option>
-                                        <option value="ภาคใต้">เสาชิงช้า</option>
-                                    </select>
-                                </div>
+{{--                                <div class="form-group col-6" style="margin-top: -20px;">--}}
+{{--                                    <label for="name">ตำบล</label>--}}
+{{--                                    <select name="province" class="form-control">--}}
+{{--                                        <option value="">เลือกตำบล</option>--}}
+{{--                                        <option value="ภาคเหนือ">พระบรมมหาราชวัง</option>--}}
+{{--                                        <option value="ภาคกลาง">วังบูรพาภิรมย์</option>--}}
+{{--                                        <option value="ภาคตะวันออกเฉียงเหนือ">วัดราชบพิธ</option>--}}
+{{--                                        <option value="ภาคตะวันตก">สำราญราษฎร์</option>--}}
+{{--                                        <option value="ภาคตะวันออก">ศาลเจ้าพ่อเสือ</option>--}}
+{{--                                        <option value="ภาคใต้">เสาชิงช้า</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 
-                                <div class="form-group col-6">
-                                    <label for="name">รหัสไปรษณีย์</label>
-                                    <select name="province" class="form-control">
-                                        <option value="">เลือกรหัสไปรษณีย์</option>
-                                        <option value="10000">10000</option>
-                                        <option value="10001">10001</option>
-                                        <option value="10002">10002</option>
-                                        <option value="10002">10002</option>
-                                        <option value="10003">10003</option>
-                                        <option value="10004">10004</option>
-                                    </select>
-                                </div>
+{{--                                <div class="form-group col-6">--}}
+{{--                                    <label for="name">รหัสไปรษณีย์</label>--}}
+{{--                                    <select name="province" class="form-control">--}}
+{{--                                        <option value="">เลือกรหัสไปรษณีย์</option>--}}
+{{--                                        <option value="10000">10000</option>--}}
+{{--                                        <option value="10001">10001</option>--}}
+{{--                                        <option value="10002">10002</option>--}}
+{{--                                        <option value="10002">10002</option>--}}
+{{--                                        <option value="10003">10003</option>--}}
+{{--                                        <option value="10004">10004</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     </div>

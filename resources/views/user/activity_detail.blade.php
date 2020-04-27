@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <p style="font-size: 38px; font-weight: bold">รายละเอียดกิจกรรม</p>
+                        <p style="font-size: 24px; font-weight: bold">รายละเอียดกิจกรรม</p>
 
                         @include('layouts.user.title_savfe')
                     </div>
@@ -21,72 +21,33 @@
                     <div class="card-body">
                         <div class="row mt-2 mb-2">
                             <div class="row col-12">
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                                     <small style="color: #acacac"><i class="fas fa-clock"></i>
                                         สร้างเมื่อ {{Carbon\Carbon::parse($activity->created_at)->diffForHumans()}}
                                     </small>
                                     {{--                                        <small style="color: #acacac"><i class="fas fa-history"></i> อัปเดตเมื่อ {{Carbon\Carbon::parse($activity->updated_at)->diffForHumans()}}</small>--}}
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 detail-savfe-align">
-                                    @if ($activity->joinActivities->count() < $activity->amount)
-                                        <small class="card-text" style="color: #2BC685;font-weight: bold;"><i
-                                                    class="fas fa-user-clock"></i>
-                                            จำนวนคนเข้าร่วม {{$activity->joinActivities->count()}}/{{$activity->amount}}
-                                            คน</small>
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                                    @if($activity->category_types_activity->id < 11)
+                                        <small class="sub-title-forest">{{$activity->category_types_activity->name}}</small>
+                                    @elseif($activity->category_types_activity->id > 10 && $activity->category_types_activity->id < 17 )
+                                        <small class="sub-title-sea">{{$activity->category_types_activity->name}}</small>
                                     @else
-                                        <small class="card-text" style="color: red;font-weight: bold;"><i
-                                                    class="fas fa-user-times"></i>
-                                            จำนวนคนเต็มแล้ว {{$activity->joinActivities->count()}}/{{$activity->amount}}
-                                            คน</small>
+                                        <small class="sub-title-country">{{$activity->category_types_activity->name}}</small>
                                     @endif
                                 </div>
-                                {{--                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">--}}
-                                {{--                                        <small style="color: #acacac"><i class="fas fa-clock"></i> สร้างเมื่อ {{Carbon\Carbon::parse($activity->created_at)->diffForHumans()}}</small>--}}
-                                {{--                                    </div>--}}
                             </div>
 
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3">
-                                <h4>{{Carbon\Carbon::parse($activity->started_date)->addYear(543)->translatedFormat('d M Y')}}
-                                    - {{Carbon\Carbon::parse($activity->expired_date)->addYear(543)->translatedFormat('d M Y')}}</h4>
+                                <h6>{{Carbon\Carbon::parse($activity->started_date)->addYear(543)->translatedFormat('d M Y')}}
+                                    - {{Carbon\Carbon::parse($activity->expired_date)->addYear(543)->translatedFormat('d M Y')}}</h6>
                             </div>
-                            <div class="row col-12 mt-2">
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                                    <h6 class="text-muted"><i class="fas fa-map-marker-alt"></i> กรุงเทพมหานคร</h6>
-                                </div>
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 detail-savfe-align">
-                                    <h6 class="card-text" style="color: #2BC685;font-weight: bold;">
-                                        ได้รับ {{$activity->point}} แต้ม</h6>
-                                </div>
-                            </div>
-
                         </div>
-                        <h1 style="font-weight: bold;" class="card-title mt-3 mb-3">{{$activity->name}}</h1>
-                        <h4 class="card-text">รายละเอียด</h4>
-                        <p class="card-text">{{$activity->detail}}</p>
-                        <h4 class="card-text">กำหนดการ</h4>
-                        <p class="card-text">
-                            06.00 น. พร้อมกัน ณ จุดลงทะเบียนที่ 1 (ปั๊ม ปตท. สนามเป้า)<br>
-                            06.30 น. ล้อหมุน ขึ้นทางด่วน มุ่งหน้าสู่ ถนนพระราม 2<br>
-                            07.00 น. รับสมาชิก ณ จุดลงทะเบียนที่ 2  ด้านหน้าห้าง Big C Rama2 (ตรงข้าม Central Rama 2)<br>
-                            07.30 น. เดินทางมุ่งหน้าสู่ ตำบลคลองโคน อำเภอเมือง จังหวัดสมุทรสงคราม<br>
-                            08.30 น. ฟังการบรรยาย “ประโยชน์ของป่าชายเลน และวิธีการปลูกป่าชายเลน” โดยวิทยากรรับเชิญ<br>
-                            09.00 น. แบ่งสมาชิก (ทีมละ 15 คน ลงเรือ เดินทางสู่ พื้นที่แปลงปลูกป่าชายเลน<br>
-                            (ควรนุ่งกางเกงขาสั้น เพื่อความสะดวกในการทำกิจกรรม)<br>
-                            09.30 น. ปฏิบัติภาระกิจ ปลูกป่าชายเลน<br>
-                            11.00 น. เดินทางกลับ “ศูนย์ศึกษาธรรมชาติป่าชายเลนคลองโคน”<br>
-                            11.30 น. อาบน้ำ ชำระล้างร่างกาย ผลัดเปลี่ยนเสื้อผ้าให้เรียบร้อย<br>
-                            12.00 น. รับประทานอาหารกลางวันร่วมกัน ใต้ร่มไม้โกงกาง<br>
-                            13.30 น. สรุปกิจกรรมเยาวชนจิตอาสาร่วมอนุรักษ์สิ่งแวดล้อม “ปลูกป่าชายเลน” ร่วมกัน<br>
-                            14.30 น. เดินทางมุ่งหน้าสู่ “ค่ายบางกุ้ง”<br>
-                            15.00 น. กราบนมัสการ “หลวงพ่อนิลมณี” @ โบสถ์ปรกโพธิ์<br>
-                            15.30 น. มุ่งหน้าสู่ “วัดภุมรินทร์กุฏีทอง”<br>
-                            16.00 น. แวะซื้อของฝาก และรับประทานอาหารเย็น (ตามอัธยาศัย) @ “ตลาดน้ำอัมพวา”<br>
-                            18.00 น. พร้อมกันที่จุดนัดหมาย<br>
-                            20.00 น. เดินทางกลับถึงกรุงเทพมหานคร โดยสวัสดิภาพ
-                        </p>
-                        <small class="card-text">
-                            ***หมายเหตุ : ทีมงานฯ ขอสงวนสิทธิการเปลี่ยนแปลงกำหนดการตามความเหมาะสม ทั้งนี้ จะพิจารณาเรื่องความปลอดภัยและการรักษาเวลาเป็นสำคัญ
-                        </small>
+                        <h3 style="font-weight: bold;" class="card-title mt-3 mb-3">{{$activity->name}} </h3>
+                        <br>
+                        <h5 class="card-text"><i class="fas fa-book"></i> รายละเอียด</h5>
+                        {!! $activity->detail !!}
+
                     </div>
                 </div>
             </div>
@@ -96,39 +57,37 @@
                         <div class="row">
                             <div class="col-12">
                                 <small style="color: #000">
-                                    สถานที่ : {{$activity->address}}
+                                    <i class="fas fa-map-marker-alt"></i> สถานที่ {{$activity->address}}
                                 </small>
                                 <br>
                                 <small style="color: #000">
-                                    ติดต่อ : +669 1765 9890
+                                    <i class="fas fa-phone"></i> ติดต่อ +669 1765 9890
                                 </small>
                                 <br>
                                 <small style="color: #000">
-                                    ชื่อผู้จัด : {{$activity->agent}}
+                                    <i class="fas fa-user"></i> ชื่อผู้จัด {{$activity->agent}}
                                 </small>
                                 <br>
                                 <small style="color: #000">
-                                    วันที่เริ่มกิจกรรม
-                                    : {{Carbon\Carbon::parse($activity->started_date)->addYear(543)->translatedFormat('d M Y')}}
+                                    <i class="fas fa-calendar-check"></i> วันที่เริ่ม {{Carbon\Carbon::parse($activity->started_date)->addYear(543)->translatedFormat('d M Y')}}
                                 </small>
                                 <br>
                                 <small style="color: #000">
-                                    วันที่จบกิจกรรม
-                                    : {{Carbon\Carbon::parse($activity->expired_date)->addYear(543)->translatedFormat('d M Y')}}
+                                    <i class="fas fa-calendar-times"></i> วันที่จบ {{Carbon\Carbon::parse($activity->expired_date)->addYear(543)->translatedFormat('d M Y')}}
                                 </small>
                                 <br>
                                 @if ($activity->joinActivities->count() < $activity->amount)
-                                    <small class="card-text" style="font-weight: bold;">
-                                        จำนวนคนเข้าร่วม : {{$activity->joinActivities->count()}}/{{$activity->amount}}
+                                    <small class="card-text" style="color: #2BC685;font-weight: bold;"><i
+                                                class="fas fa-user-clock"></i>
+                                        จำนวนคนเข้าร่วม {{$activity->joinActivities->count()}}/{{$activity->amount}}
                                         คน</small>
                                 @else
-                                    <small class="card-text" style="color: red;font-weight: bold;">
-                                        จำนวนคนเต็มแล้ว {{$activity->joinActivities->count()}}/{{$activity->amount}}
-                                        คน</small>
+                                    <small class="card-text" style="color: red;font-weight: bold;"><i
+                                                class="fas fa-user-times"></i>
+                                        จำนวนคนเต็มแล้ว</small>
                                 @endif
                                 <br>
-                                <small style="color: #000">
-                                    ได้รับแต้ม : {{$activity->point}} แต้ม
+                                <small style="color: #2BC685"><i class="fas fa-star"></i> ได้รับแต้ม {{$activity->point}} แต้ม
                                 </small>
                                 <div class="form">
                                     <form method="post" role="form" class="contactForm mb-3" enctype="multipart/form-data">
@@ -143,12 +102,12 @@
                                             @else
                                                 @if($isJoin)
                                                     <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                            data-target="#editModal"><i class="fas fa-times"></i>
+                                                            data-target="#editModal_{{$activity->id}}"><i class="fas fa-times"></i>
                                                         ยกเลิกการเข้าร่วม
                                                     </button>
 
                                                     <!-- Modal -->
-                                                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+                                                    <div class="modal fade" id="editModal_{{$activity->id}}" tabindex="-1" role="dialog"
                                                          aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -171,7 +130,7 @@
                                                                           action="{{ url('profile/join_activities_history') }}"
                                                                           method="post" enctype="multipart/form-data">
                                                                         {{csrf_field()}}
-                                                                        <button type="submit" class="btn btn-primary">ยืนยัน
+                                                                        <button type="submit" class="btn-savfe btn-main-savfe">ยืนยัน
                                                                         </button>
                                                                         <input type="hidden" name="join_activities_id"
                                                                                value="{{$activity->id}}">
@@ -210,7 +169,7 @@
                                                                         {{csrf_field()}}
                                                                         <input type="hidden" name="activities_id"
                                                                                value="{{$activity->id}}">
-                                                                        <button type="submit" class="btn btn-primary">ยืนยัน
+                                                                        <button type="submit" class="btn-savfe btn-main-savfe">ยืนยัน
                                                                         </button>
                                                                     </form>
                                                                 </div>
@@ -233,12 +192,69 @@
                     <div class="card-footer text-center">
                         <div class="col-12">
                             <small style="color: #acacac"><i class="fas fa-map-marker-alt" style="color: #acacac"></i>
-                                กรุงเทพมหานคร
+                                {{$activity->province->PROVINCE_NAME}}
                             </small>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                <p style="font-size: 24px;">กิจกรรมแนะนำ</p>
+                @include('layouts.user.title_savfe')
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                <a href="{{url('activity_news_detail/latest')}}" style="color: #2BC685;float: right">ดูทั้งหมด
+                    <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach($contents_2 as $activitie)
+                @if($activitie == true)
+                    <div class="col-3 col-sm-6 col-md-3 col-lg-3">
+                        <div class="card event">
+                            <a href="{{ url('/activity_detail',$activitie->id ) }}"
+                               style="text-decoration: none;">
+                                @if ($activitie->joinActivities->count() == $activitie->amount)
+                                    <div class="budget-full">
+                                        เต็ม
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($activitie->image) }}"
+                                         alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    @if($activitie->category_types_activity->id < 11)
+                                        <small class="sub-title-forest">{{$activitie->category_types_activity->name}}</small>
+                                    @elseif($activitie->category_types_activity->id > 10 && $activitie->category_types_activity->id < 17 )
+                                        <small class="sub-title-sea">{{$activitie->category_types_activity->name}}</small>
+                                    @else
+                                        <small class="sub-title-country">{{$activitie->category_types_activity->name}}</small>
+                                    @endif
+                                    <h5 class="card-title title-content-savfe">{{$activitie->name}}</h5>
+                                    <label class="date">
+                                        {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
+                                        - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
+                                    </label>
+
+                                    <p class="text-content">{{$activitie->detail}}</p>
+                                    <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <small class="text-muted">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        {{$activitie->province->PROVINCE_NAME}}
+                                    </small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @else
+                @endif
+            @endforeach
         </div>
     </div>
     @include('layouts.user.footer_savfe')

@@ -6,12 +6,12 @@
         <div class="row">
             @guest
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                    <p style="font-size: 38px; font-weight: bold">ประวัติการแลกของรางวัล</p>
+                    <p style="font-size: 24px; font-weight: bold">ประวัติการแลกของรางวัล</p>
                     @include('layouts.user.title_savfe')
                 </div>
             @else
                 <div class="col-9 col-sm-9 col-md-9 col-lg-9">
-                    <p style="font-size: 38px; font-weight: bold">ประวัติการแลกของรางวัล</p>
+                    <p style="font-size: 24px; font-weight: bold">ประวัติการแลกของรางวัล</p>
                     @include('layouts.user.title_savfe')
                 </div>
                 <div class="col-3 col-sm-3 col-md-3 col-lg-3">
@@ -29,11 +29,13 @@
                     <thead>
                     <tr>
                         <th>ID</th>
+                        <th>รูปของรางวัล</th>
                         <th>ชื่อของรางวัล</th>
                         {{--                           <th>ชื่อผู้ใช้งาน</th>--}}
                         {{--                           <th>ID / ชื่อผู้ใช้งานที่ขอแลกรางวัล</th>--}}
                         <th>ใช้แต้ม</th>
                         {{--                           <th>จำนวนที่ถูกแลก</th>--}}
+                        <th>ที่อยู่</th>
                         <th>เลขพัสดุ</th>
                         <th>สถานะ</th>
                         <th>ตัวเลือก</th>
@@ -43,10 +45,13 @@
                     @foreach($tracking_rewards as $tracking_reward)
                         <tr>
                             <td>{{$tracking_reward->id}}</td>
+                            <td><img class="card-img-top" src="{{ url($tracking_reward->reward->image) }}"
+                                     style="height: 100px;width: 100px"></td>
                             <td>{{$tracking_reward->reward->name}}</td>
                             {{--                               <td>{{$tracking_reward->user->name}}</td>--}}
                             {{--                               <td>ID:{{$tracking_reward->user->id}} / ชื่อ:{{$tracking_reward->user->name}}</td>--}}
                             <td>{{$tracking_reward->reward->point}}</td>
+                            <td>{{$tracking_reward->address}}</td>
                             @if($tracking_reward->code == null)
                                 <td style="text-align: center">-</td>
                             @else
@@ -74,17 +79,21 @@
                             @else
                                 <td>
                                     {{--                                   <a href="{{ url('admin/tracking_rewards/edit',$tracking_reward->id ) }}" class="btn btn-info"><i class="fas fa-eye"></i> ดูรายละเอียด</a>--}}
-                                    {{--                                   <a href="{{ url('admin/tracking_rewards/edit',$tracking_reward->id ) }}" class="btn btn-warning"><i class="fas fa-cog"></i> แก้ไข</a>--}}
+                                    <a href="{{ url('profile/get_rewards_history/edit',$tracking_reward->id ) }}"
+                                       class="btn btn-warning"><i class="fas fa-cog"></i> แก้ไข</a>
                                     <form style="display: inline" role="form"
                                           action="{{ url('profile/get_rewards_history') }}" method="post">
                                         {{csrf_field()}}
-                                        <input type="hidden" name="tracking_rewards_id" value="{{ $tracking_reward->id }}">
+                                        <input type="hidden" name="tracking_rewards_id"
+                                               value="{{ $tracking_reward->id }}">
                                         <!-- Button trigger modal -->
                                         <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                data-target="#editModal{{ $tracking_reward->id }}"><i class="fas fa-times"></i> ยกเลิก
+                                                data-target="#editModal{{ $tracking_reward->id }}"><i
+                                                    class="fas fa-times"></i> ยกเลิก
                                         </button>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="editModal{{ $tracking_reward->id }}" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="editModal{{ $tracking_reward->id }}" tabindex="-1"
+                                             role="dialog"
                                              aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">

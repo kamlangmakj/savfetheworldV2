@@ -28,6 +28,10 @@
                 <form role="form" action="{{ url('admin/tracking_rewards/edit') }}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <input type="hidden" name="id" value="{{$tracking_reward->id}}">
+
+                    <form role="form" action="{{ url('admin/rewards/edit') }}" method="post" enctype="multipart/form-data">
+                        {{csrf_field()}}
+                        <input type="hidden" name="id" value="{{ $reward->id }}">
                     <div class="card-body">
                         <div class="container">
                             <div class="row">

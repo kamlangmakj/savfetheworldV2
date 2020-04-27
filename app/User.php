@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone',
+        'name', 'email', 'password', 'image', 'address', 'geography_id', 'province_id', 'gender', 'birth_date', 'phone', 'register_favorite_type',
     ];
 
     /**
@@ -36,4 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function registerFavoriteType(){
+        return $this->belongsToMany(CategoryTypesActivities::class, 'register_favorite_type','users_id','category_types_activities_id');
+    }
 }

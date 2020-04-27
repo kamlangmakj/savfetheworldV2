@@ -16,13 +16,17 @@ Route::get('/', function () {
 });
 
 Route::get('/', 'HomeController@index')->name('index');
-
+Route::get('/check_confirm_join/{id}', 'HomeController@getCheckConfirmJoin');
+Route::post('/check_confirm_join/{id}', 'HomeController@postCheckConfirmJoin');
 Route::get('/activity', 'UserActivityController@index')->name('index');
 Route::get('/reward', 'UserRewardController@index')->name('index');
+
 
 Auth::routes();
 //
 //Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/', 'HomeController@postSaveActivities');
 
 //user activity
 Route::get('/activity_tabs_detail/{filter}', 'HomeController@getActivityTabsDetail');
@@ -40,16 +44,28 @@ Route::post('/reward', 'UserRewardController@postRewards');
 
 //user profile
 Route::get('/profile', 'ProfileController@getProfileUser');
+Route::get('/confirm_join/{id}', 'ProfileController@getConfirmJoin');
+
 
 Route::get('/profile/get_rewards_history', 'ProfileController@getRewardsHistory');
 Route::post('/profile/get_rewards_history', 'ProfileController@postDeleteRewardsHistory');
 
+Route::get('/profile/save_rewards_history', 'ProfileController@getSaveRewardsHistory');
+Route::post('/profile/save_rewards_history', 'ProfileController@postDeleteSaveRewardsHistory');
+
 Route::get('/profile/join_activities_history', 'ProfileController@joinActivitiesHistory');
 Route::post('/profile/join_activities_history', 'ProfileController@postDeletejoinActivitiesHistory');
-//Route::delete('/profile/join_activities_history/{id}', 'ProfileController@postDeletejoinActivitiesHistory');
+
+Route::get('/profile/save_activities_history', 'ProfileController@getSaveActivitiesHistory');
+Route::post('/profile/save_activities_history', 'ProfileController@postDeletesaveActivitiesHistory');
+
 
 Route::get('/profile/edit/{id}', 'ProfileController@getEditProfileUser');
 Route::post('/profile/edit', 'ProfileController@postEditProfileUser');
+
+
+Route::get('/profile/get_rewards_history/edit/{id}', 'ProfileController@getEditRewardsHistory');
+Route::post('/profile/get_rewards_history/edit', 'ProfileController@postEditRewardsHistory');
 
 
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

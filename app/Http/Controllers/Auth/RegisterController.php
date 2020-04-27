@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -52,7 +55,14 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+//            'image' => ['required', 'string'],
+            'address' => ['required', 'string'],
+            'geography_id' => ['required', 'int'],
+            'province_id' => ['required', 'int'],
+            'gender' => ['required', 'string'],
+            'birth_date' => ['required', 'date'],
             'phone' => ['required', 'string', 'max:10'],
+//            'register_favorite_type' => ['required', 'string', 'max:10'],
         ]);
     }
 
@@ -64,11 +74,46 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+//        return $data;
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+//            'image' => $data['image'],
+            'address' => $data['address'],
+            'geography_id' => $data['geography_id'],
+            'province_id' => $data['province_id'],
+            'gender' => $data['gender'],
+            'birth_date' => $data['birth_date'],
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
+
+
+//        return User::create([
+//            'name' => $data['name'],
+//            'email' => $data['email'],
+////            'image' => $data['image'],
+//            'address' => $data['address'],
+//            'geography_id' => $data['geography_id'],
+//            'province_id' => $data['province_id'],
+//            'gender' => $data['gender'],
+//            'birth_date' => $data['birth_date'],
+//            'phone' => $data['phone'],
+//            'password' => Hash::make($data['password']),
+//        ]);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $user->registerFavoriteType()->attach($request->get('register_favorite_type'));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
     }
 }

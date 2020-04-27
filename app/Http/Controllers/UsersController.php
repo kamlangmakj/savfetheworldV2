@@ -36,8 +36,8 @@ class UsersController extends Controller
         $users->address = $request->get('address');
         $users->geography_id = $request->get('geography_id');
         $users->province_id = $request->get('province_id');
-        $users->amphur_id = $request->get('amphur_id');
-        $users->district_id = $request->get('district_id');
+//        $users->amphur_id = $request->get('amphur_id');
+//        $users->district_id = $request->get('district_id');
         $users->gender = $request->get('gender');
         $users->birth_date = $request->get('birth_date');
         $users->phone = $request->get('phone');

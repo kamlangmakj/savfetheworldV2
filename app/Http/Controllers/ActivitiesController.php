@@ -33,6 +33,7 @@ class ActivitiesController extends Controller
         $fileNameToStore = date('YmdHis').'_'.$fileName.'.'.$extension;
         $activities = new Activities();
         $activities->name = $request->get('name');
+        $activities->number = str_random(6);
         $activities->agent = $request->get('agent');
         $activities->category_types_activities_id = $request->get('category_types_activities_id');
         $activities->started_date = $request->get('started_date');
@@ -41,6 +42,8 @@ class ActivitiesController extends Controller
         $activities->point = $request->get('point');
         $activities->detail = $request->get('detail');
         $activities->address = $request->get('address');
+        $activities->geography_id = $request->get('geography_id');
+        $activities->province_id = $request->get('province_id');
         $activities->image = $request->file('image')->move('uploads/activities',$fileNameToStore);
         $activities->save();
         return redirect('admin/activities');
@@ -57,6 +60,8 @@ class ActivitiesController extends Controller
         $activities->point = $request->get('point');
         $activities->detail = $request->get('detail');
         $activities->address = $request->get('address');
+        $activities->geography_id = $request->get('geography_id');
+        $activities->province_id = $request->get('province_id');
 
         if ($request->hasFile('image')){
             $fileNameWithExt = $request->file('image')->getClientOriginalName();

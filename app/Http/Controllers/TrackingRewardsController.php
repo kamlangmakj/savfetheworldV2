@@ -28,6 +28,8 @@ class TrackingRewardsController extends Controller
         $tracking_rewards = TrackingRewards::find($request->get('id'));
         $tracking_rewards->status_id = $request->get('status_id');
         $tracking_rewards->code = $request->get('code');
+        $tracking_rewards->address = $request->get('address');
+
         if ($request->hasFile('image')) {
             $fileNameWithExt = $request->file('image')->getClientOriginalName();
             $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);

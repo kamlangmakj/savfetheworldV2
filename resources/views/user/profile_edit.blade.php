@@ -40,8 +40,8 @@
                                             <div class="form-group col-6">
                                                 <label for="name">เพศ</label>
                                                 <select class="form-control" name="gender">
-                                                    <option value="ชาย" @if($user->gender == "ชาย") selected @endif>เพศชาย</option>
-                                                    <option value="หญิง" @if($user->gender == "หญิง") selected @endif>เพศหญิง</option>
+                                                    <option value="ชาย" @if($user->gender == "ชาย") selected @endif>ชาย</option>
+                                                    <option value="หญิง" @if($user->gender == "หญิง") selected @endif>หญิง</option>
                                                 </select>
                                             </div>
 
@@ -96,147 +96,144 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="name">ที่อยู่</label>
-                                    <textarea rows="3" type="text" class="form-control" placeholder="ที่อยู่" name="address"></textarea>
+                                    <textarea rows="3" type="text" class="form-control" placeholder="ที่อยู่" name="address">{{ $user->address }}</textarea>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-6">
                                         <label for="name">ภูมิภาค</label>
-                                        <select name="province" class="form-control">
-                                            <option value="">เลือกภูมิภาค</option>
-                                            <option value="ภาคเหนือ">ภาคเหนือ</option>
-                                            <option value="ภาคกลาง">ภาคกลาง</option>
-                                            <option value="ภาคตะวันออกเฉียงเหนือ">ภาคตะวันออกเฉียงเหนือ</option>
-                                            <option value="ภาคตะวันตก">ภาคตะวันตก</option>
-                                            <option value="ภาคตะวันออก">ภาคตะวันออก</option>
-                                            <option value="ภาคใต้">ภาคใต้</option>
+                                        <select name="geography_id" class="form-control">
+                                            <option value="1" @if($user->geography_id == 1) selected @endif>ภาคเหนือ</option>
+                                            <option value="2" @if($user->geography_id == 2) selected @endif>ภาคกลาง</option>
+                                            <option value="3" @if($user->geography_id == 3) selected @endif>ภาคตะวันออกเฉียงเหนือ</option>
+                                            <option value="4" @if($user->geography_id == 4) selected @endif>ภาคตะวันตก</option>
+                                            <option value="5" @if($user->geography_id == 5) selected @endif>ภาคตะวันออก</option>
+                                            <option value="6" @if($user->geography_id == 6) selected @endif>ภาคใต้</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group col-6">
                                         <div class="form-group">
                                             <label for="name">จังหวัด</label>
-                                            <select name="province" class="form-control">
-                                                <option value="">เลือกจังหวัด</option>
-                                                <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
-                                                <option value="กระบี่">กระบี่ </option>
-                                                <option value="กาญจนบุรี">กาญจนบุรี </option>
-                                                <option value="กาฬสินธุ์">กาฬสินธุ์ </option>
-                                                <option value="กำแพงเพชร">กำแพงเพชร </option>
-                                                <option value="ขอนแก่น">ขอนแก่น</option>
-                                                <option value="จันทบุรี">จันทบุรี</option>
-                                                <option value="ฉะเชิงเทรา">ฉะเชิงเทรา </option>
-                                                <option value="ชัยนาท">ชัยนาท </option>
-                                                <option value="ชัยภูมิ">ชัยภูมิ </option>
-                                                <option value="ชุมพร">ชุมพร </option>
-                                                <option value="ชลบุรี">ชลบุรี </option>
-                                                <option value="เชียงใหม่">เชียงใหม่ </option>
-                                                <option value="เชียงราย">เชียงราย </option>
-                                                <option value="ตรัง">ตรัง </option>
-                                                <option value="ตราด">ตราด </option>
-                                                <option value="ตาก">ตาก </option>
-                                                <option value="นครนายก">นครนายก </option>
-                                                <option value="นครปฐม">นครปฐม </option>
-                                                <option value="นครพนม">นครพนม </option>
-                                                <option value="นครราชสีมา">นครราชสีมา </option>
-                                                <option value="นครศรีธรรมราช">นครศรีธรรมราช </option>
-                                                <option value="นครสวรรค์">นครสวรรค์ </option>
-                                                <option value="นราธิวาส">นราธิวาส </option>
-                                                <option value="น่าน">น่าน </option>
-                                                <option value="นนทบุรี">นนทบุรี </option>
-                                                <option value="บึงกาฬ">บึงกาฬ</option>
-                                                <option value="บุรีรัมย์">บุรีรัมย์</option>
-                                                <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์ </option>
-                                                <option value="ปทุมธานี">ปทุมธานี </option>
-                                                <option value="ปราจีนบุรี">ปราจีนบุรี </option>
-                                                <option value="ปัตตานี">ปัตตานี </option>
-                                                <option value="พะเยา">พะเยา </option>
-                                                <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา </option>
-                                                <option value="พังงา">พังงา </option>
-                                                <option value="พิจิตร">พิจิตร </option>
-                                                <option value="พิษณุโลก">พิษณุโลก </option>
-                                                <option value="เพชรบุรี">เพชรบุรี </option>
-                                                <option value="เพชรบูรณ์">เพชรบูรณ์ </option>
-                                                <option value="แพร่">แพร่ </option>
-                                                <option value="พัทลุง">พัทลุง </option>
-                                                <option value="ภูเก็ต">ภูเก็ต </option>
-                                                <option value="มหาสารคาม">มหาสารคาม </option>
-                                                <option value="มุกดาหาร">มุกดาหาร </option>
-                                                <option value="แม่ฮ่องสอน">แม่ฮ่องสอน </option>
-                                                <option value="ยโสธร">ยโสธร </option>
-                                                <option value="ยะลา">ยะลา </option>
-                                                <option value="ร้อยเอ็ด">ร้อยเอ็ด </option>
-                                                <option value="ระนอง">ระนอง </option>
-                                                <option value="ระยอง">ระยอง </option>
-                                                <option value="ราชบุรี">ราชบุรี</option>
-                                                <option value="ลพบุรี">ลพบุรี </option>
-                                                <option value="ลำปาง">ลำปาง </option>
-                                                <option value="ลำพูน">ลำพูน </option>
-                                                <option value="เลย">เลย </option>
-                                                <option value="ศรีสะเกษ">ศรีสะเกษ</option>
-                                                <option value="สกลนคร">สกลนคร</option>
-                                                <option value="สงขลา">สงขลา </option>
-                                                <option value="สมุทรสาคร">สมุทรสาคร </option>
-                                                <option value="สมุทรปราการ">สมุทรปราการ </option>
-                                                <option value="สมุทรสงคราม">สมุทรสงคราม </option>
-                                                <option value="สระแก้ว">สระแก้ว </option>
-                                                <option value="สระบุรี">สระบุรี </option>
-                                                <option value="สิงห์บุรี">สิงห์บุรี </option>
-                                                <option value="สุโขทัย">สุโขทัย </option>
-                                                <option value="สุพรรณบุรี">สุพรรณบุรี </option>
-                                                <option value="สุราษฎร์ธานี">สุราษฎร์ธานี </option>
-                                                <option value="สุรินทร์">สุรินทร์ </option>
-                                                <option value="สตูล">สตูล </option>
-                                                <option value="หนองคาย">หนองคาย </option>
-                                                <option value="หนองบัวลำภู">หนองบัวลำภู </option>
-                                                <option value="อำนาจเจริญ">อำนาจเจริญ </option>
-                                                <option value="อุดรธานี">อุดรธานี </option>
-                                                <option value="อุตรดิตถ์">อุตรดิตถ์ </option>
-                                                <option value="อุทัยธานี">อุทัยธานี </option>
-                                                <option value="อุบลราชธานี">อุบลราชธานี</option>
-                                                <option value="อ่างทอง">อ่างทอง </option>
-                                                <option value="อื่นๆ">อื่นๆ</option>
+                                            <select name="province_id" class="form-control">
+                                                <option value="1" @if($user->province_id == 1) selected @endif>กรุงเทพมหานคร</option>
+                                                <option value="2" @if($user->province_id == 2) selected @endif>สมุทรปราการ</option>
+                                                <option value="3" @if($user->province_id == 3) selected @endif>นนทบุรี</option>
+                                                <option value="4" @if($user->province_id == 4) selected @endif>ปทุมธานี</option>
+                                                <option value="5" @if($user->province_id == 5) selected @endif>พระนครศรีอยุธยา</option>
+                                                <option value="6" @if($user->province_id == 6) selected @endif>อ่างทอง</option>
+                                                <option value="7" @if($user->province_id == 7) selected @endif>ลพบุรี</option>
+                                                <option value="8" @if($user->province_id == 8) selected @endif>สิงห์บุรี</option>
+                                                <option value="9" @if($user->province_id == 9) selected @endif>ชัยนาท</option>
+                                                <option value="10" @if($user->province_id == 10) selected @endif>สระบุรี</option>
+                                                <option value="11" @if($user->province_id == 11) selected @endif>ชลบุรี</option>
+                                                <option value="12" @if($user->province_id == 12) selected @endif>ระยอง</option>
+                                                <option value="13" @if($user->province_id == 13) selected @endif>จันทบุรี</option>
+                                                <option value="14" @if($user->province_id == 14) selected @endif>ตราด</option>
+                                                <option value="15" @if($user->province_id == 15) selected @endif>ฉะเชิงเทรา</option>
+                                                <option value="16" @if($user->province_id == 16) selected @endif>ปราจีนบุรี</option>
+                                                <option value="17" @if($user->province_id == 17) selected @endif>นครนายก</option>
+                                                <option value="18" @if($user->province_id == 18) selected @endif>สระแก้ว</option>
+                                                <option value="19" @if($user->province_id == 19) selected @endif>นครราชสีมา</option>
+                                                <option value="20" @if($user->province_id == 20) selected @endif>บุรีรัมย์</option>
+                                                <option value="21" @if($user->province_id == 21) selected @endif>สุรินทร์</option>
+                                                <option value="22" @if($user->province_id == 22) selected @endif>ศรีสะเกษ</option>
+                                                <option value="23" @if($user->province_id == 23) selected @endif>อุบลราชธานี</option>
+                                                <option value="24" @if($user->province_id == 24) selected @endif>ยโสธร</option>
+                                                <option value="25" @if($user->province_id == 25) selected @endif>ชัยภูมิ</option>
+                                                <option value="26" @if($user->province_id == 26) selected @endif>อำนาจเจริญ</option>
+                                                <option value="27" @if($user->province_id == 27) selected @endif>หนองบัวลำภู</option>
+                                                <option value="28" @if($user->province_id == 28) selected @endif>ขอนแก่น</option>
+                                                <option value="29" @if($user->province_id == 29) selected @endif>อุดรธานี</option>
+                                                <option value="30" @if($user->province_id == 30) selected @endif>เลย</option>
+                                                <option value="31" @if($user->province_id == 31) selected @endif>หนองคาย</option>
+                                                <option value="32" @if($user->province_id == 32) selected @endif>มหาสารคาม</option>
+                                                <option value="33" @if($user->province_id == 33) selected @endif>ร้อยเอ็ด</option>
+                                                <option value="34" @if($user->province_id == 34) selected @endif>กาฬสินธุ์</option>
+                                                <option value="35" @if($user->province_id == 35) selected @endif>สกลนคร</option>
+                                                <option value="36" @if($user->province_id == 36) selected @endif>นครพนม</option>
+                                                <option value="37" @if($user->province_id == 37) selected @endif>มุกดาหาร</option>
+                                                <option value="38" @if($user->province_id == 38) selected @endif>เชียงใหม่</option>
+                                                <option value="39" @if($user->province_id == 39) selected @endif>ลำพูน</option>
+                                                <option value="40" @if($user->province_id == 40) selected @endif>ลำปาง</option>
+                                                <option value="41" @if($user->province_id == 41) selected @endif>อุตรดิตถ์</option>
+                                                <option value="42" @if($user->province_id == 42) selected @endif>แพร่</option>
+                                                <option value="43" @if($user->province_id == 43) selected @endif>น่าน</option>
+                                                <option value="44" @if($user->province_id == 44) selected @endif>พะเยา</option>
+                                                <option value="45" @if($user->province_id == 45) selected @endif>เชียงราย</option>
+                                                <option value="46" @if($user->province_id == 46) selected @endif>แม่ฮ่องสอน</option>
+                                                <option value="47" @if($user->province_id == 47) selected @endif>นครสวรรค์</option>
+                                                <option value="48" @if($user->province_id == 48) selected @endif>อุทัยธานี</option>
+                                                <option value="49" @if($user->province_id == 49) selected @endif>กำแพงเพชร</option>
+                                                <option value="50" @if($user->province_id == 50) selected @endif>ตาก</option>
+                                                <option value="51" @if($user->province_id == 51) selected @endif>สุโขทัย</option>
+                                                <option value="52" @if($user->province_id == 52) selected @endif>พิษณุโลก</option>
+                                                <option value="53" @if($user->province_id == 53) selected @endif>พิจิตร</option>
+                                                <option value="54" @if($user->province_id == 54) selected @endif>เพชรบูรณ์</option>
+                                                <option value="55" @if($user->province_id == 55) selected @endif>ราชบุรี</option>
+                                                <option value="56" @if($user->province_id == 56) selected @endif>กาญจนบุรี</option>
+                                                <option value="57" @if($user->province_id == 57) selected @endif>สุพรรณบุรี</option>
+                                                <option value="58" @if($user->province_id == 58) selected @endif>นครปฐม</option>
+                                                <option value="59" @if($user->province_id == 59) selected @endif>สมุทรสาคร</option>
+                                                <option value="60" @if($user->province_id == 60) selected @endif>สมุทรสงคราม</option>
+                                                <option value="61" @if($user->province_id == 61) selected @endif>เพชรบุรี</option>
+                                                <option value="62" @if($user->province_id == 62) selected @endif>ประจวบคีรีขันธ์</option>
+                                                <option value="63" @if($user->province_id == 63) selected @endif>นครศรีธรรมราช</option>
+                                                <option value="64" @if($user->province_id == 64) selected @endif>กระบี่</option>
+                                                <option value="65" @if($user->province_id == 65) selected @endif>พังงา</option>
+                                                <option value="66" @if($user->province_id == 66) selected @endif>ภูเก็ต</option>
+                                                <option value="67" @if($user->province_id == 67) selected @endif>สุราษฎร์ธานี</option>
+                                                <option value="68" @if($user->province_id == 68) selected @endif>ระนอง</option>
+                                                <option value="69" @if($user->province_id == 69) selected @endif>ชุมพร</option>
+                                                <option value="70" @if($user->province_id == 70) selected @endif>สงขลา</option>
+                                                <option value="71" @if($user->province_id == 71) selected @endif>สตูล</option>
+                                                <option value="72" @if($user->province_id == 72) selected @endif>ตรัง</option>
+                                                <option value="73" @if($user->province_id == 73) selected @endif>พัทลุง</option>
+                                                <option value="74" @if($user->province_id == 74) selected @endif>ปัตตานี</option>
+                                                <option value="75" @if($user->province_id == 75) selected @endif>ยะลา</option>
+                                                <option value="76" @if($user->province_id == 76) selected @endif>นราธิวาส</option>
+                                                <option value="77" @if($user->province_id == 77) selected @endif>บึงกาฬ</option>
                                             </select>
                                         </div>
                                     </div>
 
-                                    <div class="form-group col-6" style="margin-top: -20px;">
-                                        <label for="name">อำเภอ</label>
-                                        <select name="province" class="form-control">
-                                            <option value="">เลือกอำเภอ</option>
-                                            <option value="ภาคเหนือ">เขตพระนคร</option>
-                                            <option value="ภาคกลาง">เขตดุสิต</option>
-                                            <option value="ภาคตะวันออกเฉียงเหนือ">เขตหนองจอก</option>
-                                            <option value="ภาคตะวันตก">เขตบางรัก</option>
-                                            <option value="ภาคตะวันออก">เขตบางเขน</option>
-                                            <option value="ภาคใต้">เขตบางกะปิ</option>
-                                        </select>
-                                    </div>
+{{--                                    <div class="form-group col-6" style="margin-top: -20px;">--}}
+{{--                                        <label for="name">อำเภอ</label>--}}
+{{--                                        <select name="province" class="form-control">--}}
+{{--                                            <option value="">เลือกอำเภอ</option>--}}
+{{--                                            <option value="ภาคเหนือ">เขตพระนคร</option>--}}
+{{--                                            <option value="ภาคกลาง">เขตดุสิต</option>--}}
+{{--                                            <option value="ภาคตะวันออกเฉียงเหนือ">เขตหนองจอก</option>--}}
+{{--                                            <option value="ภาคตะวันตก">เขตบางรัก</option>--}}
+{{--                                            <option value="ภาคตะวันออก">เขตบางเขน</option>--}}
+{{--                                            <option value="ภาคใต้">เขตบางกะปิ</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
 
-                                    <div class="form-group col-6" style="margin-top: -20px;">
-                                        <label for="name">ตำบล</label>
-                                        <select name="province" class="form-control">
-                                            <option value="">เลือกตำบล</option>
-                                            <option value="ภาคเหนือ">พระบรมมหาราชวัง</option>
-                                            <option value="ภาคกลาง">วังบูรพาภิรมย์</option>
-                                            <option value="ภาคตะวันออกเฉียงเหนือ">วัดราชบพิธ</option>
-                                            <option value="ภาคตะวันตก">สำราญราษฎร์</option>
-                                            <option value="ภาคตะวันออก">ศาลเจ้าพ่อเสือ</option>
-                                            <option value="ภาคใต้">เสาชิงช้า</option>
-                                        </select>
-                                    </div>
+{{--                                    <div class="form-group col-6" style="margin-top: -20px;">--}}
+{{--                                        <label for="name">ตำบล</label>--}}
+{{--                                        <select name="province" class="form-control">--}}
+{{--                                            <option value="">เลือกตำบล</option>--}}
+{{--                                            <option value="ภาคเหนือ">พระบรมมหาราชวัง</option>--}}
+{{--                                            <option value="ภาคกลาง">วังบูรพาภิรมย์</option>--}}
+{{--                                            <option value="ภาคตะวันออกเฉียงเหนือ">วัดราชบพิธ</option>--}}
+{{--                                            <option value="ภาคตะวันตก">สำราญราษฎร์</option>--}}
+{{--                                            <option value="ภาคตะวันออก">ศาลเจ้าพ่อเสือ</option>--}}
+{{--                                            <option value="ภาคใต้">เสาชิงช้า</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
 
-                                    <div class="form-group col-6">
-                                        <label for="name">รหัสไปรษณีย์</label>
-                                        <select name="province" class="form-control">
-                                            <option value="">เลือกรหัสไปรษณีย์</option>
-                                            <option value="10000">10000</option>
-                                            <option value="10001">10001</option>
-                                            <option value="10002">10002</option>
-                                            <option value="10002">10002</option>
-                                            <option value="10003">10003</option>
-                                            <option value="10004">10004</option>
-                                        </select>
-                                    </div>
+{{--                                    <div class="form-group col-6">--}}
+{{--                                        <label for="name">รหัสไปรษณีย์</label>--}}
+{{--                                        <select name="province" class="form-control">--}}
+{{--                                            <option value="">เลือกรหัสไปรษณีย์</option>--}}
+{{--                                            <option value="10000">10000</option>--}}
+{{--                                            <option value="10001">10001</option>--}}
+{{--                                            <option value="10002">10002</option>--}}
+{{--                                            <option value="10002">10002</option>--}}
+{{--                                            <option value="10003">10003</option>--}}
+{{--                                            <option value="10004">10004</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
                                 </div>
                             </div>
 

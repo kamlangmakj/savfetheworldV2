@@ -94,6 +94,7 @@
                             <th>ชื่อผู้ใช้งาน</th>
                             {{--                            <th>ID / ชื่อผู้ใช้งานที่ขอแลกรางวัล</th>--}}
                             <th>ใช้แต้ม</th>
+                            <th>ที่อยู่</th>
                             <th>เลขพัสดุ</th>
                             {{--                            <th>จำนวนที่ถูกแลก</th>--}}
                             <th>สถานะ</th>
@@ -108,6 +109,7 @@
                                 <td>{{$tracking_reward->user->name}}</td>
                                 {{--                                    <td>ID:{{$tracking_reward->user->id}} / ชื่อ:{{$tracking_reward->user->name}}</td>--}}
                                 <td>{{$tracking_reward->reward->point}}</td>
+                                <td style="width: 20%">{{$tracking_reward->address}}</td>
                                 @if($tracking_reward->code == null)
                                     <td style="text-align: center">-</td>
                                 @else

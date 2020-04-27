@@ -8,18 +8,20 @@
                 <div class="row">
                     @guest
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <p style="font-size: 32px; font-weight: bold">ของรางวัลทั้งหมด</p>
+                            <p style="font-size: 24px; font-weight: bold">ของรางวัลทั้งหมด</p>
                             @include('layouts.user.title_savfe')
                         </div>
                     @else
                         <div class="col-8 col-sm-8 col-md-10 col-lg-10">
-                            <p style="font-size: 32px; font-weight: bold">ของรางวัลทั้งหมด</p>
+                            <p style="font-size: 24px; font-weight: bold">ของรางวัลทั้งหมด</p>
                             @include('layouts.user.title_savfe')
                         </div>
+
                         <div class="col-4 col-sm-4 col-md-2 col-lg-2">
-                            <button class="btn " href="#" style="color: #2BC685;font-size: 36px;float: right">
-                                <i class="fas fa-star"></i><sup><span class="badge badge-info right" style="margin-left:-12px;background-color: #FF0000;font-size: 15px;">0</span></sup>
-                            </button>
+                            <a class="btn " href="{{ url('/profile/save_rewards_history') }}" style="color: #2BC685;font-size: 36px;float: right">
+                                <i class="fas fa-star"></i><sup><span class="badge badge-info right"
+                                                                      style="margin-left:-12px;background-color: #FF0000;font-size: 15px;">{{$saveRewardsCount}}</span></sup>
+                            </a>
                         </div>
                     @endguest
                 </div>
@@ -84,63 +86,36 @@
     </div>
 
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                <p style="font-size: 24px;">ของรางวัลพิเศษ</p>
-                @include('layouts.user.title_savfe')
-            </div>
-        </div>
-        <div class="row">
-            @foreach($rewards as $reward)
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-product-item">
-                        <div class="card">
-                            <a href="{{ url('/reward_detail',$reward->id ) }}" style="text-decoration: none;">
-                                <img class="card-img-top" src="{{ url($reward->image) }}" alt="Card image cap"
-                                     style="height: 100%">
-                                <div class="card-body">
-                                    <div class="row mt-2 mb-2">
-                                    </div>
-                                    <h6 style="font-weight: bold;color: #000"
-                                        class="card-title title-content-savfe-reward text-center">{{ $reward->name }}</h6>
-                                    <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">
-                                        ใช้แต้ม {{$reward->point}}</h4>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-            <div class="col-lg-6 col-md-6">
-                <div class="row">
-                    @foreach($rewards2 as $reward2)
-                        <div class="col-lg-6 col-md-6 mb-5">
-                            <div class="single-product-item">
-                                <div class="card">
-                                    <a href="{{ url('/reward_detail',$reward2->id ) }}" style="text-decoration: none;">
-                                        <img class="card-img-top" src="{{ url($reward2->image) }}" alt="Card image cap"
-                                             style="height: 100%">
-                                        <div class="card-body">
-                                            <div class="row mt-2 mb-2">
-                                            </div>
-                                            <h6 style="font-weight: bold;color:#000;"
-                                                class="card-title title-content-savfe-reward text-center">{{ $reward2->name }}</h6>
-                                            <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">
-                                                ใช้แต้ม {{$reward2->point}}</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
+{{--    <div class="container mt-5">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-12 col-sm-12 col-md-12 col-lg-12">--}}
+{{--                <p style="font-size: 24px;">ของรางวัลพิเศษ</p>--}}
+{{--                @include('layouts.user.title_savfe')--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
 
-        <hr>
-    </div>
+
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-6 col-md-6" style="background-color: red;width: 100%;height: 600px;">--}}
+
+{{--                </div>--}}
+{{--                <div class="col-lg-6 col-md-6" style="width: 100%;height: 600px">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-lg-12 col-md-12" style="background-color: green;width: 100%;height: 300px">--}}
+
+{{--                        </div>--}}
+{{--                        <div class="col-lg-12 col-md-12" style="background-color: blue;width: 100%;height: 300px;">--}}
+
+{{--                        </div>--}}
+{{--                    </div>--}}
+
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--    </div>--}}
 
     <div class="section-header text-center mt-5">
         <div>
@@ -189,26 +164,26 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach($contents_1 as $content_1)
+                    @foreach($contents_1 as $reward)
                         <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
-                            <div class="card">
-                                <img class="card-img-top" src="{{ url($content_1->image) }}" alt="Card image cap"
-                                     style="height: 200px">
-                                <div class="card-body">
-                                    <div class="row mt-2 mb-2">
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                            @if ($content_1->quantity > 0)
-                                                <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$content_1->quantity}}
-                                                    ชิ้น </small>
-                                            @else
-                                                <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
-                                            @endif
-                                        </div>
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
                                     </div>
-                                    <h6 style="font-weight: bold;color:#000;"
-                                        class="card-title title-content-savfe-reward text-center">{{ $content_1->name }}</h6>
-                                    <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">
-                                        ใช้แต้ม {{$content_1->point}}</h4>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
                                 </div>
                                 <div class="form">
                                     <form method="post" role="form" class="contactForm mb-3"
@@ -222,7 +197,7 @@
                                                 <br>
                                                 <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
                                             @else
-                                                @if ($content_1->quantity <= 0 || Auth::user()->point < $content_1->point)
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
                                                     <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
                                                             disabled>แลกของรางวัล
                                                     </button>
@@ -231,10 +206,10 @@
                                                 <!-- Button trigger modal -->
                                                     <button type="button" class="btn-savfe btn-main-savfe text-center"
                                                             data-toggle="modal"
-                                                            data-target="#editModal_{{$content_1->id}}">แลกของรางวัล
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
                                                     </button>
                                                     <!-- Modal -->
-                                                    <div class="modal fade" id="editModal_{{$content_1->id}}"
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
                                                          tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                                          aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
@@ -248,11 +223,21 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <h4 style="color: red">ใช้แต้ม {{$content_1->point}}
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
                                                                         แต้ม</h4>
                                                                     แต้มสะสมของคุณ {{Auth::user()->point}}
-                                                                    - {{$content_1->point}} =
-                                                                    คงเหลือ {{Auth::user()->point - $content_1->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
                                                                     แต้ม
                                                                     <br>
                                                                     คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
@@ -265,8 +250,9 @@
                                                                           method="post" enctype="multipart/form-data">
                                                                         {{csrf_field()}}
                                                                         <input type="hidden" name="rewards_id"
-                                                                               value="{{$content_1->id}}">
-                                                                        <button type="submit" class="btn btn-primary">
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
                                                                             ยืนยัน
                                                                         </button>
                                                                     </form>
@@ -278,11 +264,11 @@
                                             @endguest
                                         </div>
                                     </form>
-                                    <div class="card-footer text-center">
-                                        <a href="{{ url('/reward_detail',$content_1->id ) }}"
-                                           style="color: #5888c6;"><small><i class="fas fa-eye"></i>
-                                                ดูรายละเอียดเพิ่มเติม</small></a>
-                                    </div>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
                                 </div>
                             </div>
                         </div>
@@ -301,27 +287,26 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach($contents_1 as $content_1)
+                    @foreach($contents_1  as $reward)
                         <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
-                            <div class="card">
-                                <img class="card-img-top" src="{{ $content_1->image }}" alt="Card image cap"
-                                     style="height: 200px">
-                                <div class="card-body">
-                                    <div class="row mt-2 mb-2">
-                                        {{--                                        {{ $content_1->id }}--}}
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                            @if ($content_1->quantity > 0)
-                                                <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$content_1->quantity}}
-                                                    ชิ้น </small>
-                                            @else
-                                                <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
-                                            @endif
-                                        </div>
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
                                     </div>
-                                    <h6 style="font-weight: bold;color: #000000"
-                                        class="card-title title-content-savfe-reward text-center">{{ $content_1->name }}</h6>
-                                    <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">
-                                        ใช้แต้ม {{$content_1->point}}</h4>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
                                 </div>
                                 <div class="form">
                                     <form method="post" role="form" class="contactForm mb-3"
@@ -335,7 +320,7 @@
                                                 <br>
                                                 <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
                                             @else
-                                                @if ($content_1->quantity <= 0 || Auth::user()->point < $content_1->point)
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
                                                     <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
                                                             disabled>แลกของรางวัล
                                                     </button>
@@ -344,10 +329,10 @@
                                                 <!-- Button trigger modal -->
                                                     <button type="button" class="btn-savfe btn-main-savfe text-center"
                                                             data-toggle="modal"
-                                                            data-target="#editModal_{{$content_1->id}}">แลกของรางวัล
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
                                                     </button>
                                                     <!-- Modal -->
-                                                    <div class="modal fade" id="editModal_{{$content_1->id}}"
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
                                                          tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                                          aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
@@ -361,11 +346,21 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <h4 style="color: red">ใช้แต้ม {{$content_1->point}}
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
                                                                         แต้ม</h4>
                                                                     แต้มสะสมของคุณ {{Auth::user()->point}}
-                                                                    - {{$content_1->point}} =
-                                                                    คงเหลือ {{Auth::user()->point - $content_1->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
                                                                     แต้ม
                                                                     <br>
                                                                     คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
@@ -378,8 +373,9 @@
                                                                           method="post" enctype="multipart/form-data">
                                                                         {{csrf_field()}}
                                                                         <input type="hidden" name="rewards_id"
-                                                                               value="{{$content_1->id}}">
-                                                                        <button type="submit" class="btn btn-primary">
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
                                                                             ยืนยัน
                                                                         </button>
                                                                     </form>
@@ -391,11 +387,11 @@
                                             @endguest
                                         </div>
                                     </form>
-                                    <div class="card-footer text-center">
-                                        <a href="{{ url('/reward_detail',$content_1->id ) }}"
-                                           style="color: #5888c6;"><small><i class="fas fa-eye"></i>
-                                                ดูรายละเอียดเพิ่มเติม</small></a>
-                                    </div>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
                                 </div>
                             </div>
                         </div>
@@ -414,27 +410,26 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach($contents_3 as $content_3)
+                    @foreach($contents_3  as $reward)
                         <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
-                            <div class="card">
-                                <img class="card-img-top" src="{{ $content_3->image }}" alt="Card image cap"
-                                     style="height: 200px">
-                                <div class="card-body">
-                                    <div class="row mt-2 mb-2">
-                                        {{--                                        {{ $content_1->id }}--}}
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                            @if ($content_3->quantity > 0)
-                                                <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$content_3->quantity}}
-                                                    ชิ้น </small>
-                                            @else
-                                                <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
-                                            @endif
-                                        </div>
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
                                     </div>
-                                    <h6 style="font-weight: bold;color:#000;"
-                                        class="card-title title-content-savfe-reward text-center">{{ $content_3->name }}</h6>
-                                    <h4 class="card-text text-center" style="color: #2BC685;font-weight: bold;">
-                                        ใช้แต้ม {{$content_3->point}}</h4>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
                                 </div>
                                 <div class="form">
                                     <form method="post" role="form" class="contactForm mb-3"
@@ -448,7 +443,7 @@
                                                 <br>
                                                 <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
                                             @else
-                                                @if ($content_3->quantity <= 0 || Auth::user()->point < $content_3->point)
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
                                                     <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
                                                             disabled>แลกของรางวัล
                                                     </button>
@@ -457,10 +452,10 @@
                                                 <!-- Button trigger modal -->
                                                     <button type="button" class="btn-savfe btn-main-savfe text-center"
                                                             data-toggle="modal"
-                                                            data-target="#editModal_{{$content_3->id}}">แลกของรางวัล
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
                                                     </button>
                                                     <!-- Modal -->
-                                                    <div class="modal fade" id="editModal_{{$content_3->id}}"
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
                                                          tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                                          aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
@@ -474,11 +469,21 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <h4 style="color: red">ใช้แต้ม {{$content_3->point}}
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
                                                                         แต้ม</h4>
                                                                     แต้มสะสมของคุณ {{Auth::user()->point}}
-                                                                    - {{$content_3->point}} =
-                                                                    คงเหลือ {{Auth::user()->point - $content_3->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
                                                                     แต้ม
                                                                     <br>
                                                                     คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
@@ -491,8 +496,9 @@
                                                                           method="post" enctype="multipart/form-data">
                                                                         {{csrf_field()}}
                                                                         <input type="hidden" name="rewards_id"
-                                                                               value="{{$content_3->id}}">
-                                                                        <button type="submit" class="btn btn-primary">
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
                                                                             ยืนยัน
                                                                         </button>
                                                                     </form>
@@ -504,11 +510,11 @@
                                             @endguest
                                         </div>
                                     </form>
-                                    <div class="card-footer text-center">
-                                        <a href="{{ url('/reward_detail',$content_3->id ) }}"
-                                           style="color: #5888c6;"><small><i class="fas fa-eye"></i>
-                                                ดูรายละเอียดเพิ่มเติม</small></a>
-                                    </div>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
                                 </div>
                             </div>
                         </div>
@@ -519,95 +525,1863 @@
             </div>
 
             <div class="tab-pane fade" id="tab1" role="tabpanel" aria-labelledby="pills-home-tab">
-                <div class="row mt-3">
+                <div class="row mt-5">
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <p style="font-size: 20px; font-weight: bold">หัวข้อ tab1</p>
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลล่าสุด</p>
+                        @include('layouts.user.title_savfe')
                     </div>
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <a href="{{url('reward_news_detail/today')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                        <a href="{{url('reward_news_detail/latest')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
                                     class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        รายละเอียด tab1
+                <div class="row">
+                    @foreach($contents_1_1  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <hr>
+
+                <div class="row mt-5">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลยอดนิยม</p>
+                        @include('layouts.user.title_savfe')
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="{{url('reward_news_detail/popular')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                                    class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
+                <div class="row">
+                    @foreach($contents_2_1  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
 
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
                 <hr>
+
+                <div class="row mt-5">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลที่ใช้แต้มน้อยที่สุด</p>
+                        @include('layouts.user.title_savfe')
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="{{url('reward_news_detail/lesspoints')}}" style="color: #2BC685;float: right">ดูทั้งหมด
+                            <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($contents_3_1  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <hr>
+
             </div>
 
             <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="pills-home-tab">
-                <div class="row mt-3">
+                <div class="row mt-5">
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <p style="font-size: 20px; font-weight: bold">หัวข้อ tab2</p>
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลล่าสุด</p>
+                        @include('layouts.user.title_savfe')
                     </div>
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <a href="{{url('activity_tabs_detail/today')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                        <a href="{{url('reward_news_detail/latest')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
                                     class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        รายละเอียด tab2
+                <div class="row">
+                    @foreach($contents_1_2  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <hr>
+
+                <div class="row mt-5">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลยอดนิยม</p>
+                        @include('layouts.user.title_savfe')
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="{{url('reward_news_detail/popular')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                                    class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
+                <div class="row">
+                    @foreach($contents_2_2  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
 
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
                 <hr>
+
+                <div class="row mt-5">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลที่ใช้แต้มน้อยที่สุด</p>
+                        @include('layouts.user.title_savfe')
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="{{url('reward_news_detail/lesspoints')}}" style="color: #2BC685;float: right">ดูทั้งหมด
+                            <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($contents_3_2  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <hr>
+
             </div>
+
             <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="pills-home-tab">
-                <div class="row mt-3">
+                <div class="row mt-5">
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <p style="font-size: 20px; font-weight: bold">หัวข้อ tab3</p>
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลล่าสุด</p>
+                        @include('layouts.user.title_savfe')
                     </div>
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <a href="{{url('activity_tabs_detail/today')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                        <a href="{{url('reward_news_detail/latest')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
                                     class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        รายละเอียด tab3
+                <div class="row">
+                    @foreach($contents_1_3  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <hr>
+
+                <div class="row mt-5">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลยอดนิยม</p>
+                        @include('layouts.user.title_savfe')
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="{{url('reward_news_detail/popular')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                                    class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
+                <div class="row">
+                    @foreach($contents_2_3  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
 
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
                 <hr>
+
+                <div class="row mt-5">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลที่ใช้แต้มน้อยที่สุด</p>
+                        @include('layouts.user.title_savfe')
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="{{url('reward_news_detail/lesspoints')}}" style="color: #2BC685;float: right">ดูทั้งหมด
+                            <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($contents_3_3  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <hr>
+
             </div>
+
             <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="pills-home-tab">
-                <div class="row mt-3">
+                <div class="row mt-5">
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <p style="font-size: 20px; font-weight: bold">หัวข้อ tab4</p>
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลล่าสุด</p>
+                        @include('layouts.user.title_savfe')
                     </div>
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <a href="{{url('activity_tabs_detail/today')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                        <a href="{{url('reward_news_detail/latest')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
                                     class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        รายละเอียด tab4
+                <div class="row">
+                    @foreach($contents_1_4  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <hr>
+
+                <div class="row mt-5">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลยอดนิยม</p>
+                        @include('layouts.user.title_savfe')
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="{{url('reward_news_detail/popular')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                                    class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
+                <div class="row">
+                    @foreach($contents_2_4 as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
 
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
                 <hr>
+
+                <div class="row mt-5">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลที่ใช้แต้มน้อยที่สุด</p>
+                        @include('layouts.user.title_savfe')
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="{{url('reward_news_detail/lesspoints')}}" style="color: #2BC685;float: right">ดูทั้งหมด
+                            <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($contents_3_4  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <hr>
+
             </div>
+
             <div class="tab-pane fade" id="tab5" role="tabpanel" aria-labelledby="pills-home-tab">
-                <div class="row mt-3">
+                <div class="row mt-5">
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <p style="font-size: 20px; font-weight: bold">หัวข้อ tab5</p>
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลล่าสุด</p>
+                        @include('layouts.user.title_savfe')
                     </div>
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                        <a href="{{url('activity_tabs_detail/today')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                        <a href="{{url('reward_news_detail/latest')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
                                     class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        รายละเอียด tab5
+                <div class="row">
+                    @foreach($contents_1_5  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <hr>
+
+                <div class="row mt-5">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลยอดนิยม</p>
+                        @include('layouts.user.title_savfe')
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="{{url('reward_news_detail/popular')}}" style="color: #2BC685;float: right">ดูทั้งหมด <i
+                                    class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
+                <div class="row">
+                    @foreach($contents_2_5  as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
 
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
                 <hr>
+
+                <div class="row mt-5">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <p style="font-size: 20px; font-weight: bold">ของรางวัลที่ใช้แต้มน้อยที่สุด</p>
+                        @include('layouts.user.title_savfe')
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="{{url('reward_news_detail/lesspoints')}}" style="color: #2BC685;float: right">ดูทั้งหมด
+                            <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($contents_3_5 as $reward)
+                        <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+                            <div class="card reward">
+                                @if ($reward->quantity == 0)
+                                    <div class="budget-full">
+                                        หมด
+                                    </div>
+                                @endif
+                                <div class="card-img-wrapper">
+                                    <img src="{{ url($reward->image) }}"
+                                         alt="{{ $reward->name }}">
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title title-reward">{{ $reward->name }}</h6>
+                                    @if ($reward->quantity > 0)
+                                        <small class="card-text" style="color: #acacac;font-weight: bold;">มีของรางวัลเหลืออยู่ {{$reward->quantity}}
+                                            ชิ้น </small>
+                                    @else
+                                        <small class="card-text" style="color: red;font-weight: bold;">ของรางวัลหมดแล้ว</small>
+                                    @endif
+                                </div>
+                                <div class="form">
+                                    <form method="post" role="form" class="contactForm mb-3"
+                                          enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="text-center">
+                                            @guest
+                                                <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                        disabled>กรุณาเข้าสู่ระบบก่อน
+                                                </button>
+                                                <br>
+                                                <small style="color: red">(จึงจะแลกของรางวัลได้)</small>
+                                            @else
+                                                @if ($reward->quantity <= 0 || Auth::user()->point < $reward->point)
+                                                    <button type="button" class="btn-savfe btn-main-savfe btn-secondary"
+                                                            disabled>แลกของรางวัล
+                                                    </button>
+                                                @else
+                                                    {{--                                                        <button class="btn-savfe btn-main-savfe text-center" type="submit" title="Send Message">แลกของรางวัล</button>--}}
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-savfe btn-main-savfe text-center"
+                                                            data-toggle="modal"
+                                                            data-target="#editModal_{{$reward->id}}">แลกของรางวัล
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal_{{$reward->id}}"
+                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        ยืนยันการแลกของรางวัล</h5>
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="name">ที่อยู่สำหรับรับของรางวัล</label>
+                                                                        <br>
+                                                                        <small style="color: red" for="name">***โปรดอย่าลืมใส่เบอร์โทรศัพท์สำหรับติดต่อด้วย</small>
+                                                                        <textarea rows="3" type="text"
+                                                                                  class="form-control"
+                                                                                  placeholder="กรอกที่อยู่และเบอร์โทรศัพท์ของคุณ"
+                                                                                  name="address"></textarea>
+                                                                    </div>
+
+                                                                    <h4 style="color: red">ใช้แต้ม {{$reward->point}}
+                                                                        แต้ม</h4>
+                                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                                    - {{$reward->point}} =
+                                                                    คงเหลือ {{Auth::user()->point - $reward->point}}
+                                                                    แต้ม
+                                                                    <br>
+                                                                    คุณต้องการยืนยันการแลกของรางวัล ใช่หรือไม่?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">ยกเลิก
+                                                                    </button>
+                                                                    <form role="form" action="{{ url('reward') }}"
+                                                                          method="post" enctype="multipart/form-data">
+                                                                        {{csrf_field()}}
+                                                                        <input type="hidden" name="rewards_id"
+                                                                               value="{{$reward->id}}">
+                                                                        <button type="submit"
+                                                                                class="btn-savfe btn-main-savfe">
+                                                                            ยืนยัน
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="{{ url('/reward_detail',$reward->id ) }}" >
+                                        <h4 class="text-point">
+                                            <i class="fas fa-star"></i> {{$reward->point}} <i class="fas fa-angle-right"></i></h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <hr>
+
             </div>
         </div>
     </div>

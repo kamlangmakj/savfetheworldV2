@@ -33,8 +33,32 @@ class UserRewardController extends Controller
         $contents_1 = Rewards::orderBy('updated_at', 'DESC')->limit(4)->get();
         $contents_2 = Rewards::orderBy('created_at', 'DESC')->limit(4)->get();
         $contents_3 = Rewards::orderBy('point', 'ASC')->orderBy('updated_at', 'DESC')->limit(4)->get();
+
+        $contents_1_1 = Rewards::orderBy('updated_at', 'DESC')->where('rewards_category_id', '=', 1)->limit(4)->get();
+        $contents_2_1 = Rewards::orderBy('created_at', 'DESC')->where('rewards_category_id', '=', 1)->limit(4)->get();
+        $contents_3_1 = Rewards::orderBy('point', 'ASC')->where('rewards_category_id', '=', 1)->orderBy('updated_at', 'DESC')->limit(4)->get();
+
+        $contents_1_2 = Rewards::orderBy('updated_at', 'DESC')->where('rewards_category_id', '=', 2)->limit(4)->get();
+        $contents_2_2 = Rewards::orderBy('created_at', 'DESC')->where('rewards_category_id', '=', 2)->limit(4)->get();
+        $contents_3_2 = Rewards::orderBy('point', 'ASC')->where('rewards_category_id', '=', 2)->orderBy('updated_at', 'DESC')->limit(4)->get();
+
+        $contents_1_3 = Rewards::orderBy('updated_at', 'DESC')->where('rewards_category_id', '=', 3)->limit(4)->get();
+        $contents_2_3 = Rewards::orderBy('created_at', 'DESC')->where('rewards_category_id', '=', 3)->limit(4)->get();
+        $contents_3_3 = Rewards::orderBy('point', 'ASC')->where('rewards_category_id', '=', 3)->orderBy('updated_at', 'DESC')->limit(4)->get();
+
+        $contents_1_4 = Rewards::orderBy('updated_at', 'DESC')->where('rewards_category_id', '=', 4)->limit(4)->get();
+        $contents_2_4 = Rewards::orderBy('created_at', 'DESC')->where('rewards_category_id', '=', 4)->limit(4)->get();
+        $contents_3_4 = Rewards::orderBy('point', 'ASC')->where('rewards_category_id', '=', 4)->orderBy('updated_at', 'DESC')->limit(4)->get();
+
+        $contents_1_5 = Rewards::orderBy('updated_at', 'DESC')->where('rewards_category_id', '=', 5)->limit(4)->get();
+        $contents_2_5 = Rewards::orderBy('created_at', 'DESC')->where('rewards_category_id', '=', 5)->limit(4)->get();
+        $contents_3_5 = Rewards::orderBy('point', 'ASC')->where('rewards_category_id', '=', 5)->orderBy('updated_at', 'DESC')->limit(4)->get();
+
+
+
         $rewards = Rewards::orderBy('created_at', 'DESC')->limit(1)->get();
-        $rewards2 = Rewards::orderBy('created_at', 'DESC')->limit(4)->get();
+        $rewards2 = Rewards::orderBy('created_at', 'DESC')->limit(1)->get();
+        $rewards3 = Rewards::orderBy('created_at', 'DESC')->limit(1)->get();
 
         $slides1 = Rewards::where('quantity', '>', '0')->orderBy('point', 'ASC')->limit(5)->get();
 //        $test = Activities::where('column', 'value')->count();
@@ -45,8 +69,28 @@ class UserRewardController extends Controller
             'contents_1' => $contents_1,
             'contents_2' => $contents_2,
             'contents_3' => $contents_3,
+            'contents_1_1' => $contents_1_1,
+            'contents_2_1' => $contents_2_1,
+            'contents_3_1' => $contents_3_1,
+
+            'contents_1_2' => $contents_1_2,
+            'contents_2_2' => $contents_2_2,
+            'contents_3_2' => $contents_3_2,
+
+            'contents_1_3' => $contents_1_3,
+            'contents_2_3' => $contents_2_3,
+            'contents_3_3' => $contents_3_3,
+
+            'contents_1_4' => $contents_1_4,
+            'contents_2_4' => $contents_2_4,
+            'contents_3_4' => $contents_3_4,
+
+            'contents_1_5' => $contents_1_5,
+            'contents_2_5' => $contents_2_5,
+            'contents_3_5' => $contents_3_5,
             'rewards' => $rewards,
             'rewards2' => $rewards2,
+            'rewards3' => $rewards3,
             'today' => $today,
             'slides1' => $slides1,
         ]);
@@ -55,8 +99,10 @@ class UserRewardController extends Controller
     public function getRewardDetail($id)
     {
         $reward = Rewards::find($id);
+        $contents_1 = Rewards::orderBy('updated_at', 'DESC')->limit(4)->get();
         return view('user.reward_detail', [
-            'reward' => $reward
+            'reward' => $reward,
+            'contents_1' => $contents_1
         ]);
     }
 
@@ -78,17 +124,28 @@ class UserRewardController extends Controller
 
     public function postRewards(Request $request)
     {
+//        $reward = new TrackingRewards();
         $reward = Rewards::find($request->get('rewards_id'));
 //        dd($reward->id);
         $reward->trackingRewards()->attach(Auth::user());
-//        $reward->trackingRewards()->attach(Auth::user());
         $user = Users::find(Auth::user()->id);
         $user->point = $user->point - $reward->point;
 //        dd($reward->quantity);
         $reward->quantity = $reward->quantity - 1;
 //        dd($reward->quantity);
+
+        $tracking_rewards = new TrackingRewards;
+        $tracking_rewards->address = $request->get('address');
+        $tracking_rewards->rewards_id = $request->get('rewards_id');
+        $tracking_rewards->users_id = Auth::user()->id;
+
         $user->save();
         $reward->save();
+        $tracking_rewards->save();
         return redirect()->back();
+
+
     }
+
+
 }

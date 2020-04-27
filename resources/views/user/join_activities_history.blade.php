@@ -6,12 +6,12 @@
         <div class="row">
             @guest
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                    <p style="font-size: 38px; font-weight: bold">ประวัติการเข้าร่วมกิจกรรม</p>
+                    <p style="font-size: 24px; font-weight: bold">ประวัติการเข้าร่วมกิจกรรม</p>
                     @include('layouts.user.title_savfe')
                 </div>
             @else
                 <div class="col-9 col-sm-9 col-md-9 col-lg-9">
-                    <p style="font-size: 38px; font-weight: bold">ประวัติการเข้าร่วมกิจกรรม</p>
+                    <p style="font-size: 24px; font-weight: bold">ประวัติการเข้าร่วมกิจกรรม</p>
                     @include('layouts.user.title_savfe')
                 </div>
                 <div class="col-3 col-sm-3 col-md-3 col-lg-3">
@@ -48,8 +48,6 @@
                             @if($join_activity->status_id == 1)
                                 <td style="color: red">ยังไม่ได้ยืนยันการเข้าร่วม</td>
                             @elseif($join_activity->status_id == 2)
-                                <td style="color: #B0C547;">ยืนยันการเข้าร่วมแล้ว</td>
-                            @elseif($join_activity->status_id == 3)
                                 <td style="color: #5888C6;">ยังไม่ได้กดรับแต้มสะสม</td>
                             @else
                                 <td style="color: #acacac;">กดรับแต้มสะสมแล้ว</td>
@@ -65,16 +63,15 @@
 
                             @if($join_activity->status_id == 1)
                                 <td>
-                                    <button type="button" class="btn btn-success">
-                                        <i class="fas fa-check"></i> ยืนยันการเข้าร่วม
-                                    </button>
+                                    <a href="{{ url('confirm_join',$join_activity->id ) }}"
+                                       class="btn btn-success"><i class="fas fa-check"></i> ยืนยันการเข้าร่วม</a>
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
                                             data-target="#editModal{{$join_activity->id}}"><i class="fas fa-times"></i>
                                         ยกเลิกการเข้าร่วม
                                     </button>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="editModal{{$join_activity->id}}" tabindex="-1"
+                                    <div class="modal fade" id="editModal{{$join_activity->id}}"
                                          role="dialog"
                                          aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
@@ -110,68 +107,34 @@
                             @elseif($join_activity->status_id == 2)
                                 <td>
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-danger" data-toggle="modal"
-                                            data-target="#editModal{{$join_activity->id}}"><i class="fas fa-times"></i>
-                                        ยกเลิกการเข้าร่วม
-                                    </button>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="editModal{{$join_activity->id}}" tabindex="-1"
-                                         role="dialog"
-                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">
-                                                        ยกเลิกการเข้าร่วมกิจกรรม</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    คุณต้องการยกเลิกการเข้าร่วมกิจกรรม ใช่หรือไม่?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">ยกเลิก
-                                                    </button>
-                                                    <form role="form"
-                                                          action="{{ url('profile/join_activities_history') }}"
-                                                          method="post" enctype="multipart/form-data">
-                                                        {{csrf_field()}}
-                                                        <button type="submit" class="btn btn-primary">ยืนยัน</button>
-                                                        <input type="hidden" name="join_activities_id"
-                                                               value="{{$join_activity->id}}">
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            @elseif($join_activity->status_id == 3)
-                                <td>
-                                    <!-- Button trigger modal -->
                                     <button type="button" class="btn" style="background-color: #5888C6; color: white;"
                                             data-toggle="modal"
                                             data-target="#editModal{{$join_activity->id}}"><i class="fas fa-star"></i>
                                         กดรับแต้มสะสม
                                     </button>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="editModal{{$join_activity->id}}" tabindex="-1"
+                                    <div class="modal fade" id="editModal{{$join_activity->id}}"
                                          role="dialog"
                                          aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">
-                                                        ยกเลิกการเข้าร่วมกิจกรรม</h5>
+                                                        ยืนยันการกดรับแต้มสะสม</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    คุณต้องการยกเลิกการเข้าร่วมกิจกรรม ใช่หรือไม่?
+                                                <div class="modal-body text-center">
+                                                    <h4 style="color: #2BC685">ได้รับแต้ม {{$join_activity->activity->point}}
+                                                        แต้ม</h4>
+                                                    แต้มสะสมของคุณ {{Auth::user()->point}}
+                                                    + {{$join_activity->activity->point}} =
+                                                    คงเหลือ {{Auth::user()->point + $join_activity->activity->point}}
+                                                    แต้ม
+                                                    <br>
+                                                    คุณต้องการยืนยันการกดรับแต้มสะสม ใช่หรือไม่?
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
@@ -189,23 +152,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-danger" disabled><i class="fas fa-times"></i>
-                                        ยกเลิกการเข้าร่วม
-                                    </button>
+
                                 </td>
-                            @elseif($join_activity->status_id == 4)
+                            @elseif($join_activity->status_id == 3)
                                 <td>
-                                    <button type="button" class="btn" style="background-color: #5888C6; color: white;"
-                                            disabled><i class="fas fa-star"></i>
-                                        กดรับแต้มสะสม
-                                    </button>
+
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
                                             data-target="#editModal{{$join_activity->id}}"><i
                                                 class="fas fa-trash"></i> ลบ
                                     </button>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="editModal{{$join_activity->id}}" tabindex="-1"
+                                    <div class="modal fade" id="editModal{{$join_activity->id}}"
                                          role="dialog"
                                          aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
