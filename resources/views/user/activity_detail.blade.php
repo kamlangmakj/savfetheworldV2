@@ -45,7 +45,10 @@
                         </div>
                         <h3 style="font-weight: bold;" class="card-title mt-3 mb-3">{{$activity->name}} </h3>
                         <br>
-                        <h5 class="card-text"><i class="fas fa-book"></i> รายละเอียด</h5>
+
+{{--                        <h5 class="card-text"><i class="fas fa-book"></i> รายละเอียด</h5>--}}
+{{--                        {{ $activity->detail }}--}}
+
                         {!! $activity->detail !!}
 
                     </div>
@@ -213,7 +216,8 @@
         <div class="row">
             @foreach($contents_2 as $activitie)
                 @if($activitie == true)
-                    <div class="col-3 col-sm-6 col-md-3 col-lg-3">
+                    <div class="mt-3 col-12 col-sm-6 col-md-6 col-lg-3">
+{{--                    <div class="col-3 col-sm-6 col-md-3 col-lg-3">--}}
                         <div class="card event">
                             <a href="{{ url('/activity_detail',$activitie->id ) }}"
                                style="text-decoration: none;">
@@ -240,7 +244,7 @@
                                         - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                     </label>
 
-                                    <p class="text-content">{{$activitie->detail}}</p>
+                                    <p class="text-content">{{$activitie->short_detail}}</p>
                                     <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                 </div>
                                 <div class="card-footer text-center">

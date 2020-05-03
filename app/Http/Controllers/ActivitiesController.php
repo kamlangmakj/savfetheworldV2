@@ -41,6 +41,7 @@ class ActivitiesController extends Controller
         $activities->amount = $request->get('amount');
         $activities->point = $request->get('point');
         $activities->detail = $request->get('detail');
+        $activities->short_detail = $request->get('short_detail');
         $activities->address = $request->get('address');
         $activities->geography_id = $request->get('geography_id');
         $activities->province_id = $request->get('province_id');
@@ -59,6 +60,7 @@ class ActivitiesController extends Controller
         $activities->amount = $request->get('amount');
         $activities->point = $request->get('point');
         $activities->detail = $request->get('detail');
+        $activities->short_detail = $request->get('short_detail');
         $activities->address = $request->get('address');
         $activities->geography_id = $request->get('geography_id');
         $activities->province_id = $request->get('province_id');

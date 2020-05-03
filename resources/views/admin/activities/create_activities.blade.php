@@ -124,6 +124,10 @@
                                         </script>
                                     </div>
                                     <div class="form-group">
+                                        <label for="name">รายละเอียดกิจกรรม (ย่อ)</label>
+                                        <textarea rows="3" type="text" class="form-control" placeholder="รายละเอียดกิจกรรม (ย่อ)" name="short_detail"></textarea>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="name">รายละเอียดกิจกรรม</label>
                                         <textarea rows="10" type="text" class="form-control" placeholder="รายละเอียดกิจกรรม" name="detail"></textarea>
                                     </div>

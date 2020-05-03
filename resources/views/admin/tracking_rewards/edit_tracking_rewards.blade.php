@@ -31,7 +31,7 @@
 
                     <form role="form" action="{{ url('admin/rewards/edit') }}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
-                        <input type="hidden" name="id" value="{{ $reward->id }}">
+                        <input type="hidden" name="id" value="{{ $tracking_reward->id }}">
                     <div class="card-body">
                         <div class="container">
                             <div class="row">

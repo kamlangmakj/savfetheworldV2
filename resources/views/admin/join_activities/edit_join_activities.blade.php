@@ -41,12 +41,9 @@
                                                 ยังไม่ได้ยืนยันการเข้าร่วม
                                             </option>
                                             <option value="2" @if($join_activity->status_id == 2) selected @endif>
-                                                ยืนยันการเข้าร่วมแล้ว
-                                            </option>
-                                            <option value="3" @if($join_activity->status_id == 3) selected @endif>
                                                 ยังไม่ได้กดรับแต้มสะสม
                                             </option>
-                                            <option value="4" @if($join_activity->status_id == 4) selected @endif>
+                                            <option value="3" @if($join_activity->status_id == 3) selected @endif>
                                                 กดรับแต้มสะสมแล้ว
                                             </option>
                                         </select>

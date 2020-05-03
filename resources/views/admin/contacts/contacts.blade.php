@@ -155,7 +155,7 @@
                         @endforeach
                         @if($contacts->count()==0)
                             <tr>
-                                <td colspan="6" style="text-align: center;color: red;">ไม่มีข้อมูลรายการการติดต่อเรา</td>
+                                <td colspan="7" style="text-align: center;color: red;">ไม่มีข้อมูลรายการการติดต่อเรา</td>
                             </tr>
                         @endif
 

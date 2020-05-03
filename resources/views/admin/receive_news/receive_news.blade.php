@@ -121,7 +121,7 @@
                         @endforeach
                         @if($receive_news->count()==0)
                             <tr>
-                                <td colspan="6" style="text-align: center;color: red;">ไม่มีข้อมูลการส่งข่าวสาร</td>
+                                <td colspan="4" style="text-align: center;color: red;">ไม่มีข้อมูลการส่งข่าวสาร</td>
                             </tr>
                         @endif
 

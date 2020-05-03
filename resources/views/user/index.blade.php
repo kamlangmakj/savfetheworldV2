@@ -76,7 +76,7 @@
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
 
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -134,7 +134,7 @@
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
 
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -191,7 +191,7 @@
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
 
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -288,11 +288,12 @@
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
                                         <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;">
+                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
                                             </label>
+                                            <br>
                                             <small class="date" style="font-size: 16px;color: #fff;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('M y')}}
                                             </small>
@@ -302,7 +303,7 @@
                                             {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -347,7 +348,7 @@
                 {{--                                                - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}--}}
                 {{--                                            </label>--}}
 
-                {{--                                            <p class="text-content">{{$activitie->detail}}</p>--}}
+                {{--                                            <p class="text-content">{{$activitie->short_detail}}</p>--}}
                 {{--                                            <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>--}}
                 {{--                                        </div>--}}
                 {{--                                        <div class="card-footer text-center">--}}
@@ -404,11 +405,12 @@
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
                                         <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;">
+                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
                                             </label>
+                                            <br>
                                             <small class="date" style="font-size: 16px;color: #fff;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('M y')}}
                                             </small>
@@ -418,7 +420,7 @@
                                             {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -473,11 +475,12 @@
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
                                         <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;">
+                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
                                             </label>
+                                            <br>
                                             <small class="date" style="font-size: 16px;color: #fff;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('M y')}}
                                             </small>
@@ -487,7 +490,7 @@
                                             {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -754,11 +757,12 @@
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
                                         <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;">
+                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
                                             </label>
+                                            <br>
                                             <small class="date" style="font-size: 16px;color: #fff;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('M y')}}
                                             </small>
@@ -769,7 +773,7 @@
                                             {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -825,11 +829,12 @@
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
                                         <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;">
+                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
                                             </label>
+                                            <br>
                                             <small class="date" style="font-size: 16px;color: #fff;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('M y')}}
                                             </small>
@@ -840,7 +845,7 @@
                                             {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -897,11 +902,12 @@
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
                                         <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;">
+                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
                                             </label>
+                                            <br>
                                             <small class="date" style="font-size: 16px;color: #fff;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('M y')}}
                                             </small>
@@ -912,7 +918,7 @@
                                             {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -968,11 +974,12 @@
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
                                         <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;">
+                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
                                             </label>
+                                            <br>
                                             <small class="date" style="font-size: 16px;color: #fff;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('M y')}}
                                             </small>
@@ -982,7 +989,7 @@
                                             {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -1027,7 +1034,7 @@
                 {{--                                                - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}--}}
                 {{--                                            </label>--}}
 
-                {{--                                            <p class="text-content">{{$activitie->detail}}</p>--}}
+                {{--                                            <p class="text-content">{{$activitie->short_detail}}</p>--}}
                 {{--                                            <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>--}}
                 {{--                                        </div>--}}
                 {{--                                        <div class="card-footer text-center">--}}
@@ -1084,11 +1091,12 @@
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
                                         <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;">
+                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
                                             </label>
+                                            <br>
                                             <small class="date" style="font-size: 16px;color: #fff;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('M y')}}
                                             </small>
@@ -1098,7 +1106,7 @@
                                             {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -1153,11 +1161,12 @@
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
                                         <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;">
+                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
                                             </label>
+                                            <br>
                                             <small class="date" style="font-size: 16px;color: #fff;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('M y')}}
                                             </small>
@@ -1167,7 +1176,7 @@
                                             {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -1224,11 +1233,12 @@
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
                                         <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;">
+                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
                                             </label>
+                                            <br>
                                             <small class="date" style="font-size: 16px;color: #fff;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('M y')}}
                                             </small>
@@ -1239,7 +1249,7 @@
                                             {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -1295,11 +1305,12 @@
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
                                         <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;">
+                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
                                             </label>
+                                            <br>
                                             <small class="date" style="font-size: 16px;color: #fff;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('M y')}}
                                             </small>
@@ -1310,7 +1321,7 @@
                                             {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -1367,11 +1378,12 @@
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
                                         <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;">
+                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
                                             </label>
+                                            <br>
                                             <small class="date" style="font-size: 16px;color: #fff;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('M y')}}
                                             </small>
@@ -1382,7 +1394,7 @@
                                             {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d M y')}}
                                             - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                         </label>
-                                        <p class="text-content">{{$activitie->detail}}</p>
+                                        <p class="text-content">{{$activitie->short_detail}}</p>
                                         <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                     </div>
                                     <div class="card-footer text-center">
@@ -1424,7 +1436,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4" style="width: 100%;height: 200px;">
                     <i class="fas fa-globe-asia" style="font-size: 39px;color: #5888C6;"></i>
-                    <h4 style="margin-top: 20px">Safe & Save</h4>
+                    <h4 style="margin-top: 20px">Save & Safe</h4>
                     <h6>เป็นส่วนหนึ่งในการส่งเสริมการเข้าร่วมกิจกรรม รวมไปถึงได้ช่วยอนุรักษ์ธรรมชาติและสิ่งแวดล้อม</h6>
                 </div>
             </div>

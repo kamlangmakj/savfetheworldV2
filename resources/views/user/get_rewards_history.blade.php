@@ -170,7 +170,7 @@
 
                     @if($tracking_rewards->count()==0)
                         <tr>
-                            <td colspan="6" style="text-align: center;color: red;">ไม่มีข้อมูลการแลกของรางวัล</td>
+                            <td colspan="8" style="text-align: center;color: red;">ไม่มีข้อมูลการแลกของรางวัล</td>
                         </tr>
                     @endif
 

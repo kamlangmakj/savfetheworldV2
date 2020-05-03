@@ -38,9 +38,7 @@
                             </div>
                         </div>
                         <h3 style="font-weight: bold;" class="card-title mt-3 mb-3">{{$join_activity->activity->name}} </h3>
-                        <br>
-                        <h5 class="card-text"><i class="fas fa-book"></i> รายละเอียด</h5>
-                        <p class="card-text">{{ $join_activity->activity->detail }}</p>
+                        <p class="card-text">{!! $join_activity->activity->detail !!}</p>
                     </div>
                 </div>
             </div>

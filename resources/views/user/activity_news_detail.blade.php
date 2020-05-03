@@ -44,7 +44,7 @@
                                         - {{Carbon\Carbon::parse($activitie->expired_date)->addYear(543)->translatedFormat('d M y')}}
                                     </label>
 
-                                    <p class="text-content">{{$activitie->detail}}</p>
+                                    <p class="text-content">{{$activitie->short_detail}}</p>
                                     <h6 class="text-point"> ได้รับแต้ม {{$activitie->point}} แต้ม</h6>
                                 </div>
                                 <div class="card-footer text-center">

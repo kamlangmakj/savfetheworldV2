@@ -139,7 +139,7 @@
                         @endforeach
                         @if($users->count()==0)
                             <tr>
-                                <td colspan="6" style="text-align: center;color: red;">ไม่มีข้อมูลผู้ใช้งาน</td>
+                                <td colspan="7" style="text-align: center;color: red;">ไม่มีข้อมูลผู้ใช้งาน</td>
                             </tr>
                         @endif
 

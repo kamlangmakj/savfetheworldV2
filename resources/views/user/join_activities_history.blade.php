@@ -205,7 +205,7 @@
 
                     @if($join_activities->count()==0)
                         <tr>
-                            <td colspan="6" style="text-align: center;color: red;">ไม่มีข้อมูลการเข้าร่วมกิจกรรม</td>
+                            <td colspan="7" style="text-align: center;color: red;">ไม่มีข้อมูลการเข้าร่วมกิจกรรม</td>
                         </tr>
                     @endif
 

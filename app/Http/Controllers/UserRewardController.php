@@ -55,7 +55,6 @@ class UserRewardController extends Controller
         $contents_3_5 = Rewards::orderBy('point', 'ASC')->where('rewards_category_id', '=', 5)->orderBy('updated_at', 'DESC')->limit(4)->get();
 
 
-
         $rewards = Rewards::orderBy('created_at', 'DESC')->limit(1)->get();
         $rewards2 = Rewards::orderBy('created_at', 'DESC')->limit(1)->get();
         $rewards3 = Rewards::orderBy('created_at', 'DESC')->limit(1)->get();
@@ -124,15 +123,11 @@ class UserRewardController extends Controller
 
     public function postRewards(Request $request)
     {
-//        $reward = new TrackingRewards();
         $reward = Rewards::find($request->get('rewards_id'));
-//        dd($reward->id);
-        $reward->trackingRewards()->attach(Auth::user());
+//        $reward->trackingRewards()->attach(Auth::user());
         $user = Users::find(Auth::user()->id);
         $user->point = $user->point - $reward->point;
-//        dd($reward->quantity);
         $reward->quantity = $reward->quantity - 1;
-//        dd($reward->quantity);
 
         $tracking_rewards = new TrackingRewards;
         $tracking_rewards->address = $request->get('address');
@@ -143,9 +138,6 @@ class UserRewardController extends Controller
         $reward->save();
         $tracking_rewards->save();
         return redirect()->back();
-
-
     }
-
 
 }
