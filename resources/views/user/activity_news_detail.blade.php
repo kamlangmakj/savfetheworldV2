@@ -219,7 +219,5 @@
         </div>
     </div>
 
-
-
-
-
+    @include('layouts.user.footer_savfe')
+@endsection

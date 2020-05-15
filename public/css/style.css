@@ -128,7 +128,7 @@ body {
     background-size: 100vw;
     background-repeat: no-repeat;
     background-position: bottom;
-    background-image: url(http://savfetheworld.com/img/bg-forest1.jpg);
+    background-image: url(http://savfetheworld.com/img/bg-forest.jpg);
 }
 
 #bg-sea {
@@ -138,7 +138,7 @@ body {
     background-size: 100vw;
     background-repeat: no-repeat;
     background-position: bottom;
-    background-image: url(http://savfetheworld.com/img/bg-sea3.jpg);
+    background-image: url(http://savfetheworld.com/img/bg-sea.jpg);
 }
 
 #bg-country {
@@ -447,6 +447,16 @@ body {
     border-radius: 0;
     box-shadow: none;
     font-size: 14px;
+}
+
+.box-date {
+    position: absolute;
+    top: 105px;
+    z-index: 999;
+    background-color: #ca3829;
+    width: 80px;
+    height: 80px;
+    border-radius: 6px;
 }
 
 /*#contact .form button[type="submit"] {*/

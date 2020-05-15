@@ -287,8 +287,7 @@
                                             <small class="sub-title-country"
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
-                                        <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
+                                        <div class="box-date text-center">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
@@ -404,8 +403,7 @@
                                             <small class="sub-title-country"
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
-                                        <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
+                                        <div class="box-date text-center">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
@@ -474,8 +472,7 @@
                                             <small class="sub-title-country"
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
-                                        <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
+                                        <div class="box-date text-center">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
@@ -756,8 +753,7 @@
                                             <small class="sub-title-country"
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
-                                        <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
+                                        <div class="box-date text-center">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
@@ -828,8 +824,7 @@
                                             <small class="sub-title-country"
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
-                                        <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
+                                        <div class="box-date text-center">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
@@ -901,8 +896,7 @@
                                             <small class="sub-title-country"
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
-                                        <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
+                                        <div class="box-date text-center">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
@@ -973,8 +967,7 @@
                                             <small class="sub-title-country"
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
-                                        <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
+                                        <div class="box-date text-center">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
@@ -1090,8 +1083,7 @@
                                             <small class="sub-title-country"
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
-                                        <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
+                                        <div class="box-date text-center">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
@@ -1160,8 +1152,7 @@
                                             <small class="sub-title-country"
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
-                                        <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
+                                        <div class="box-date text-center">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
@@ -1232,8 +1223,7 @@
                                             <small class="sub-title-country"
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
-                                        <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
+                                        <div class="box-date text-center">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
@@ -1304,8 +1294,7 @@
                                             <small class="sub-title-country"
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
-                                        <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
+                                        <div class="box-date text-center">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
@@ -1377,8 +1366,7 @@
                                             <small class="sub-title-country"
                                                    style="float: right;">{{$activitie->category_types_activity->name}}</small>
                                         @endif
-                                        <div class="text-center"
-                                             style="background-color: #ca3829;width: 80px;height: 80px;border-radius: 6px;">
+                                        <div class="box-date text-center">
                                             <label class="date"
                                                    style="font-size: 42px;color: #fff;margin-bottom: -1.5em;">
                                                 {{Carbon\Carbon::parse($activitie->started_date)->addYear(543)->translatedFormat('d')}}
